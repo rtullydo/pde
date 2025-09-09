@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-lecture-1" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Lecture 1</title>
+
+  <p>We begin the study of <em>partial differential equations</em>, which are equations involving an unknown function <m>u</m> in several variables and its partial derivatives. For example, given a relationship between independent variables <m>x, y</m> and a dependent variable <m>u(x,y)</m>, the most general PDE of first order is <me>F(x, y, \frac{\partial u}{\partial x}, \frac{\partial u}{\partial y}) = 0.</me> As is typical in partial derivatives, we'll often use the less cumbersome notation <m>\frac{\partial u}{\partial x} = u_x</m>.  </p>
+
+  <p>Given the same variables <m>x, y, u(x,y)</m>, the most general PDE of <em>second order</em> is 
+    <me>
+      F(x, y, u_x, u_y, u_{xx}, u_{yy}, u_{xy}) = 0.
+    </me>
+  </p>
+  
+  <p>
+    Note: we've implicitly asserted here that the functions we're considering have sufficient regularity so that Clairaut's theorem holds - that is, mixed partial derivatives are equal. One condition that is sufficient here is that functions <m>u</m> have continuous second derivatives, which is a class of functions usually denoted <m>C^2</m>.
+  </p>
+
+
+</section>
