@@ -2,8 +2,8 @@
 
 <section xml:id="sec-lecture-1" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Lecture 1</title>
-
-  <p>We begin the study of <em>partial differential equations</em>, which are equations involving an unknown function <m>u</m> in several variables and its partial derivatives. For example, given a relationship between independent variables <m>x, y</m> and a dependent variable <m>u(x,y)</m>, the most general PDE of first order is <me>F(x, y, \frac{\partial u}{\partial x}, \frac{\partial u}{\partial y}) = 0.</me> As is typical in partial derivatives, we'll often use the less cumbersome notation <m>\frac{\partial u}{\partial x} = u_x</m>.  </p>
+  <subsection><title>Intro to PDE and basic terminology</title>
+  <p>We begin the study of <em>partial differential equations</em>, which are equations involving an unknown function <m>u</m> in several variables and its partial derivatives. The <em>order</em> of a PDE is the highest degree partial derivative appearing in the equation. For example, given a relationship between independent variables <m>x, y</m> and a dependent variable <m>u(x,y)</m>, the most general PDE of first order is <me>F(x, y, \frac{\partial u}{\partial x}, \frac{\partial u}{\partial y}) = 0.</me> As is typical in partial derivatives, we'll often use the less cumbersome notation <m>\frac{\partial u}{\partial x} = u_x</m>.  </p>
 
   <p>Given the same variables <m>x, y, u(x,y)</m>, the most general PDE of <em>second order</em> is 
     <me>
@@ -12,8 +12,90 @@
   </p>
   
   <p>
-    Note: we've implicitly asserted here that the functions we're considering have sufficient regularity so that Clairaut's theorem holds - that is, mixed partial derivatives are equal. One condition that is sufficient here is that functions <m>u</m> have continuous second derivatives, which is a class of functions usually denoted <m>C^2</m>.
+    Note: we've implicitly asserted here that the functions we're considering have sufficient regularity so that Clairaut's theorem holds - that is, mixed partial derivatives are equal. One condition that is sufficient here is that functions <m>u</m> have continuous second derivatives, which is a class of functions usually denoted <m>C^2</m>. The <em>solution</em> to a PDE is a function <m>u(x,y,\ldots)</m> that satisfies the equation on some open region in <m>x, y, \ldots</m>. 
   </p>
 
+  <p>Here are some examples of PDEs:
+    <ul>
+      <li>
+        <p>
+          <m>u_x + u_y = 0 \hspace{1in} \text{(transport)}</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>u_x + y \, u_y = 0 \hspace{1in} \text{(transport)}</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>u_{xx} + u_{yy} = 0 \hspace{1in} \text{(Laplace)}</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>u_t - u_{xx} = 0 \hspace{1in} \text{(diffusion)}</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>u_{tt} - u{xx} = 0 \hspace{1in} \text{(1D wave equation)}</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>u_{tt} - u_{xx} + u^3 = 0 \hspace{1in} \text{(1D heat equation with interaction)}</m>
+        </p>
+      </li>
+    </ul>
+    These equations are fundamental.
+  </p>
+
+  <p>A useful way to write a PDE is in <em>operator</em> notation. For example, <m>u_x + y \, u_y = 0</m> can be written <m>\L u = 0</m>, where <m>\L</m> is the differential operator <m>\L = \frac{\partial}{\partial x} + y \frac{\partial}{\partial y}</m>. Note that
+    <md>
+      <mrow>\L u  \amp = \left(\frac{\partial}{\partial x} + y \frac{\partial}{\partial y}\right) u </mrow>
+      <mrow> \amp = \frac{\partial}{\partial x} u  + y \frac{\partial}{\partial y} u  </mrow>
+      <mrow> \amp = u_x + y \,u_y </mrow>
+    </md>
+    An operator is called <em>linear</em> if <m>\L(c u + d v) = c \L u + d \L v</m> for any functions <m>u, v</m> and constants <m>c, d</m>. The operator <m>\L = \frac{\partial}{\partial x} + y \frac{\partial}{\partial y}</m> is linear. On the other hand, since <m>(u+v)^3 \neq u^3 + v^3</m>, the equation <m>u_{tt} - u_{xx} + u^3 = 0</m> cannot be written in linear operator form.
+  </p>
+
+  <p>
+    An equation that can be written as a linear operator is called a <em>linear</em> PDE. Otherwise, the PDE is called <em>nonlinear</em>. An linear PDE is called <em>homogeneous</em> if it has the form <m>\L u = 0</m>. If <m>L u = g</m> for a non-zero function <m>g</m>, then the equation is called <em>inhomogeneous</em> or nonhomogeneous.
+  </p>
+
+  <p>
+    Why is linearity such a useful condition to consider? From a practical standpoint, linear equations allow us to use techniques from linear algebra. From a geometric perspective, given two solutions <m>u, v</m> to a linear PDE <m>\L u = 0</m>, any linear combination <m>c u + d v</m> is also a solution. (This is often called the <em>principle of superposition</em>.) Because linear algebra is so useful and so powerful, primarily we'll be considering linear PDEs with constant coefficients. (In fact, many strategies for studying nonlinear PDEs involve approximation locally by linear systems.)
+  </p>
+
+  </subsection>
+  <subsection><title>Solutions to PDE</title>
+  <p>Let us look at some example solutions to PDEs. 
+    <example>Consider the differential equation <m>u_{xx} = 0.</m> Using "partial integration", we get
+    <md>
+      <mrow>u_{xx} \amp = 0  </mrow>
+      <mrow> u_{x} \amp = f(y) </mrow>
+      <mrow>u  \amp = f(y) x + g(y) </mrow>
+    </md>
+    There are <em>arbitrary functions</em> in the solution. This is typical. The number of such arbitrary functions will depend on the order of the PDE.
+    </example>
+  </p>
+
+  <p>
+    <example>
+      Solve <m>u_xx + u = 0</m>. This is essentially an ODE in the variable <m>x</m>. The differential equation <m>u'' + u = 0</m> is solved by <m>u = c_1 \cos x + c_2 \sin x</m>, and so the solution to <m>u_{xx} + u = 0</m> is given by
+      <me>
+        u(x, y) = c_1(y) \cos x + c_2(y) \sin x,
+      </me>
+      which can be verified by calculation.
+    </example>
+  </p>
+
+  <p>
+    PDEs have <em>significantly</em> more complicated solutions than ODEs, as functions of two or more variables exhibit behavior that cannot occur in one variable. (As an example, rational functions of two variables can have curves of singularities, which is prevented by the fundamental theorem of algebra in one variable.)
+  </p>
+
+
+  </subsection>
 
 </section>

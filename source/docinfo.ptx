@@ -19,11 +19,111 @@
   <!-- macros for defining latex math shortcuts. It is good practice -->
   <!-- to define these semantically, so that the macro relates to what-->
   <!-- it defines. -->
-  <macros> \newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R} </macros>
+  <macros> 
+            \DeclareMathOperator{\RE}{Re}
+          \DeclareMathOperator{\IM}{Im}
+          \DeclareMathOperator{\ess}{ess}
+          \DeclareMathOperator{\intr}{int}
+          \DeclareMathOperator{\dist}{dist}
+          \DeclareMathOperator{\dom}{dom}
+          \DeclareMathOperator{\diag}{diag}
+          \DeclareMathOperator{\cl}{cl}
+          \DeclareMathOperator{\spn}{span}
+          \DeclareMathOperator{\proj}{proj}
+          \DeclareMathOperator\trace{trace}
+          \DeclareMathOperator\re{\mathrm {Re~}}
+          \DeclareMathOperator\im{\mathrm {Im~}}
+          %\newcommand\half{\tfrac 12}
+          \newcommand\dd{\mathrm d}
+          \newcommand{\eps}{\varepsilon}
+          \newcommand{\To}{\longrightarrow}
+          \newcommand{\hilbert}{\mathcal{H}}
+          \newcommand{\HH}{\mathcal{H}}
+          \newcommand{\s}{\mathcal{S}_2}
+          \newcommand{\A}{\mathcal{A}}
+          \newcommand\h{\mathcal{H}}
+          \newcommand{\J}{\mathcal{J}}
+          \newcommand{\K}{\mathcal{K}}
+          \newcommand{\M}{\mathcal{M}}
+          \newcommand{\F}{\mathbb{F}}
+          \newcommand{\N}{\mathcal{N}}
+          \renewcommand{\L}{\mathcal{L}}
+          \newcommand{\T}{\mathbb{T}}
+          \newcommand{\W}{\mathcal{W}}
+          \newcommand{\X}{\mathcal{X}}
+          \newcommand{\D}{\mathbb{D}}
+          \newcommand{\C}{\mathbb{C}}
+          \newcommand{\BOP}{\mathbf{B}}
+          \newcommand{\Z}{\mathbb{Z}}
+          \newcommand{\BH}{\mathbf{B}(\mathcal{H})}
+          \newcommand{\KH}{\mathcal{K}(\mathcal{H})}
+          \newcommand{\pick}{\mathcal{P}_2}
+          \newcommand{\schur}{\mathcal{S}_2}
+          \newcommand{\R}{\mathbb{R}}
+          \newcommand{\Complex}{\mathbb{C}}
+          \newcommand{\Field}{\mathbb{F}}
+          \newcommand{\RPlus}{\Real^{+}}
+          \newcommand{\Polar}{\mathcal{P}_{\s}}
+          \newcommand{\Poly}{\mathcal{P}(E)}
+          \newcommand{\EssD}{\mathcal{D}}
+          \newcommand{\Lop}{\mathcal{L}(\mathcal{H})}
+          \newcommand{\cc}[1]{\overline{#1}}
+          \newcommand{\abs}[1]{\left\vert#1\right\vert}
+          \newcommand{\set}[1]{\left\{#1\right\}}
+          \newcommand{\seq}[1]{\left\lt#1\right>}
+          \newcommand{\norm}[1]{\lVert#1\rVert}
+          \newcommand{\essnorm}[1]{\norm{#1}_{\ess}}
+          \newcommand{\tr}{\operatorname{tr}}
+          \newcommand{\ran}[1]{\operatorname{ran}#1}
+          \newcommand{\nt}{\stackrel{\mathrm {nt}}{\to}}
+          \newcommand{\pnt}{\xrightarrow{pnt}}
+          \newcommand{\ip}[2]{\left\langle #1, #2 \right\rangle}
+          \newcommand{\ad}{^\ast}
+          \newcommand{\inv}{^{-1}}
+          \newcommand{\adinv}{^{\ast -1}}
+          \newcommand{\invad}{^{-1 \ast}}
+          \newcommand\Pick{\mathcal P}
+          \newcommand\Ha{\mathbb{H}}
+          \newcommand\Htau{\mathbb{H}(\tau)}
+          \newcommand{\vp}{\varphi}
+          \newcommand{\ph}{\varphi}
+          \newcommand\al{\alpha}
+          \newcommand\ga{\gamma}
+          \newcommand\de{\delta}
+          \newcommand\ep{\varepsilon}
+          \newcommand\la{\lambda}
+          \newcommand\up{\upsilon}
+          \newcommand\si{\sigma}
+          \newcommand\beq{\begin{equation}}
+          \newcommand\ds{\displaystyle}
+          \newcommand\eeq{\end{equation}}
+          \newcommand\df{\stackrel{\rm def}{=}}
+          \newcommand\ii{\mathrm i}
+          \newcommand{\vectwo}[2]
+          {
+             \begin{pmatrix} #1 \\ #2 \end{pmatrix}
+          }
+          \newcommand{\vecthree}[3]
+          {
+             \begin{pmatrix} #1 \\ #2 \\ #3 \end{pmatrix}
+          }
+          \newcommand\blue{\color{blue}}
+          \newcommand\black{\color{black}}
+          \newcommand\red{\color{red}}
+          %\newcommand\red{\color{black}}
+          \newcommand\nn{\nonumber}
+          \newcommand\bbm{\begin{bmatrix}}
+          \newcommand\ebm{\end{bmatrix}}
+          \newcommand\bpm{\begin{pmatrix}}
+          \newcommand\epm{\end{pmatrix}}
+          \numberwithin{equation}{section}
+          \newcommand\nin{\noindent}
+          \newcommand{\nCr}[2]{\,_{#1}C_{#2}} % nCr
+  </macros>
 
   <!-- If you put any latex-image elements you can include preambles -->
   <!-- for those in the next element. -->
-  <latex-image-preamble> \usepackage{tikz, pgfplots} \usetikzlibrary{positioning,matrix,arrows} \usetikzlibrary{shapes,decorations,shadows,fadings,patterns} \usetikzlibrary{decorations.markings} </latex-image-preamble>
+  <latex-image-preamble> \usepackage{tikz, tikz-cd, pgfplots, amscd} \usetikzlibrary{positioning,matrix,arrows} \usetikzlibrary{shapes,decorations,shadows,fadings,patterns} \usetikzlibrary{decorations.markings} </latex-image-preamble>
 
   <!-- It is possible to rename elements: -->
   <!-- <rename element="assemblage" xml:lang="en-US">Summary</rename> -->
