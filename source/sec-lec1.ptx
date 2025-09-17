@@ -70,26 +70,26 @@
 
   </subsection>
   <subsection><title>Solutions to PDE</title>
-  <p>Let us look at some example solutions to PDEs. 
-    <example>Consider the differential equation <m>u_{xx} = 0.</m> Using "partial integration", we get
+  <p>Let us look at some example solutions to PDEs. </p>
+    <example><p>Consider the differential equation <m>u_{xx} = 0.</m> Using "partial integration", we get
     <md>
       <mrow>u_{xx} \amp = 0  </mrow>
       <mrow> u_{x} \amp = f(y) </mrow>
       <mrow>u  \amp = f(y) x + g(y) </mrow>
     </md>
-    There are <em>arbitrary functions</em> in the solution. This is typical. The number of such arbitrary functions will depend on the order of the PDE.
+    There are <em>arbitrary functions</em> in the solution. This is typical. The number of such arbitrary functions will depend on the order of the PDE.</p>
     </example>
-  </p>
 
-  <p>
+
+ 
     <example>
-      Solve <m>u_xx + u = 0</m>. This is essentially an ODE in the variable <m>x</m>. The differential equation <m>u'' + u = 0</m> is solved by <m>u = c_1 \cos x + c_2 \sin x</m>, and so the solution to <m>u_{xx} + u = 0</m> is given by
+       <p>Solve <m>u_xx + u = 0</m>. This is essentially an ODE in the variable <m>x</m>. The differential equation <m>u'' + u = 0</m> is solved by <m>u = c_1 \cos x + c_2 \sin x</m>, and so the solution to <m>u_{xx} + u = 0</m> is given by
       <me>
         u(x, y) = c_1(y) \cos x + c_2(y) \sin x,
       </me>
-      which can be verified by calculation.
+      which can be verified by calculation.</p>
     </example>
-  </p>
+  
 
   <p>
     PDEs have <em>significantly</em> more complicated solutions than ODEs, as functions of two or more variables exhibit behavior that cannot occur in one variable. (As an example, rational functions of two variables can have curves of singularities, which is prevented by the fundamental theorem of algebra in one variable.)

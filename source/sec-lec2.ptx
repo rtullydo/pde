@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-lecture-2" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Lecture 2 </title>
+  <subsection><title>First Order Linear Equations</title>
+  <p>Consider the equation <me>a u_x +_b u_y = 0,</me> where <m>a, b</m> are constants, not both zero. We'll being by looking at two initial methods for solving this equation. First, we'll introduce what is sometimes called the <em>method of characteristics</em>. We want to find curves in <m>\R^2</m> on which the PDE acts like an ODE (which will allow us to use basic ODE techniques in the solution). First, observe that
+  <me>
+      a u_x + b u_y = (a,b) \cdot \nabla u = D_{(a,b)} u,
+  </me>
+  the directional derivative of <m>u</m> in the direction <m>(a,b)</m>. Where is such a <m>u</m> constant? The value of <m>u</m> is constant when the directional derivative is zero, which happens on any line parallel to <m>(a,b)</m>, all of which have the form <m>bx - ay = k</m> for constants <m>k</m>. (These are called the <em>characteristic lines</em>.) But then the value of <m>u</m> at <m>(x,y)</m> only depends on which particular line <m>(x,y)</m> happens to fall on, which is to say <m>u</m> only depends on the value <m>b x - ay</m>. Another way to state this is that the solution to <m>a u_x + b u_y = 0</m> must have the form <m>u(x,y) = f(b x - a y)</m> where <m>f</m> is any differentiable function of one variable. For example, we can show that when <m>f = x^2</m>, the function <m>u(x,y) = (b y - ax)^2</m> is a solution.
+
+  <md>
+    <mrow>u(x,y) \amp = (bx - ay)^2 </mrow>
+    <mrow>u_x(x,y) \amp = 2 (bx - ay) b </mrow>
+    <mrow>u_y(x, y) \amp = 2 (bx - ay) (-a) </mrow>
+  </md>
+  and so 
+  <me>
+    a u_x + b u_y = a( 2 (bx - ay) b) + b(2 (bx - ay) (-a)) = 0.
+  </me>
+  
+  </p>
+  </subsection>
+  
+
+</section>
