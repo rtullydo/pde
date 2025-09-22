@@ -43,7 +43,34 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.2",
   "title": "Lecture 2",
-  "body": " Lecture 2  First Order Linear Equations  Consider the equation where are constants, not both zero. We'll being by looking at two initial methods for solving this equation. First, we'll introduce what is sometimes called the method of characteristics . We want to find curves in on which the PDE acts like an ODE (which will allow us to use basic ODE techniques in the solution). First, observe that the directional derivative of in the direction . Where is such a constant? The value of is constant when the directional derivative is zero, which happens on any line parallel to , all of which have the form for constants . (These are called the characteristic lines .) But then the value of at only depends on which particular line happens to fall on, which is to say only depends on the value . Another way to state this is that the solution to must have the form where is any differentiable function of one variable. For example, we can show that when , the function is a solution. and so    "
+  "body": " Lecture 2  First Order Linear Equations  Consider the equation where are constants, not both zero. We'll being by looking at two initial methods for solving this equation. First, we'll introduce what is sometimes called the method of characteristics . We want to find curves in on which the PDE acts like an ODE (which will allow us to use basic ODE techniques in the solution). First, observe that the directional derivative of in the direction . Where is such a constant? The value of is constant when the directional derivative is zero, which happens on any line parallel to , all of which have the form for constants . (These are called the characteristic lines .) But then the value of at only depends on which particular line happens to fall on, which is to say only depends on the value . Another way to state this is that the solution to must have the form where is any differentiable function of one variable. For example, we can show that when , the function is a solution. and so   This also suggests a linear change of variables. Let and (this is essentially decomposing the function via the gradient at each point). Then becomes , which is an ODE in . Since , solving gives for some function , which is to say that .  A linear coefficient equation  Solve given the intial condition .  By the above discussion, we know that the solution has the form . We have enough information to find . Since , set . Then . Hence, the solution to the PDE with initial condition is .    A variable coefficient equation  Consider the equation As before, notice that the equation implies that which means that curves with tangent vector given by keep constant. A curve with tangent vector given by has slope at every point, and so the curve satisifies the ODE Solutions to this equation are functions of the form (These are the characteristic curves .) On each such curve, is constant, which we can check with the chain rule: This means that the value of on the curve is determined entirely by , as .  As , we have , and so That is, is a function of . Thus, is the general solution, where is an arbitrary function.    A more complicated example  Consider the equation We can rewrite this as , and so is constant along curves with tangent vectors given by . This leads to the ODE which has solution implictly given by and so depends on Then the general solution is where is arbitrary.    "
+},
+{
+  "id": "sec-lecture-2-2-4",
+  "level": "2",
+  "url": "sec-lecture-2.html#sec-lecture-2-2-4",
+  "type": "Example",
+  "number": "1.2.1",
+  "title": "A linear coefficient equation.",
+  "body": "A linear coefficient equation  Solve given the intial condition .  By the above discussion, we know that the solution has the form . We have enough information to find . Since , set . Then . Hence, the solution to the PDE with initial condition is .  "
+},
+{
+  "id": "sec-lecture-2-2-5",
+  "level": "2",
+  "url": "sec-lecture-2.html#sec-lecture-2-2-5",
+  "type": "Example",
+  "number": "1.2.2",
+  "title": "A variable coefficient equation.",
+  "body": " A variable coefficient equation  Consider the equation As before, notice that the equation implies that which means that curves with tangent vector given by keep constant. A curve with tangent vector given by has slope at every point, and so the curve satisifies the ODE Solutions to this equation are functions of the form (These are the characteristic curves .) On each such curve, is constant, which we can check with the chain rule: This means that the value of on the curve is determined entirely by , as .  As , we have , and so That is, is a function of . Thus, is the general solution, where is an arbitrary function.  "
+},
+{
+  "id": "sec-lecture-2-2-6",
+  "level": "2",
+  "url": "sec-lecture-2.html#sec-lecture-2-2-6",
+  "type": "Example",
+  "number": "1.2.3",
+  "title": "A more complicated example.",
+  "body": " A more complicated example  Consider the equation We can rewrite this as , and so is constant along curves with tangent vectors given by . This leads to the ODE which has solution implictly given by and so depends on Then the general solution is where is arbitrary.  "
 },
 {
   "id": "backmatter-2",
