@@ -10,5 +10,6 @@
   <!-- include sections -->
   <xi:include href="sec-lec1.ptx" />
   <xi:include href="sec-lec2.ptx" />
+  <xi:include href="sec-lec3.ptx" />
 
 </chapter>
