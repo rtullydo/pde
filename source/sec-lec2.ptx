@@ -3,9 +3,9 @@
 <section xml:id="sec-lecture-2" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Lecture 2 </title>
   <subsection><title>First Order Linear Equations</title>
-  <p>Consider the equation <me>a u_x +_b u_y = 0,</me> where <m>a, b</m> are constants, not both zero. We'll being by looking at two initial methods for solving this equation. First, we'll introduce what is sometimes called the <em>method of characteristics</em>. We want to find curves in <m>\R^2</m> on which the PDE acts like an ODE (which will allow us to use basic ODE techniques in the solution). First, observe that
+  <p>Consider the equation <me>a u_x +b u_y = 0,</me> where <m>a, b</m> are constants, not both zero. We'll being by looking at two initial methods for solving this equation. First, we'll introduce what is sometimes called the <em>method of characteristics</em>. We want to find curves in <m>\R^2</m> on which the PDE acts like an ODE (which will allow us to use basic ODE techniques in the solution). First, observe that
   <me>
-      a u_x + b u_y = (a,b) \cdot \nabla u = D_{(a,b)} u,
+      a u_x + b u_y = (a,b) \cdot \nabla u = \norm{(a,b)} D_{(a,b)} u,
   </me>
   the directional derivative of <m>u</m> in the direction <m>(a,b)</m>. Where is such a <m>u</m> constant? The value of <m>u</m> is constant when the directional derivative is zero, which happens on any line parallel to <m>(a,b)</m>, all of which have the form <m>bx - ay = k</m> for constants <m>k</m>. (These are called the <em>characteristic lines</em>.) But then the value of <m>u</m> at <m>(x,y)</m> only depends on which particular line <m>(x,y)</m> happens to fall on, which is to say <m>u</m> only depends on the value <m>b x - ay</m>. Another way to state this is that the solution to <m>a u_x + b u_y = 0</m> must have the form <m>u(x,y) = f(b x - a y)</m> where <m>f</m> is any differentiable function of one variable. For example, we can show that when <m>f = x^2</m>, the function <m>u(x,y) = (b y - ax)^2</m> is a solution.
 
@@ -20,7 +20,80 @@
   </me>
   
   </p>
-  </subsection>
+
+  <p>
+    This also suggests a linear change of variables. Let <m>X = a x + b y</m> and <m>Y = bx - ay</m> (this is essentially decomposing the function via the gradient at each point). 
+      <md>
+        <mrow>u_x \amp = \frac{\partial u}{\partial x} = \frac{\partial u}{\partial X} \frac{\partial X}{\partial x} + \frac{\partial u}{\partial Y} \frac{\partial Y}{\partial x} = a u_X + b u_Y </mrow>
+        <mrow>u_y \amp = \frac{\partial u}{\partial y} = \frac{\partial u}{\partial X} \frac{\partial X}{\partial y} + \frac{\partial u}{\partial Y} \frac{\partial Y}{\partial y} = b u_X -a u_Y </mrow>
+      </md>
+    Then <m>a u_x + b u_y = 0</m> becomes <m>(a^2 + b^2) u_X = 0</m>, which is an ODE in <m>X</m>. Since <m>(a^2 + b^2) \neq 0</m>, solving <m>u_X = 0</m> gives <m>u = f(Y)</m> for some <m>C^1</m> function <m>f</m>, which is to say that <m>u(x, y) = f(Y) = f( bx - ay)</m>.
+    
+  </p>
+
+
+  <example><title>A linear coefficient equation</title>
+    <p>Solve <m>4 u_x - 3 u_y = 0</m> given the intial condition <m>u(0, y) = y^3</m>.</p>
+    <p>
+      By the above discussion, we know that the solution has the form <m>u(x,y) = f(-3x -4y)</m>. We have enough information to find <m>f</m>. Since <m> y^3 = u(0,y) = f(-4 y)</m>, set <m>w = -4y</m>. Then <m>f(w) = -\frac{1}{64} w^3</m>. Hence, the solution to the PDE with initial condition is <m>u(x,y) = -\frac{1}{64}(-3 -4y)^3</m>.
+    </p>
+  </example>
+
+  <example>
+    <title>A variable coefficient equation</title>
+    <p>
+      Consider the equation
+      <me>
+        u_x + y u_y = 0.
+      </me>
+      As before, notice that the equation implies that
+      <me>
+        (1, y) \cdot (u_x, u_y) = 0,
+      </me>
+      which means that curves with tangent vector given by <m>(1,y)</m> keep <m>u</m> constant. A curve with tangent vector given by <m>(1,y)</m> has slope <m>y</m> at every point, and so the curve satisifies the ODE 
+      <me>
+        \frac{dy}{dx} = y.
+      </me>
+        Solutions to this equation are functions of the form <m>y = C e^x.</m> (These are the <em>characteristic curves</em>.) On each such curve, <m>u</m> is constant, which we can check with the chain rule:
+        <me>
+          \frac{d}{dx} u(x, C e^x) = \frac{\partial u}{\partial x} + \frac{\partial u}{\partial y} \frac{\partial y}{\partial x} = u_x + y u_y = 0.
+        </me>
+        This means that the value of <m>u</m> on the curve <m>y = C e^x</m> is determined entirely by <m>C</m>, as <m>u(x, Ce^x) = u(0, C)</m>.
+    </p>
+
+    <p>
+      As <m>y = C e^x</m>, we have <m>C = e^{-x} y</m>, and so 
+      <me>
+        u(x, Ce^x) = u(0, C) = u(0, e^{-x}y).
+      </me>
+      That is, <m>u</m> is a function of <m>e^{-x}y</m>. Thus, <m>u(x, y) = f(e^{-x} y)</m> is the general solution, where <m>f</m> is an arbitrary <m>C^1</m> function.
+      
+    </p>
+    
+  </example>
+
+  <example>
+    <title>A more complicated example</title>
+    <p>
+      Consider the equation
+      <me>
+        u_x + 2x y^2 u_y = 0.
+      </me>
+      We can rewrite this as <m>(1, 2xy^2) \cdot (u_x, u_y) = 0</m>, and so <m>u</m> is constant along curves with tangent vectors given by <m>(1, 2xy^2)</m>. This leads to the ODE
+      <me>
+        \frac{dy}{dx} = 2x y^2
+      </me>
+      which has solution implictly given by 
+      <me>
+      -\frac{1}{y} = x^2 + C.
+      </me>
+      and so <m>u</m> depends on <m>C = x^2 + \frac{1}{y}.</m> Then the general solution is <m>u(x,y) = f(x^2 + \frac{1}{y})</m> where <m>f</m> is arbitrary.
+      
+    </p>
+    
+    
+  </example>
+</subsection>
   
 
 </section>
