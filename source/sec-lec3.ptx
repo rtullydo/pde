@@ -35,7 +35,7 @@
       <me>
         u_t = k u_{xx}.
       </me>
-
+      </p>
       <assemblage xml:id="assemblage-1Dheat">
         <title>Simple diffusion in 1D</title>
         <p>
@@ -46,7 +46,7 @@
           
         </p>
       </assemblage>
-      </p>
+    
       <p>
         Now, let's do it again, but this time in 3D. Instead of a small segment of a tube, imagine a small sphere in 3D space, with the interior ball denoted <m>D</m> and the boundary sphere <m>\partial D</m>. The mass concentration of the dye is given by <m>u(x, y, z, t)</m> at position <m>x, y, z</m> and time <m>t</m>. The mass of dye inside <m>D</m> is
         <me>
@@ -64,7 +64,7 @@
         <me>
           \iiint_D u_t \, dV = \iint_{\partial D} k(n \cdot \nabla u)\, dS.
         </me>
-        Now apply the divergence theorem.
+        Now apply the divergence theorem. </p>
         <assemblage xml:id="assemblage-divthm">
           <title>Divergence theorem</title>
           <p>
@@ -74,6 +74,7 @@
           </me>
           </p>
         </assemblage>
+        <p>
         Then
           <md>
           <mrow>\iiint_D u_t \, dV \amp = \iint_{\partial D} k(n \cdot \nabla u)\, dS  </mrow>
@@ -89,6 +90,7 @@
         <me>
           u_t = k (u_{xx} + u_{yy} + u_{zz}) = k \Delta u.
         </me>
+      </p>
         <assemblage xml:id="assemblage-3dheat">
           <title>Simple diffusion in 3D</title>
           <p>
@@ -99,7 +101,7 @@
             
           </p>
         </assemblage>
-      </p>
+
       
 
           

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-lecture-4" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Lecture 4 - Well-posed problems and classification </title>
+  <subsection xml:id="subsec-note-on-integrals-and-equalities">
+    <title>Note on integrals and equalities</title>
+    <assemblage xml:id="assemblage-intequality">
+      <title>Equality of integrands</title>
+      <p>
+        If <m>f, g</m> are continuous functions both defined on an open domain <m>D \in \R^n</m>, and for every ball <m>B \subset \R^n</m> we have 
+        <me>
+          \int_B f = \int_B g,
+        </me>
+        then <m>f \equiv g</m> on <m>D</m>.
+      </p>
+    </assemblage>
+  </subsection>
+  
+  <subsection xml:id="subsec-well-posed-problems">
+    <title>Well-posed problems</title>
+    <p>
+      In order to extract specific solutions from a PDE, we'll want to introduce some kind of auxiliary constraints on our problems. Ideally, we choose conditions that allow a solution to exist, and that the solution be a unique solution at least on some domain. In many cases, we'd also like our solutions not to vary much if we make small changes to the constraints. This leads to the notion of a well-posed problem
+    </p>
+
+    <definition xml:id="def-well-posed">
+      <statement>
+        <p>
+          A <em>well-posed</em> problem is a PDE, a domain <m>D</m>, and auxiliary conditions so that 
+          <ol>
+            <li>
+              <p>
+                Existence: there exists at least one solution satisfiying the PDE and constraints;
+              </p>
+            </li>
+            <li>
+              <p>
+                Uniqueness: there exists at most one solution satisfying the PDE and constraints;
+              </p>
+            </li>
+            <li>
+              <p>
+                Stability: small changes in the constraints should lead to small changes in the corresponding solutions.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>  
+    We should note that many interesting problems do not exhibit stability (see, for example, the double pendulum).
+    </p>
+
+    <p>What sorts of constraints can we impose?
+      <ol>
+        <li>
+          <p>
+            An <em>intitial condition</em> specifies the behavior of the unknown function <m>u</m> at some specific time <m>t_0</m>. The number of such conditions necessary to produce a well-posed problem typically is equal to the number of time derivatives in the problem. In a mass-spring system ODE, for example, we frequently specifiy the initial position and velocity. For the PDE <m>u_{tt} = c^2 u_{xx}</m>, we would need to specify positions <m>u(x, y, z, t_0) = \phi(x, y, z)</m> and velocities <m>u_t(x, y, z, t_0) = \psi(x, y, z)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Given a domain <m>D</m> with boundary <m>\partial D</m>, a <em>Dirichlet condition</em> specifies the unknown function on the boundary. That is, <m>u(x, y, z, t) = f(x, y, z)</m> for all <m>x, y, z \in \partial S</m>. A typical example is a vibrating string of fixed length, for which the wave equation <m>u_{tt} = c^2 u_{xx}</m> has Dirichlet condition <m>u(0,t) = 0 = u(L, t)</m> where <m>L</m> is the length of the string.
+          </p>
+        </li>
+        <li>
+          <p>
+            A <em>Neumann</em> boundary condition specifies the normal derivative on the boundary (that is, the projection of the gradient onto the the normal vectors on <m>\partial S</m>, so that <m>\nabla u \cdot n = u_n = g(x, y, z, t)</m>). Neumann conditions are often seen when problems under consideration are insulated - that is, the boundary is impermeable. 
+          </p>
+        </li>
+        <li>
+          <p>
+            A <em>Robin</em> boundary condition is a linear combination of Dirichlet and Neumann boundary conditions - that is, we specify
+            <me>
+              \alpha u(x, y, z, t) + \beta u_n(x, y, z, t) = f(x, y, z, t)
+            </me>
+            for some fixed functions <m>\alpha, \beta</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </subsection>
+
+  <subsection xml:id="subsec-classifying-second-order-pde">
+    <title>Classifying second order PDE</title>
+    <p>
+      Consider the general second order constant coefficient homogeneous PDE given by
+      <me>
+        a_{11} u_11 + 2 a_{12} u_{xy} + a_{22} u_{yy} + a_1 u_x + a_2 u_y + a_0 u = 0.
+      </me>
+      Because of the similarity of this equation to the classical conic sections in the plane, we can use a similar techinque to classify these equations. Notice that the coefficients of the second order derivatives form a symmetric matrix <m>M = \bbm a_{11} \amp a_{12} \\ a_{12} \amp a_{22} \ebm.</m> It turns out that the determinant of this matrix classifies the PDE, in the same way that the determinant of the visually related Hessian matrix in multivariate calculus was the key object in the second derivative test for local extrema. 
+    </p>
+
+    <theorem xml:id="thm-classification">
+      <statement>
+        <p>
+          Every second order linear constant coefficient homogeneous PDE can be reduced to one of three canonical forms.
+          <ol>
+            <li>
+              <p>
+                If <m>\det M \lt 0</m>, then the PDE is called elliptic, and can be reduced to the form
+                <me>
+                  u_{xx} + u_{yy} + \text{L.O.T.} = 0.
+                </me>
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>\det M > 0</m>, then the PDE is called hyperbolic, and can be reduced to the form
+                                <me>
+                  u_{xx} - u_{yy} + \text{L.O.T.} = 0.
+                </me>
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>\det M = 0</m>, then the PDE is called parabolic, and can be reduced to the form
+                <me>
+                  u_{xx} + \text{L.O.T.} = 0.
+                </me>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+
+    <p>Essentially, this says that every linear constant coefficient second order homoegenous PDE can be reduced to (up to lower order terms), Laplace's equation, the wave equation, or the diffusion equation. Let's look at an example of how to do the transformation to canonical form.</p>
+
+    <example>
+      <p>
+        Put <m>3 u_y + u_{xy} = 0</m> into canonical form and classify the equation. First note that the coefficient matrix <m>M</m> is orthogonally diagonalizable as the matrix is real and symmetric. In fact,
+        <me>
+          M = U^T D U = \bbm -1/\sqrt{2} \amp 1/\sqrt{2} \\ 1/\sqrt{2} \amp 1/\sqrt{2} \ebm \bbm -1/2 \amp 0 \\ 0 \amp 1/2 \ebm \bbm -1/\sqrt{2} \amp 1/\sqrt{2} \\ 1/\sqrt{2} \amp 1/\sqrt{2} \ebm.
+        </me>
+
+        Introduce new variables <m>z, w</m> by <m>\bbm z \\ w \ebm = U^T \bbm x \\ y \ebm</m>, which gives
+        <md>
+          <mrow>z \amp = -1/\sqrt{2} x + 1/\sqrt{2} y  </mrow>
+          <mrow>w \amp = 1/\sqrt{2} x + 1/\sqrt{2} y  </mrow>
+        </md>
+        
+        By the chain rule,
+        <md>
+          <mrow>u_x \amp = -\frac{1}{\sqrt{2}} u_z + \frac{1}{\sqrt{2}} u_w</mrow>
+          <mrow>u_y \amp = \frac{1}{\sqrt{2}} u_z + \frac{1}{\sqrt{2}} u_w</mrow>
+          <mrow>u_{xy} \amp = -\frac{1}{2} u_{zz} + \frac{1}{2} u_{ww}</mrow>
+        </md>
+        Under this substitution, the original equation becomes
+        <me>
+          u_{zz} - u_{ww} - 3 \sqrt{2} (u_z + u_w) = 0,
+        </me>
+        which is hyperbolic. Note that we could have read this information directly from the eigenvalues of the matrix <m>M</m> - as they have opposite sign, the PDE is hyperbolic.
+      </p>
+    </example>
+    
+  </subsection>
+
+</section>
