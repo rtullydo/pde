@@ -8,7 +8,7 @@
 <html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Lecture 3 - Three fundamental equations</title>
+<title>Lecture 4 - Well-posed problems and classification</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -106,7 +106,7 @@ window.MathJax = {
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-lecture-2.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-unit-1.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-lecture-4.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(  \DeclareMathOperator{\RE}{Re}
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-lecture-3.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-unit-1.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(  \DeclareMathOperator{\RE}{Re}
 \DeclareMathOperator{\IM}{Im}
 \DeclareMathOperator{\ess}{ess}
 \DeclareMathOperator{\intr}{int}
@@ -226,7 +226,7 @@ window.MathJax = {
 <div class="toc-title-box"><a href="sec-lecture-2.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Lecture 2</span></a></div>
 <ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lecture-2.html#sec-lecture-2-2" class="internal"><span class="codenumber">1.2.1</span> <span class="title">First Order Linear Equations</span></a></div></li></ul>
 </li>
-<li class="toc-item toc-section active">
+<li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-lecture-3.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Lecture 3 - Three fundamental equations</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lecture-3.html#subsec-diffusion" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Diffusion</span></a></div></li>
@@ -234,7 +234,7 @@ window.MathJax = {
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lecture-3.html#subsec-laplace-s-equation" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Laplace’s equation</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section">
+<li class="toc-item toc-section active">
 <div class="toc-title-box"><a href="sec-lecture-4.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Lecture 4 - Well-posed problems and classification</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lecture-4.html#subsec-note-on-integrals-and-equalities" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Note on integrals and equalities</span></a></div></li>
@@ -246,163 +246,133 @@ window.MathJax = {
 </li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-lecture-3"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.3</span><span class="space"> </span><span class="title">Lecture 3 - Three fundamental equations</span>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-lecture-4"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.4</span><span class="space"> </span><span class="title">Lecture 4 - Well-posed problems and classification</span>
 </h2>
-<section class="subsection" id="subsec-diffusion"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.3.1</span><span class="space"> </span><span class="title">Diffusion</span>
+<section class="subsection" id="subsec-note-on-integrals-and-equalities"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.4.1</span><span class="space"> </span><span class="title">Note on integrals and equalities</span>
 </h3>
-<div class="para" id="subsec-diffusion-2">Imagine a drop of food coloring placed in a glass of water. The dye spreads out, or <em class="emphasis">diffuses</em> into the liquid. The <em class="emphasis">diffusion equation</em> describes how this happens. Many physical processes can be modeled by diffusion, probably most notably the transfer of heat in a medium.</div>
-<div class="para logical" id="subsec-diffusion-3">
-<div class="para">We will derive a simple diffusion equation in one variable. Imagine a thin tube arranged along the <span class="process-math">\(x\)</span>-axis filled with a static liquid. Let <span class="process-math">\(u(x,t)\)</span> be the mass concentration of dye in the tube at position <span class="process-math">\(x\)</span> at time <span class="process-math">\(t\text{.}\)</span> A simple physical observation is that the dye moves in the liquid at a rate proportional to the concetration gradient at a given point. Fix a small segment of the tube between two positions <span class="process-math">\(x_0, x_1\text{.}\)</span> The mass of dye in the small segment is</div>
+<article class="assemblage assemblage-like" id="assemblage-intequality"><h4 class="heading"><span class="title">Equality of integrands.</span></h4>
+<div class="para logical" id="assemblage-intequality-2">
+<div class="para">If <span class="process-math">\(f, g\)</span> are continuous functions both defined on an open domain <span class="process-math">\(D \in \R^n\text{,}\)</span> and for every ball <span class="process-math">\(B \subset \R^n\)</span> we have</div>
 <div class="displaymath process-math">
 \begin{equation*}
-M(t) = \int_{x_0}^{x_1} u(x,t) \, dx.
+\int_B f = \int_B g,
 \end{equation*}
 </div>
-<div class="para">This gives</div>
+<div class="para">then <span class="process-math">\(f \equiv g\)</span> on <span class="process-math">\(D\text{.}\)</span>
+</div>
+</div></article></section><section class="subsection" id="subsec-well-posed-problems"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.4.2</span><span class="space"> </span><span class="title">Well-posed problems</span>
+</h3>
+<div class="para" id="subsec-well-posed-problems-2">In order to extract specific solutions from a PDE, we’ll want to introduce some kind of auxiliary constraints on our problems. Ideally, we choose conditions that allow a solution to exist, and that the solution be a unique solution at least on some domain. In many cases, we’d also like our solutions not to vary much if we make small changes to the constraints. This leads to the notion of a well-posed problem</div>
+<article class="definition definition-like" id="def-well-posed"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.4.1</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="def-well-posed-1-1">
+<div class="para">A <em class="emphasis">well-posed</em> problem is a PDE, a domain <span class="process-math">\(D\text{,}\)</span> and auxiliary conditions so that</div>
+<ol class="decimal">
+<li id="def-well-posed-1-1-3-1"><div class="para" id="def-well-posed-1-1-3-1-1">Existence: there exists at least one solution satisfiying the PDE and constraints;</div></li>
+<li id="def-well-posed-1-1-3-2"><div class="para" id="def-well-posed-1-1-3-2-1">Uniqueness: there exists at most one solution satisfying the PDE and constraints;</div></li>
+<li id="def-well-posed-1-1-3-3"><div class="para" id="def-well-posed-1-1-3-3-1">Stability: small changes in the constraints should lead to small changes in the corresponding solutions.</div></li>
+</ol>
+</div></article><div class="para" id="subsec-well-posed-problems-4">We should note that many interesting problems do not exhibit stability (see, for example, the double pendulum).</div>
+<div class="para logical" id="subsec-well-posed-problems-5">
+<div class="para">What sorts of constraints can we impose?</div>
+<ol class="decimal">
+<li id="subsec-well-posed-problems-5-1-1"><div class="para" id="subsec-well-posed-problems-5-1-1-1">An <em class="emphasis">intitial condition</em> specifies the behavior of the unknown function <span class="process-math">\(u\)</span> at some specific time <span class="process-math">\(t_0\text{.}\)</span> The number of such conditions necessary to produce a well-posed problem typically is equal to the number of time derivatives in the problem. In a mass-spring system ODE, for example, we frequently specifiy the initial position and velocity. For the PDE <span class="process-math">\(u_{tt} = c^2 u_{xx}\text{,}\)</span> we would need to specify positions <span class="process-math">\(u(x, y, z, t_0) = \phi(x, y, z)\)</span> and velocities <span class="process-math">\(u_t(x, y, z, t_0) = \psi(x, y, z)\text{.}\)</span>
+</div></li>
+<li id="subsec-well-posed-problems-5-1-2"><div class="para" id="subsec-well-posed-problems-5-1-2-1">Given a domain <span class="process-math">\(D\)</span> with boundary <span class="process-math">\(\partial D\text{,}\)</span> a <em class="emphasis">Dirichlet condition</em> specifies the unknown function on the boundary. That is, <span class="process-math">\(u(x, y, z, t) = f(x, y, z)\)</span> for all <span class="process-math">\(x, y, z \in \partial S\text{.}\)</span> A typical example is a vibrating string of fixed length, for which the wave equation <span class="process-math">\(u_{tt} = c^2 u_{xx}\)</span> has Dirichlet condition <span class="process-math">\(u(0,t) = 0 = u(L, t)\)</span> where <span class="process-math">\(L\)</span> is the length of the string.</div></li>
+<li id="subsec-well-posed-problems-5-1-3"><div class="para" id="subsec-well-posed-problems-5-1-3-1">A <em class="emphasis">Neumann</em> boundary condition specifies the normal derivative on the boundary (that is, the projection of the gradient onto the the normal vectors on <span class="process-math">\(\partial S\text{,}\)</span> so that <span class="process-math">\(\nabla u \cdot n = u_n = g(x, y, z, t)\)</span>). Neumann conditions are often seen when problems under consideration are insulated - that is, the boundary is impermeable.</div></li>
+<li id="subsec-well-posed-problems-5-1-4"><div class="para logical" id="subsec-well-posed-problems-5-1-4-1">
+<div class="para">A <em class="emphasis">Robin</em> boundary condition is a linear combination of Dirichlet and Neumann boundary conditions - that is, we specify</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\frac{dM}{dt} = \int_{x_0}^{x_1} u_t(x, t) \, dx.  
+\alpha u(x, y, z, t) + \beta u_n(x, y, z, t) = f(x, y, z, t)
 \end{equation*}
 </div>
-<div class="para">On the other hand,</div>
-<div class="displaymath process-math" id="subsec-diffusion-3-8">
+<div class="para">for some fixed functions <span class="process-math">\(\alpha, \beta\text{.}\)</span>
+</div>
+</div></li>
+</ol>
+</div></section><section class="subsection" id="subsec-classifying-second-order-pde"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.4.3</span><span class="space"> </span><span class="title">Classifying second order PDE</span>
+</h3>
+<div class="para logical" id="subsec-classifying-second-order-pde-2">
+<div class="para">Consider the general second order constant coefficient homogeneous PDE given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a_{11} u_11 + 2 a_{12} u_{xy} + a_{22} u_{yy} + a_1 u_x + a_2 u_y + a_0 u = 0.
+\end{equation*}
+</div>
+<div class="para">Because of the similarity of this equation to the classical conic sections in the plane, we can use a similar techinque to classify these equations. Notice that the coefficients of the second order derivatives form a symmetric matrix <span class="process-math">\(M = \bbm a_{11} \amp a_{12} \\ a_{12} \amp a_{22} \ebm.\)</span> It turns out that the determinant of this matrix classifies the PDE, in the same way that the determinant of the visually related Hessian matrix in multivariate calculus was the key object in the second derivative test for local extrema.</div>
+</div>
+<article class="theorem theorem-like" id="thm-classification"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.4.2</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="thm-classification-1-1">
+<div class="para">Every second order linear constant coefficient homogeneous PDE can be reduced to one of three canonical forms.</div>
+<ol class="decimal">
+<li id="thm-classification-1-1-1-1"><div class="para logical" id="thm-classification-1-1-1-1-1">
+<div class="para">If <span class="process-math">\(\det M \lt 0\text{,}\)</span> then the PDE is called elliptic, and can be reduced to the form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+u_{xx} + u_{yy} + \text{L.O.T.} = 0.
+\end{equation*}
+</div>
+</div></li>
+<li id="thm-classification-1-1-1-2"><div class="para logical" id="thm-classification-1-1-1-2-1">
+<div class="para">If <span class="process-math">\(\det M &gt; 0\text{,}\)</span> then the PDE is called hyperbolic, and can be reduced to the form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+u_{xx} - u_{yy} + \text{L.O.T.} = 0.
+\end{equation*}
+</div>
+</div></li>
+<li id="thm-classification-1-1-1-3"><div class="para logical" id="thm-classification-1-1-1-3-1">
+<div class="para">If <span class="process-math">\(\det M = 0\text{,}\)</span> then the PDE is called parabolic, and can be reduced to the form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+u_{xx} + \text{L.O.T.} = 0.
+\end{equation*}
+</div>
+</div></li>
+</ol>
+</div></article><div class="para" id="subsec-classifying-second-order-pde-4">Essentially, this says that every linear constant coefficient second order homoegenous PDE can be reduced to (up to lower order terms), Laplace’s equation, the wave equation, or the diffusion equation. Let’s look at an example of how to do the transformation to canonical form.</div>
+<details id="subsec-classifying-second-order-pde-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.3</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="subsec-classifying-second-order-pde-5-1">
+<div class="para">Put <span class="process-math">\(3 u_y + u_{xy} = 0\)</span> into canonical form and classify the equation. First note that the coefficient matrix <span class="process-math">\(M\)</span> is orthogonally diagonalizable as the matrix is real and symmetric. In fact,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+M = U^T D U = \bbm -1/\sqrt{2} \amp 1/\sqrt{2} \\ 1/\sqrt{2} \amp 1/\sqrt{2} \ebm \bbm -1/2 \amp 0 \\ 0 \amp 1/2 \ebm \bbm -1/\sqrt{2} \amp 1/\sqrt{2} \\ 1/\sqrt{2} \amp 1/\sqrt{2} \ebm.
+\end{equation*}
+</div>
+<div class="para">Introduce new variables <span class="process-math">\(z, w\)</span> by <span class="process-math">\(\bbm z \\ w \ebm = U^T \bbm x \\ y \ebm\text{,}\)</span> which gives</div>
+<div class="displaymath process-math" id="subsec-classifying-second-order-pde-5-1-6">
 \begin{align*}
-\frac{dM}{dt} \amp = \text{flow in - flow out} \\
-\amp = k u_x(x_1, t) - k u_x(x_0, t)  
+z \amp = -1/\sqrt{2} x + 1/\sqrt{2} y  \\
+w \amp = 1/\sqrt{2} x + 1/\sqrt{2} y  
 \end{align*}
 </div>
-<div class="para">as flow is proportional to the contentration gradient.</div>
-</div>
-<div class="para logical" id="subsec-diffusion-4">
-<div class="para">Equating these expressions for <span class="process-math">\(dM/dt\text{,}\)</span> we see</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\int_{x_0}^{x_1} u_t(x, t) \, dx = k u_x(x_1, t) - k u_x(x_0).
-\end{equation*}
-</div>
-<div class="para">Now take the derivative of this expression with respect to <span class="process-math">\(x_1\)</span> and apply the Fundamental Theorem of Calculus, which gives</div>
-<div class="displaymath process-math">
-\begin{equation*}
-u_t(x_1, t) = k u_{x x_1}(x_1, t) 
-\end{equation*}
-</div>
-<div class="para">and make the observation that this is equivalent to</div>
-<div class="displaymath process-math">
-\begin{equation*}
-u_t = k u_{xx}.
-\end{equation*}
-</div>
-</div>
-<article class="assemblage assemblage-like" id="assemblage-1Dheat"><h4 class="heading"><span class="title">Simple diffusion in 1D.</span></h4>
-<div class="para logical" id="assemblage-1Dheat-2">
-<div class="para">The <em class="emphasis">simple diffusion equation</em> or <em class="emphasis">heat equation</em> on the line is</div>
-<div class="displaymath process-math">
-\begin{equation*}
-u_t = k u_{xx}.
-\end{equation*}
-</div>
-</div></article><div class="para logical" id="subsec-diffusion-6">
-<div class="para">Now, let’s do it again, but this time in 3D. Instead of a small segment of a tube, imagine a small sphere in 3D space, with the interior ball denoted <span class="process-math">\(D\)</span> and the boundary sphere <span class="process-math">\(\partial D\text{.}\)</span> The mass concentration of the dye is given by <span class="process-math">\(u(x, y, z, t)\)</span> at position <span class="process-math">\(x, y, z\)</span> and time <span class="process-math">\(t\text{.}\)</span> The mass of dye inside <span class="process-math">\(D\)</span> is</div>
-<div class="displaymath process-math">
-\begin{equation*}
-M(t) = \iiint_D u(x, y, z, t)\, dV,
-\end{equation*}
-</div>
-<div class="para">and as before</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\frac{dM}{dt} = \iiint_D u_t \, dV.
-\end{equation*}
-</div>
-<div class="para">As in the 1D case, we’ll make the simplfying assumption that the movement of the dye inside <span class="process-math">\(D\)</span> is proportional to the concentration gradient with constant <span class="process-math">\(k\text{,}\)</span> but this time we need to account for all of the boundary points in <span class="process-math">\(\partial D\text{.}\)</span> At each point in <span class="process-math">\(\partial D\text{,}\)</span> choose an outward normal vector <span class="process-math">\(n\text{.}\)</span> Then the flux of dye through the surface locally at a point <span class="process-math">\((x, y, z)\in \partial D\)</span> is proportional to the outward concentration gradient through the surface area unit <span class="process-math">\(dS\text{,}\)</span> which we can write as the expression <span class="process-math">\(k (n \cdot \nabla u) \, dS\text{.}\)</span> To add up the net change in mass, we get</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\frac{dM}{dt} = \iint_{\partial D} k(n \cdot \nabla u)\, dS.
-\end{equation*}
-</div>
-<div class="para">As before, we set the two expressions for <span class="process-math">\(dM/dt\)</span> equal to get</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\iiint_D u_t \, dV = \iint_{\partial D} k(n \cdot \nabla u)\, dS.
-\end{equation*}
-</div>
-<div class="para">Now apply the divergence theorem.</div>
-</div>
-<article class="assemblage assemblage-like" id="assemblage-divthm"><h4 class="heading"><span class="title">Divergence theorem.</span></h4>
-<div class="para logical" id="assemblage-divthm-2">
-<div class="para">Given a solid region <span class="process-math">\(D\)</span> with closed boundary surface <span class="process-math">\(\partial D\text{,}\)</span> an outward normal <span class="process-math">\(n\)</span> to <span class="process-math">\(\partial D\)</span> and a <span class="process-math">\(C^1\)</span> function <span class="process-math">\(F\text{,}\)</span>
-</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\iiint_{D} \nabla \cdot F \, dV = \iint_{\partial D} (F \cdot n) \, dS.
-\end{equation*}
-</div>
-</div></article><div class="para logical" id="subsec-diffusion-8">
-<div class="para">Then</div>
-<div class="displaymath process-math" id="subsec-diffusion-8-1">
+<div class="para">By the chain rule,</div>
+<div class="displaymath process-math" id="subsec-classifying-second-order-pde-5-1-7">
 \begin{align*}
-\iiint_D u_t \, dV \amp = \iint_{\partial D} k(n \cdot \nabla u)\, dS  \\
-\amp = \iiint_D \nabla \cdot k\nabla u \, dV\\
-\amp = \iiint_D k \nabla \cdot \nabla u \, dV \\
-\amp = \iiint_D k (u_{xx} + u_{yy} + u_{zz})\, dV
+u_x \amp = -\frac{1}{\sqrt{2}} u_z + \frac{1}{\sqrt{2}} u_w\\
+u_y \amp = \frac{1}{\sqrt{2}} u_z + \frac{1}{\sqrt{2}} u_w\\
+u_{xy} \amp = -\frac{1}{2} u_{zz} + \frac{1}{2} u_{ww}
 \end{align*}
 </div>
-<div class="para">Then we conclude (invoking A LOT of high level math) that since</div>
+<div class="para">Under this substitution, the original equation becomes</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\iiint_D u_t \, dV = \iiint_D k (u_{xx} + u_{yy} + u_{zz})\, dV
+u_{zz} - u_{ww} - 3 \sqrt{2} (u_z + u_w) = 0,
 \end{equation*}
 </div>
-<div class="para">for any small ball <span class="process-math">\(D\)</span> that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-u_t = k (u_{xx} + u_{yy} + u_{zz}) = k \Delta u.
-\end{equation*}
-</div>
-</div>
-<article class="assemblage assemblage-like" id="assemblage-3dheat"><h4 class="heading"><span class="title">Simple diffusion in 3D.</span></h4>
-<div class="para logical" id="assemblage-3dheat-2">
-<div class="para">The <em class="emphasis">simple diffusion equation in space</em> or <em class="emphasis">3D heat equation</em> is</div>
-<div class="displaymath process-math">
-\begin{equation*}
-u_t = k \Delta u.
-\end{equation*}
-</div>
-</div></article></section><section class="subsection" id="subsec-the-wave-equation"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.3.2</span><span class="space"> </span><span class="title">The wave equation</span>
-</h3>
-<article class="assemblage assemblage-like" id="assemblage-wave"><h4 class="heading"><span class="title">1D Wave equation.</span></h4>
-<div class="para logical" id="assemblage-wave-2">
-<div class="para">For <span class="process-math">\(u(x,t)\text{,}\)</span> the 1D wave equation is</div>
-<div class="displaymath process-math">
-\begin{equation*}
-u_{tt} = c^2 u_{xx}.
-\end{equation*}
-</div>
-</div></article><article class="assemblage assemblage-like" id="assemblage-3dwave"><h4 class="heading"><span class="title">3D Wave equation.</span></h4>
-<div class="para logical" id="assemblage-3dwave-2">
-<div class="para">For <span class="process-math">\(u(x, y, z, t)\text{,}\)</span> the 3D wave equation is</div>
-<div class="displaymath process-math">
-\begin{equation*}
-u_{tt} = c^2 \Delta u.
-\end{equation*}
-</div>
-</div></article></section><section class="subsection" id="subsec-laplace-s-equation"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.3.3</span><span class="space"> </span><span class="title">Laplace’s equation</span>
-</h3>
-<div class="para logical" id="subsec-laplace-s-equation-2">
-<div class="para">In any of the previous equations we have that the physical scenario does not change with respect to time, we get the reduction</div>
-<div class="displaymath process-math">
-\begin{equation*}
-0 = \Delta u.
-\end{equation*}
-</div>
-<div class="para">The is called <em class="emphasis">Laplace’s equation</em> and the solutions to the equation are called <em class="emphasis">harmonic functions</em>.</div>
-</div></section></section></div>
+<div class="para">which is hyperbolic. Note that we could have read this information directly from the eigenvalues of the matrix <span class="process-math">\(M\)</span> - as they have opposite sign, the PDE is hyperbolic.</div>
+</div></article></details></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="sec-lecture-2.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-lecture-4.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec-lecture-3.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
