@@ -118,6 +118,15 @@ var ptx_lunr_docs = [
   "body": " Put into canonical form and classify the equation. First note that the coefficient matrix is orthogonally diagonalizable as the matrix is real and symmetric. In fact, Introduce new variables by , which gives By the chain rule, Under this substitution, the original equation becomes which is hyperbolic. Note that we could have read this information directly from the eigenvalues of the matrix - as they have opposite sign, the PDE is hyperbolic.  "
 },
 {
+  "id": "sec-lecture-5",
+  "level": "1",
+  "url": "sec-lecture-5.html",
+  "type": "Section",
+  "number": "1.5",
+  "title": "Lecture 5 - Wave equation on the line",
+  "body": " Lecture 5 - Wave equation on the line   In this section, we'll solve the wave equation in the general case. We start here because the operator that defines the wave equation has very nice algebraic properties.    Solution by factoring the operator  Consider the equation where . Writing this in operator form, we have which factors as There are two ways that this equation can hold for a function . The first is that . Solving note that must be constant on lines parallel to the vector , which means is constant along lines of the form for constants . As we've seen in earlier sections, this mean that such functions must take the form for some arbitrary function .  The other possibility is that for some non-zero function in which case we need to solve the equation    "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",

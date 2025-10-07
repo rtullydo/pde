@@ -8,7 +8,7 @@
 <html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Lecture 1</title>
+<title>Lecture 5 - Wave equation on the line</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -106,7 +106,7 @@ window.MathJax = {
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="ch-unit-1.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-unit-1.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-lecture-2.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(  \DeclareMathOperator{\RE}{Re}
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-lecture-4.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-unit-1.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(  \DeclareMathOperator{\RE}{Re}
 \DeclareMathOperator{\IM}{Im}
 \DeclareMathOperator{\ess}{ess}
 \DeclareMathOperator{\intr}{int}
@@ -215,7 +215,7 @@ window.MathJax = {
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch-unit-1.html" class="internal"><span class="codenumber">1</span> <span class="title">Unit 1</span></a></div>
 <ul class="structural toc-item-list contains-active">
-<li class="toc-item toc-section active">
+<li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-lecture-1.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Lecture 1</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lecture-1.html#sec-lecture-1-2" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Intro to PDE and basic terminology</span></a></div></li>
@@ -242,7 +242,7 @@ window.MathJax = {
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lecture-4.html#subsec-classifying-second-order-pde" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Classifying second order PDE</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section">
+<li class="toc-item toc-section active">
 <div class="toc-title-box"><a href="sec-lecture-5.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Lecture 5 - Wave equation on the line</span></a></div>
 <ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lecture-5.html#subsec-Solution" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Solution by factoring the operator</span></a></div></li></ul>
 </li>
@@ -250,85 +250,50 @@ window.MathJax = {
 </li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-lecture-1"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.1</span><span class="space"> </span><span class="title">Lecture 1</span>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-lecture-5"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.5</span><span class="space"> </span><span class="title">Lecture 5 - Wave equation on the line</span>
 </h2>
-<section class="subsection" id="sec-lecture-1-2"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="space"> </span><span class="title">Intro to PDE and basic terminology</span>
+<section class="introduction" id="sec-lecture-5-2"><div class="para" id="sec-lecture-5-2-1">In this section, we’ll solve the wave equation in the general case. We start here because the operator that defines the wave equation has very nice algebraic properties.</div></section><section class="subsection" id="subsec-Solution"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.5.1</span><span class="space"> </span><span class="title">Solution by factoring the operator</span>
 </h3>
-<div class="para logical" id="sec-lecture-1-2-2">
-<div class="para">We begin the study of <em class="emphasis">partial differential equations</em>, which are equations involving an unknown function <span class="process-math">\(u\)</span> in several variables and its partial derivatives. The <em class="emphasis">order</em> of a PDE is the highest degree partial derivative appearing in the equation. For example, given a relationship between independent variables <span class="process-math">\(x, y\)</span> and a dependent variable <span class="process-math">\(u(x,y)\text{,}\)</span> the most general PDE of first order is</div>
+<div class="para logical" id="subsec-Solution-2">
+<div class="para">Consider the equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
-F(x, y, \frac{\partial u}{\partial x}, \frac{\partial u}{\partial y}) = 0.
+u_t - c^2 u_{xx}
 \end{equation*}
 </div>
-<div class="para">As is typical in partial derivatives, we’ll often use the less cumbersome notation <span class="process-math">\(\frac{\partial u}{\partial x} = u_x\text{.}\)</span>
-</div>
-</div>
-<div class="para logical" id="sec-lecture-1-2-3">
-<div class="para">Given the same variables <span class="process-math">\(x, y, u(x,y)\text{,}\)</span> the most general PDE of <em class="emphasis">second order</em> is</div>
+<div class="para">where <span class="process-math">\(x \in (-\infty, \infty)\text{.}\)</span> Writing this in operator form, we have</div>
 <div class="displaymath process-math">
 \begin{equation*}
-F(x, y, u_x, u_y, u_{xx}, u_{yy}, u_{xy}) = 0.
+(\partial_t^2 - c^2 \partial_x^2)u = 0
 \end{equation*}
 </div>
-</div>
-<div class="para" id="sec-lecture-1-2-4">Note: we’ve implicitly asserted here that the functions we’re considering have sufficient regularity so that Clairaut’s theorem holds - that is, mixed partial derivatives are equal. One condition that is sufficient here is that functions <span class="process-math">\(u\)</span> have continuous second derivatives, which is a class of functions usually denoted <span class="process-math">\(C^2\text{.}\)</span> The <em class="emphasis">solution</em> to a PDE is a function <span class="process-math">\(u(x,y,\ldots)\)</span> that satisfies the equation on some open region in <span class="process-math">\(x, y, \ldots\text{.}\)</span>
-</div>
-<div class="para logical" id="sec-lecture-1-2-5">
-<div class="para">Here are some examples of PDEs:</div>
-<ul class="disc">
-<li id="sec-lecture-1-2-5-1-1"><div class="para" id="sec-lecture-1-2-5-1-1-1"><span class="process-math">\(\displaystyle u_x + u_y = 0 \hspace{1in} \text{(transport)}\)</span></div></li>
-<li id="sec-lecture-1-2-5-1-2"><div class="para" id="sec-lecture-1-2-5-1-2-1"><span class="process-math">\(\displaystyle u_x + y \, u_y = 0 \hspace{1in} \text{(transport)}\)</span></div></li>
-<li id="sec-lecture-1-2-5-1-3"><div class="para" id="sec-lecture-1-2-5-1-3-1"><span class="process-math">\(\displaystyle u_{xx} + u_{yy} = 0 \hspace{1in} \text{(Laplace)}\)</span></div></li>
-<li id="sec-lecture-1-2-5-1-4"><div class="para" id="sec-lecture-1-2-5-1-4-1"><span class="process-math">\(\displaystyle u_t - u_{xx} = 0 \hspace{1in} \text{(diffusion)}\)</span></div></li>
-<li id="sec-lecture-1-2-5-1-5"><div class="para" id="sec-lecture-1-2-5-1-5-1"><span class="process-math">\(\displaystyle u_{tt} - u{xx} = 0 \hspace{1in} \text{(1D wave equation)}\)</span></div></li>
-<li id="sec-lecture-1-2-5-1-6"><div class="para" id="sec-lecture-1-2-5-1-6-1"><span class="process-math">\(\displaystyle u_{tt} - u_{xx} + u^3 = 0 \hspace{1in} \text{(1D heat equation with interaction)}\)</span></div></li>
-</ul>
-<div class="para">These equations are fundamental.</div>
-</div>
-<div class="para logical" id="sec-lecture-1-2-6">
-<div class="para">A useful way to write a PDE is in <em class="emphasis">operator</em> notation. For example, <span class="process-math">\(u_x + y \, u_y = 0\)</span> can be written <span class="process-math">\(\L u = 0\text{,}\)</span> where <span class="process-math">\(\L\)</span> is the differential operator <span class="process-math">\(\L = \frac{\partial}{\partial x} + y \frac{\partial}{\partial y}\text{.}\)</span> Note that</div>
-<div class="displaymath process-math" id="sec-lecture-1-2-6-6">
-\begin{align*}
-\L u  \amp = \left(\frac{\partial}{\partial x} + y \frac{\partial}{\partial y}\right) u \\
-\amp = \frac{\partial}{\partial x} u  + y \frac{\partial}{\partial y} u  \\
-\amp = u_x + y \,u_y 
-\end{align*}
-</div>
-<div class="para">An operator is called <em class="emphasis">linear</em> if <span class="process-math">\(\L(c u + d v) = c \L u + d \L v\)</span> for any functions <span class="process-math">\(u, v\)</span> and constants <span class="process-math">\(c, d\text{.}\)</span> The operator <span class="process-math">\(\L = \frac{\partial}{\partial x} + y \frac{\partial}{\partial y}\)</span> is linear. On the other hand, since <span class="process-math">\((u+v)^3 \neq u^3 + v^3\text{,}\)</span> the equation <span class="process-math">\(u_{tt} - u_{xx} + u^3 = 0\)</span> cannot be written in linear operator form.</div>
-</div>
-<div class="para" id="sec-lecture-1-2-7">An equation that can be written as a linear operator is called a <em class="emphasis">linear</em> PDE. Otherwise, the PDE is called <em class="emphasis">nonlinear</em>. An linear PDE is called <em class="emphasis">homogeneous</em> if it has the form <span class="process-math">\(\L u = 0\text{.}\)</span> If <span class="process-math">\(L u = g\)</span> for a non-zero function <span class="process-math">\(g\text{,}\)</span> then the equation is called <em class="emphasis">inhomogeneous</em> or nonhomogeneous.</div>
-<div class="para" id="sec-lecture-1-2-8">Why is linearity such a useful condition to consider? From a practical standpoint, linear equations allow us to use techniques from linear algebra. From a geometric perspective, given two solutions <span class="process-math">\(u, v\)</span> to a linear PDE <span class="process-math">\(\L u = 0\text{,}\)</span> any linear combination <span class="process-math">\(c u + d v\)</span> is also a solution. (This is often called the <em class="emphasis">principle of superposition</em>.) Because linear algebra is so useful and so powerful, primarily we’ll be considering linear PDEs with constant coefficients. (In fact, many strategies for studying nonlinear PDEs involve approximation locally by linear systems.)</div></section><section class="subsection" id="sec-lecture-1-3"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.1.2</span><span class="space"> </span><span class="title">Solutions to PDE</span>
-</h3>
-<div class="para" id="sec-lecture-1-3-2">Let us look at some example solutions to PDEs.</div>
-<details id="sec-lecture-1-3-3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="period">.</span>
-</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-lecture-1-3-3-1">
-<div class="para">Consider the differential equation <span class="process-math">\(u_{xx} = 0.\)</span> Using "partial integration", we get</div>
-<div class="displaymath process-math" id="sec-lecture-1-3-3-1-2">
-\begin{align*}
-u_{xx} \amp = 0  \\
-u_{x} \amp = f(y) \\
-u  \amp = f(y) x + g(y) 
-\end{align*}
-</div>
-<div class="para">There are <em class="emphasis">arbitrary functions</em> in the solution. This is typical. The number of such arbitrary functions will depend on the order of the PDE.</div>
-</div></article></details><details id="sec-lecture-1-3-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.2</span><span class="period">.</span>
-</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-lecture-1-3-4-1">
-<div class="para">Solve <span class="process-math">\(u_xx + u = 0\text{.}\)</span> This is essentially an ODE in the variable <span class="process-math">\(x\text{.}\)</span> The differential equation <span class="process-math">\(u'' + u = 0\)</span> is solved by <span class="process-math">\(u = c_1 \cos x + c_2 \sin x\text{,}\)</span> and so the solution to <span class="process-math">\(u_{xx} + u = 0\)</span> is given by</div>
+<div class="para">which factors as</div>
 <div class="displaymath process-math">
 \begin{equation*}
-u(x, y) = c_1(y) \cos x + c_2(y) \sin x,
+(\partial_t - c\partial_x)(\partial_t + c\partial_x)u=0.
 \end{equation*}
 </div>
-<div class="para">which can be verified by calculation.</div>
-</div></article></details><div class="para" id="sec-lecture-1-3-5">PDEs have <em class="emphasis">significantly</em> more complicated solutions than ODEs, as functions of two or more variables exhibit behavior that cannot occur in one variable. (As an example, rational functions of two variables can have curves of singularities, which is prevented by the fundamental theorem of algebra in one variable.)</div></section></section></div>
+<div class="para">There are two ways that this equation can hold for a function <span class="process-math">\(u\text{.}\)</span> The first is that <span class="process-math">\((\partial_t + c\partial_x)u = 0\text{.}\)</span> Solving</div>
+<div class="displaymath process-math">
+\begin{equation*}
+u_t + c u_x = 0,
+\end{equation*}
+</div>
+<div class="para">note that <span class="process-math">\(u\)</span> must be constant on lines parallel to the vector <span class="process-math">\((1, c)\text{,}\)</span> which means <span class="process-math">\(u\)</span> is constant along lines of the form <span class="process-math">\(x - ct = \xi\)</span> for constants <span class="process-math">\(\xi\text{.}\)</span> As we’ve seen in earlier sections, this mean that such functions <span class="process-math">\(u\)</span> must take the form <span class="process-math">\(u(x,t) = f(x - ct)\)</span> for some arbitrary function <span class="process-math">\(f\text{.}\)</span>
+</div>
+</div>
+<div class="para logical" id="subsec-Solution-3">
+<div class="para">The other possibility is that <span class="process-math">\((\partial_t + c\partial_x)u = 0v\)</span> for some non-zero function <span class="process-math">\(v\)</span> in which case we need to solve the equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(\partial_t - c\partial_x)(\partial_t + c\partial_x)u= (\partial_t - c\partial_x)v =0
+\end{equation*}
+</div>
+</div></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="ch-unit-1.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-lecture-2.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec-lecture-4.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
