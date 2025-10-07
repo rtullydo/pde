@@ -285,13 +285,38 @@ u_t + c u_x = 0,
 </div>
 </div>
 <div class="para logical" id="subsec-Solution-3">
-<div class="para">The other possibility is that <span class="process-math">\((\partial_t + c\partial_x)u = 0v\)</span> for some non-zero function <span class="process-math">\(v\)</span> in which case we need to solve the equation</div>
+<div class="para">The other possibility is that <span class="process-math">\((\partial_t + c\partial_x)u = v\)</span> for some non-zero function <span class="process-math">\(v\)</span> in which case we need to solve the equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
 (\partial_t - c\partial_x)(\partial_t + c\partial_x)u= (\partial_t - c\partial_x)v =0
 \end{equation*}
 </div>
-</div></section></section></div>
+<div class="para">Following the same idea as before, we conclude that <span class="process-math">\(v = g(x + ct)\)</span> for some arbitrary function <span class="process-math">\(v\text{.}\)</span> Of course, we aren’t done, as we seek solutions <span class="process-math">\(u\text{.}\)</span> That is, we must now solve the equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(\partial_t + c\partial_x)u = v = g(x + ct)
+\end{equation*}
+</div>
+<div class="para">which is equivalent to</div>
+<div class="displaymath process-math">
+\begin{equation*}
+u_t + c u_x = g(x + ct).
+\end{equation*}
+</div>
+<div class="para">Note that if <span class="process-math">\(u = G(x + ct)\)</span> where <span class="process-math">\(G'(x) = \frac{1}{2c} g(x)\text{,}\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+u_t + c u_x = G'(x+ct)(c) + c G'(x+ct)(1) = 2c G'(x + ct) = g(x+ ct),
+\end{equation*}
+</div>
+<div class="para">and hence <span class="process-math">\(u(x,t) = G(x+ct)\)</span> solves <span class="process-math">\((\partial_t + c\partial_x)u = v\text{.}\)</span> Then the general solution to the differential equation is of the form of a linear combination of our two arbitrary solutions:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+u(x,t) = f(x - ct) + G(x + ct).
+\end{equation*}
+</div>
+</div>
+<div class="para" id="subsec-Solution-4">Right away, we can interpret what this means. The solutions to the wave equation on the line correspond to functions <span class="process-math">\(f, g\)</span> traveling in opposite directions on the line as time tends from <span class="process-math">\(0\)</span> to <span class="process-math">\(\infty\text{.}\)</span> (A Desmos workbook with some demonstration solutions can be found <a class="external" href="https://www.desmos.com/calculator/obytg6nbpj" target="_blank">here.</a><details class="ptx-footnote" aria-live="polite" id="subsec-Solution-4-5"><summary class="ptx-footnote__number" title="Footnote 1.5.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="subsec-Solution-4-5"><code class="code-inline tex2jax_ignore">www.desmos.com/calculator/obytg6nbpj</code></div></details> )</div></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-lecture-4.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
