@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-lecture-5" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Lecture 5 - Wave equation on the line </title>
+  <introduction>
+    <p> In this section, we'll solve the wave equation in the general case. We start here because the operator that defines the wave equation has very nice algebraic properties. </p>
+    </introduction>
+  <subsection xml:id="subsec-Solution">
+    <title>Solution by factoring the operator</title>
+    <p>Consider the equation
+      <me>
+        u_t - c^2 u_{xx}
+      </me>
+      where <m>x \in (-\infty, \infty)</m>.
+      Writing this in operator form, we have
+      <me>
+        (\partial_t^2 - c^2 \partial_x^2)u = 0
+      </me>
+      which factors as 
+      <me>
+        (\partial_t - c\partial_x)(\partial_t + c\partial_x)u=0.
+      </me>
+      There are two ways that this equation can hold for a function <m>u</m>. The first is that <m>(\partial_t + c\partial_x)u = 0</m>. Solving
+      <me>
+        u_t + c u_x = 0,
+      </me>
+      note that <m>u</m> must be constant on lines parallel to the vector <m>(1, c)</m>, which means <m>u</m> is constant along lines of the form <m>x - ct = \xi</m> for constants <m>\xi</m>. As we've seen in earlier sections, this mean that such functions <m>u</m> must take the form <m>u(x,t) = f(x - ct)</m> for some arbitrary function <m>f</m>.
+    </p>
+
+    <p>The other possibility is that <m>(\partial_t + c\partial_x)u = 0v</m> for some non-zero function <m>v</m> in which case we need to solve the equation
+      <me>
+         (\partial_t - c\partial_x)(\partial_t + c\partial_x)u= (\partial_t - c\partial_x)v =0
+      </me>
+    </p>
+      
+  </subsection>
+
+</section>

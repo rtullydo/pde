@@ -12,5 +12,6 @@
   <xi:include href="sec-lec2.ptx" />
   <xi:include href="sec-lec3.ptx" />
   <xi:include href="sec-lec4.ptx" />
+  <xi:include href="sec-lec5.ptx" />
 
 </chapter>
