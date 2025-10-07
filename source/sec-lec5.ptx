@@ -27,12 +27,29 @@
       note that <m>u</m> must be constant on lines parallel to the vector <m>(1, c)</m>, which means <m>u</m> is constant along lines of the form <m>x - ct = \xi</m> for constants <m>\xi</m>. As we've seen in earlier sections, this mean that such functions <m>u</m> must take the form <m>u(x,t) = f(x - ct)</m> for some arbitrary function <m>f</m>.
     </p>
 
-    <p>The other possibility is that <m>(\partial_t + c\partial_x)u = 0v</m> for some non-zero function <m>v</m> in which case we need to solve the equation
+    <p>The other possibility is that <m>(\partial_t + c\partial_x)u = v</m> for some non-zero function <m>v</m> in which case we need to solve the equation
       <me>
          (\partial_t - c\partial_x)(\partial_t + c\partial_x)u= (\partial_t - c\partial_x)v =0
       </me>
+      Following the same idea as before, we conclude that <m>v = g(x + ct)</m> for some arbitrary function <m>v</m>. Of course, we aren't done, as we seek solutions <m>u</m>. That is, we must now solve the equation
+      <me>
+        (\partial_t + c\partial_x)u = v = g(x + ct)
+      </me>
+      which is equivalent to
+      <me>
+        u_t + c u_x = g(x + ct).
+      </me>
+      Note that if <m>u = G(x + ct)</m> where <m>G'(x) = \frac{1}{2c} g(x)</m>, then 
+      <me>
+        u_t + c u_x = G'(x+ct)(c) + c G'(x+ct)(1) = 2c G'(x + ct) = g(x+ ct),
+      </me>
+      and hence <m>u(x,t) = G(x+ct)</m> solves <m> (\partial_t + c\partial_x)u = v</m>. Then the general solution to the differential equation is of the form of a linear combination of our two arbitrary solutions:
+      <me>
+        u(x,t) = f(x - ct) + G(x + ct).
+      </me>
     </p>
-      
+    <p> Right away, we can interpret what this means. The solutions to the wave equation on the line correspond to functions <m>f, g</m> traveling in opposite directions on the line as time tends from <m>0</m> to <m>\infty</m>. A Desmos workbook with some demonstration solutions can be found <url href="https://www.desmos.com/calculator/obytg6nbpj">here.</url>
+    </p>
   </subsection>
 
 </section>
