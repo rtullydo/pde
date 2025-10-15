@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch-unit-1" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Unit 2 - All things Fourier</title>
+
+  <introduction>
+    <p>We'll look at the derivation and application of Fourier series solutions to PDE. </p>
+  </introduction>
+
+  <!-- include sections -->
+  <xi:include href="sec-lec6.ptx" />
+  <xi:include href="sec-lec7.ptx" />
+  <xi:include href="sec-lec8.ptx" />
+  <xi:include href="sec-lec9.ptx" />
+  <xi:include href="sec-lec10.ptx" />
+
+</chapter>

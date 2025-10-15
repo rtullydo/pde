@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-lecture-9" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Lecture 9 - Separation of variables</title>
+  <introduction>
+  <p>Recall that the general solution to the ODE <m>y'' + c^2 y = 0</m> can be written in the form
+  <me>
+    y(x) = A \cos ct + B \sin ct.
+  </me>
+  </p>
+
+  <p>
+    We're going to apply that idea to certain type of PDE by a method called <em>separation of variables</em>.
+  </p>
+  </introduction>
+  <subsection xml:id="subsec-Dirichlet">
+    <title>Dirichlet conditions</title>
+    
+  
+    <p>Consider the <em>Dirichlet</em> problem 
+      <md>
+        <mrow>DE:\,\, \amp u_{tt} = c^2 u_{xx}, \,\, 0 \lt x \lt \ell </mrow>
+        <mrow>BC:\,\, \amp u(0,t) = 0 = u(\ell,t), \,\, t \gt 0 </mrow>
+      </md>
+    </p>
+
+    <p>
+      Let us make the (strikingly strong) assumption that a solution takes the form <m>u(x,t) = X(x) T(t)</m>; that is, the function is independently responsive to <m>x</m> and <m>t</m>. The reason to do so is immediately apparent on calculating derivatives.
+      <md>
+        <mrow>u(x,t) \amp= X(x)T(t) </mrow>
+        <mrow>u_{xx} \amp= X''(x)T(t) </mrow>
+        <mrow>u_{tt} \amp= X(x) T''(t). </mrow>
+      </md>
+      Plugging into the PDE then gives
+      <me>
+        X(x)T''(t) = c^2 X(x)''T(t).
+      </me>
+      Dividing through (and introducing a convenient negative sign) gives
+      <me>
+        -\frac{T''}{c^2 T} = -\frac{X''}{X} = \la
+      </me>
+      for some constant <m>\la</m>. The justification for these expressions being equal to some mutual constant <m>\la</m> comes from either taking partial derivatives with respect to <m>x, t</m> or from observing that these expressions are equal for all values of the independent variables <m>x, t</m>, which can only happen if they are constant. This gives rise to two separated equations.
+      <md>
+        <mrow>T''(t) + \la c^2 T(t) \amp= 0 </mrow>
+        <mrow>X''(x) +\la X(x) \amp= 0. </mrow>
+      </md>
+    </p>
+
+    <p>
+      The solutions to the two equations will depend on the sign of the constant <m>\la</m>. For the moment, let us consider the case where <m>\la \gt 0</m> so that we can write <m>\la = \beta^2</m> for some positive constant <m>\beta</m>. In this case, the solutions to the equations are
+      <md>
+        <mrow>X \amp= C \cos(\beta x) + D \sin(\beta x) </mrow>
+        <mrow>T \amp= A \cos(\beta c t) + B \sin(\beta c t). </mrow>
+      </md>
+      We now apply the initial conditions to get more information about the form of the solutions. Since <m>u(0,t) = 0 = X(0)T(t)</m> for all <m>t</m>, it must be that <m>X(0) = 0</m>. Hence, <m>C = 0</m>. Likewise, <m>u(\ell, 0) = 0</m> gives 
+      <me>
+        X(\ell) = D\sin(\beta \ell) = 0.
+      </me>
+      Since <m>D = 0</m> gives the trivial solution in <m>X</m>, it must be that <m>\sin(\beta \ell) = 0</m>. Then the possible values of <m>\beta</m> are <m>\beta = \frac{n \pi}{\ell}</m> for any positive integer <m>n</m>. That is, each <m>n</m> gives a distinct <m>\beta</m> and hence a distinct solution to the differential equation. Let us then say <m>\beta_n = \frac{n \pi}{\ell}</m> and <m>\la_n = \left(\frac{n \pi}{\ell}\right)^2</m>. Consequently, 
+      <me>
+        X_n = \sin\left(\frac{n \pi x}{\ell} \right)  
+      </me>
+      is a solution to <m>X'' + \la X = 0</m> and the corresponding solution to <m>T'' + \la c^2 T = 0</m> is
+      <me>
+        T_n = A_n \cos(\frac{n \pi c t}{\ell}) + B_n \sin(\frac{n \pi c t}{\ell}).
+      </me>
+      So for each <m>n</m>,
+      <me>
+        u_n = (A_n \cos(\frac{n \pi c t}{\ell}) + B_n \sin(\frac{n \pi c t}{\ell}))\sin\left(\frac{n \pi x}{\ell} \right) 
+      </me>
+      is asolution to the boundary value problem. As the PDE is linear, the principle of superposition tells us that
+      <me>
+        u(x,t) = \sum_{n=1}^N (A_n \cos(\frac{n \pi c t}{\ell}) + B_n \sin(\frac{n \pi c t}{\ell}))\sin\left(\frac{n \pi x}{\ell} \right) 
+      </me>
+      is also a solution.
+    </p>
+
+    <p>What about the other possibilties for <m>\la</m>? If <m>\la = 0</m>, then we are solving the problem 
+      <me>
+        X'' = 0,
+      </me>
+      which has solution <m>X = ax + b</m> for constants <m>a,b</m>. Since <m>X(0) = 0 = b</m>, this require that <m>b = 0</m>. Since <m>X(\ell) = 0 = a \ell</m>, this requires that <m>a = 0</m> and hence that the only solution is the trivial solution <m>X = 0 </m>. Hence, <m>\la \neq 0</m>. What if <m>\la \lt 0</m>? Then write <m>\la = -\gamma^2</m> for some positive constant <m>\gamma</m>. Then the equation we are trying to solve is <m>X'' - \gamma^2 X = 0</m> which has solutions of the form
+      <me>
+        X = A \cosh \gamma x + B \sinh \gamma x.
+      </me>
+      The initial conditions require that
+      <me>
+        X(0) = 0 = A \cosh(0) + B \sinh(0) = A,
+      </me>
+      which means that <m>A = 0</m>. On the other hand,
+      <me>
+        X(\ell) = 0 = B \sinh(\gamma \ell) = 0,
+      </me>
+      which requires that <m>B = 0</m>. Hence <m>X = 0</m> is again the only soluition to the equation, and hence <m>\la</m> is not negative. Then solutions corresponding to the possible positive values of <m>\la</m> describe the entire solution space <em>under the assumption that the solution is separated</em>.
+    </p>
+      
+
+    <p>Suppose that we had started the boundary value problem with an initial condition <m>u(x,0) = \phi(x), u_t(x,0) = \psi(x)</m>. Applying the initial condition our solution <m>u</m> would  say that the IVP was solvable with solution <m>u</m> precisely when
+      <me>
+        \phi(x) = \sum_{n=1}^N A_n \sin\left(\frac{n \pi x}{\ell} \right)
+      </me>
+      and 
+      <me>
+        \psi(x) = \sum_{n=1}^N B_n \frac{\pi n c}{\ell} \sin\left(\frac{n \pi x}{\ell} \right).
+      </me>
+      Fourier's insight was that these observations should also hold if <m>N \to \infty</m> (which should at least be plausible if we could construct some sequences <m>\{A_n\}, \{B_n\}</m> so that the series all converge), but then we are faced with the following (rather difficult) question: for which functions <m>\phi</m> does it hold that one can find a sequence <m>\{A_n\}</m> so that <m>\phi(x) = \sum_{n = 1}^\infty A_n \sin(\frac{\pi n x}{\ell})</m>? This is the central question that will lead us into the study of Fourier series.
+    </p>
+
+    <p>A similar analysis on the problem
+      <md>
+        <mrow>DE: \,\, \amp u_t = k u_{xx} </mrow>
+        <mrow>BC: \,\, \amp u(0,t) = 0 = u(\ell,t) </mrow>
+        <mrow>IC: \,\, \amp u(x,0) = \phi(x) </mrow>
+      </md>
+      leads to the solution 
+      <me>
+        u(x, t) = \sum_{n=1}^\infty A_n e^{- (\frac{\pi n}{\ell})^2 kt} \sin\left(\frac{n \pi x}{\ell} \right)
+      </me>
+      provided that a sequence <m>\{A_n\}</m> exists so that
+      <me>
+        \phi(x) = \sum_{n=1}^\infty A_n \sin\left(\frac{n\pi x}{\ell}\right).  
+      </me>
+      That is, the same requirement about the nature of <m>\phi</m> holds.
+    </p>
+  </subsection>
+
+  <subsection xml:id="subsec-eigenvalues">
+    <title>Eigenvalues and Eigenfunction.</title>
+    <p>
+    We can view the process we used above as linear algebraic in nature. If we rewrite the equation <m>X'' + \la X = 0</m> in the form
+    <me>
+      -D^2 X = \la X, 
+    </me>
+    we should be reminded of the eigenvalue/eigenvector equation <m>A v = \la v</m> where <m>\la</m> is an eigenvalue and <m>v</m> is an eigenvector. Certainly <m>-D^2</m> is a linear operator, and so we use the same terminology here: if <m>X</m> is a function and <m>\la</m> is a number so that <m>-D^2 X = \la X</m>, we say that <m>X</m> is an <em>eigenfunction</em> of <m>-D^2</m> and that <m>\la</m> is the corresponding eigenvalue. When we impose boundary conditions, we restrict the possible eigenvalue/eigenfunction pairs for the operator <m>-D^2</m>. A shorthand description of the process that we took above might be that we assumed <m>u = XT</m>, solved for the possible forms of the eigenfunctions, and then worked backwards to find the possible eigenvalues. We then asserted that the subspace of solutions spanned by the product of eigenfunctions in <m>x</m> and <m>t</m> solves an initial value problem if the initial condition <m>\phi(x)</m> is in the span of the eigenfunctions in <m>x</m>. For example, in the last subsection, given the wave equation with Dirichlet boundary conditions, we found that the equation <m>-D^2 X = \la X</m> has eigenvalues <m>\la_n = \left(\frac{n\pi}{\ell}\right)^2</m> with corresponding eigenfunctions <m>X_n = \sin(\frac{n \pi x}{\ell})</m>.
+    </p>
+  </subsection>
+
+  <subsection xml:id="subsec-neumann">
+    <title>Neumann conditions</title>
+    <p>Let us consider the case where the initial conditions are Neumann- that is, we describe the normal derivative at the boundary. In particular, let us look at the diffusion equation given by
+      <md>
+        <mrow>DE: \,\, \amp u_t = k u_{xx} </mrow>
+        <mrow>BC: \,\, \amp u_x(0,t) = 0 = u_x(\ell,t) </mrow>
+        <mrow>IC: \,\, \amp u(x,0) = \phi(x) </mrow>
+      </md>
+      which corresponds to a heated rod of finite length with insulated ends. As before, let us assume that <m>u(x,t) = X(x) T(x)</m> is a separated solution. This leads to the system of equations
+            <md>
+        <mrow>T'(t) + \la k T(t) \amp= 0 </mrow>
+        <mrow>X''(x) +\la X(x) \amp= 0. </mrow>
+      </md>
+      Regardless of the sign of <m>\la</m>, we have the solution <m>T(t) = e^{-k\la t}</m>. As before, we'll use the equation in <m>X</m> and the boundary conditions to extract more information about the nature of the solutions. 
+    </p>
+
+    <p>As before, start with the assumption that <m>\la \gt 0</m> so that our solutions have the form
+      <me>
+        X = C \cos\beta x + D \sin \beta x,  
+      </me>
+      and so 
+      <me>
+        X' = - C\beta \sin \beta x + D \beta \cos \beta x.
+      </me>
+      Now we are in position to apply our boundary conditions, which imply that <m>X'(0) = 0 = X'(\ell)</m>. First,
+      <me>
+        X'(0) = 0 = C\beta \sin 0 + D \beta \cos 0,
+      </me>
+      so <m>D = 0</m>.
+      Since
+      <me>
+        X'(\ell) = 0 = -C\beta\sin(\beta \ell),
+      </me>
+      we must have that <m>\beta = \frac{n \pi}{\ell}</m> for some integer <m>n</m>. Then the eigenvalues of the problem are <m>\la = \left(\frac{n \pi}{\ell}\right)^2</m> and the corresponding eigenfunctions are <m>X_n = \cos\left(\frac{n \pi x}{\ell}\right)</m>.
+      
+      
+    </p>
+
+    
+  </subsection>
+
+</section>
