@@ -127,6 +127,51 @@ var ptx_lunr_docs = [
   "body": " Lecture 5 - Wave equation on the line   In this section, we'll solve the wave equation in the general case. We start here because the operator that defines the wave equation has very nice algebraic properties.    Solution by factoring the operator  Consider the equation where . Writing this in operator form, we have which factors as There are two ways that this equation can hold for a function . The first is that . Solving note that must be constant on lines parallel to the vector , which means is constant along lines of the form for constants . As we've seen in earlier sections, this mean that such functions must take the form for some arbitrary function .  The other possibility is that for some non-zero function in which case we need to solve the equation Following the same idea as before, we conclude that for some arbitrary function . Of course, we aren't done, as we seek solutions . That is, we must now solve the equation which is equivalent to Note that if where , then and hence solves . Then the general solution to the differential equation is of the form of a linear combination of our two arbitrary solutions:   Right away, we can interpret what this means. The solutions to the wave equation on the line correspond to functions traveling in opposite directions on the line as time tends from to . A Desmos workbook with some demonstration solutions can be found here.    "
 },
 {
+  "id": "sec-lecture-6",
+  "level": "1",
+  "url": "sec-lecture-6.html",
+  "type": "Section",
+  "number": "2.1",
+  "title": "Lecture 6 - Diffusion",
+  "body": " Lecture 6 - Diffusion  To be added.  "
+},
+{
+  "id": "sec-lecture-7",
+  "level": "1",
+  "url": "sec-lecture-7.html",
+  "type": "Section",
+  "number": "2.2",
+  "title": "Lecture 7 - Energy method",
+  "body": " Lecture 7 - Energy method  To be added.  "
+},
+{
+  "id": "sec-lecture-8",
+  "level": "1",
+  "url": "sec-lecture-8.html",
+  "type": "Section",
+  "number": "2.3",
+  "title": "Lecture 8 - Diffusion on the half line",
+  "body": " Lecture 8 - Diffusion on the half line  To be added.  "
+},
+{
+  "id": "sec-lecture-9",
+  "level": "1",
+  "url": "sec-lecture-9.html",
+  "type": "Section",
+  "number": "2.4",
+  "title": "Lecture 9 - Separation of variables",
+  "body": " Lecture 9 - Separation of variables   Recall that the general solution to the ODE can be written in the form   We're going to apply that idea to certain type of PDE by a method called separation of variables .    Dirichlet conditions  Consider the Dirichlet problem   Let us make the (strikingly strong) assumption that a solution takes the form ; that is, the function is independently responsive to and . The reason to do so is immediately apparent on calculating derivatives. Plugging into the PDE then gives Dividing through (and introducing a convenient negative sign) gives for some constant . The justification for these expressions being equal to some mutual constant comes from either taking partial derivatives with respect to or from observing that these expressions are equal for all values of the independent variables , which can only happen if they are constant. This gives rise to two separated equations.   The solutions to the two equations will depend on the sign of the constant . For the moment, let us consider the case where so that we can write for some positive constant . In this case, the solutions to the equations are We now apply the initial conditions to get more information about the form of the solutions. Since for all , it must be that . Hence, . Likewise, gives Since gives the trivial solution in , it must be that . Then the possible values of are for any positive integer . That is, each gives a distinct and hence a distinct solution to the differential equation. Let us then say and . Consequently, is a solution to and the corresponding solution to is So for each , is asolution to the boundary value problem. As the PDE is linear, the principle of superposition tells us that is also a solution.  What about the other possibilties for ? If , then we are solving the problem which has solution for constants . Since , this require that . Since , this requires that and hence that the only solution is the trivial solution . Hence, . What if ? Then write for some positive constant . Then the equation we are trying to solve is which has solutions of the form The initial conditions require that which means that . On the other hand, which requires that . Hence is again the only soluition to the equation, and hence is not negative. Then solutions corresponding to the possible positive values of describe the entire solution space under the assumption that the solution is separated .  Suppose that we had started the boundary value problem with an initial condition . Applying the initial condition our solution would say that the IVP was solvable with solution precisely when and Fourier's insight was that these observations should also hold if (which should at least be plausible if we could construct some sequences so that the series all converge), but then we are faced with the following (rather difficult) question: for which functions does it hold that one can find a sequence so that ? This is the central question that will lead us into the study of Fourier series.  A similar analysis on the problem leads to the solution provided that a sequence exists so that That is, the same requirement about the nature of holds.    Eigenvalues and Eigenfunction.  We can view the process we used above as linear algebraic in nature. If we rewrite the equation in the form we should be reminded of the eigenvalue\/eigenvector equation where is an eigenvalue and is an eigenvector. Certainly is a linear operator, and so we use the same terminology here: if is a function and is a number so that , we say that is an eigenfunction of and that is the corresponding eigenvalue. When we impose boundary conditions, we restrict the possible eigenvalue\/eigenfunction pairs for the operator . A shorthand description of the process that we took above might be that we assumed , solved for the possible forms of the eigenfunctions, and then worked backwards to find the possible eigenvalues. We then asserted that the subspace of solutions spanned by the product of eigenfunctions in and solves an initial value problem if the initial condition is in the span of the eigenfunctions in . For example, in the last subsection, given the wave equation with Dirichlet boundary conditions, we found that the equation has eigenvalues with corresponding eigenfunctions .    Neumann conditions  Let us consider the case where the initial conditions are Neumann- that is, we describe the normal derivative at the boundary. In particular, let us look at the diffusion equation given by which corresponds to a heated rod of finite length with insulated ends. As before, let us assume that is a separated solution. This leads to the system of equations Regardless of the sign of , we have the solution . As before, we'll use the equation in and the boundary conditions to extract more information about the nature of the solutions.  As before, start with the assumption that so that our solutions have the form and so Now we are in position to apply our boundary conditions, which imply that . First, so . Since we must have that for some integer . Then the eigenvalues of the problem are and the corresponding eigenfunctions are .   "
+},
+{
+  "id": "sec-lecture-10",
+  "level": "1",
+  "url": "sec-lecture-10.html",
+  "type": "Section",
+  "number": "2.5",
+  "title": "Lecture 10 - Fourier stuff",
+  "body": " Lecture 10 - Fourier stuff  In progress.  "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",
