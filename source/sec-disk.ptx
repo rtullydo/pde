@@ -196,7 +196,7 @@
       <me>
         R_m(\rho) = k_m J_m(\rho) + d_m Y_m(\rho).
       </me>
-      Since the functions <m>Y_m</m> are unbounded, and we are considering a drum membrane, it should be that <m>\lim_{\rho \to 0} \abs{R_m(\rho)} \lt \infty</m>, which implies that <m>D_m = 0</m> for all <m>m</m>. Our other boundary condition is that <m>R_m(1) = 0</m>, which was in the <m>r</m> variable. Since <m>\rho = \sqrt{\la}r</m>, we have <m>r=1 \Rightarrow \rho = \sqrt{la}</m>. This means that 
+      Since the functions <m>Y_m</m> are unbounded, and we are considering a drum membrane, it should be that <m>\lim_{\rho \to 0} \abs{R_m(\rho)} \lt \infty</m>, which implies that <m>D_m = 0</m> for all <m>m</m>. Our other boundary condition is that <m>R_m(1) = 0</m>, which was in the <m>r</m> variable. Since <m>\rho = \sqrt{\la}r</m>, we have <m>r=1 \Rightarrow \rho = \sqrt{\la}</m>. This means that 
       <me>
         R_m(\sqrt{\la}) = k_m J_m(\sqrt{\la}) = 0.
       </me>
