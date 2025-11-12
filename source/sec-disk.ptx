@@ -50,7 +50,7 @@
           </output>
         </sage>
 
-      <p>Each new value of <m>n</m> adds another crossing to the <m>x</m>-axis in <m>[0,1</m>.
+      <p>Each new value of <m>n</m> adds another crossing to the <m>x</m>-axis in <m>[0,1]</m>.
       </p>
 
       <p>As Bessel's equation is second order, we expect a second linearly independent solution. If <m>\alpha</m> is not an integer, then the <em>Bessel function of the second kind of order <m>\alpha</m></em> is 
@@ -128,7 +128,7 @@
 
     <p>We're going to need a polar version of the wave equation, which in turn requires a polar version of the Laplace operator <m>\Delta u = u_{xx} + u_{yy}.</m> It turns out that the standard polar coordinate change, the chain rule, and a lot of elbow grease will be us to 
       <me>
-        \Delta u = u_{rr} + \frac{1}{r} u_r + \frac{1}{r^2} u_{\theta theta}.
+        \Delta u = u_{rr} + \frac{1}{r} u_r + \frac{1}{r^2} u_{\theta \theta}.
       </me>
     In this setting, the wave equation becomes
       <me>
