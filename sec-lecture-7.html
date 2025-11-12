@@ -14,7 +14,7 @@
 <meta property="og:type" content="book">
 <meta property="book:title" content="Notes on PDE">
 <meta property="book:author" content="Ryan Tully-Doyle">
-<script>
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
 var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
   "tex": {
@@ -41,7 +41,24 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
   },
   "chtml": {
     "scale": 0.98,
@@ -263,6 +280,19 @@ window.MathJax = {
 </ul>
 </li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-lecture-10.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Lecture 10 - Fourier stuff</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-disk-vibrations.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Vibrations on a disk</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-disk-vibrations.html#subsec-bessel-s-equation" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Bessel’s equation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-disk-vibrations.html#subsec-bessel-s-equation-2" class="internal"><span class="codenumber">2.6.1.1</span> <span class="title">Bessel functions</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-disk-vibrations.html#subsubsec-Besselexpansions" class="internal"><span class="codenumber">2.6.1.2</span> <span class="title">Bessel expansions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-disk-vibrations.html#subsec-radial-vibrations" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Radial Vibrations</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>

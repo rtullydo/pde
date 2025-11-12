@@ -172,6 +172,60 @@ var ptx_lunr_docs = [
   "body": " Lecture 10 - Fourier stuff  In progress.  "
 },
 {
+  "id": "sec-disk-vibrations",
+  "level": "1",
+  "url": "sec-disk-vibrations.html",
+  "type": "Section",
+  "number": "2.6",
+  "title": "Vibrations on a disk",
+  "body": " Vibrations on a disk   Bessel's equation   Bessel functions  Consider the ordinary differential equation This is known as Bessel's equation of order . Bessel's equation has a regular singular point at , which means that we expect at least one of the solutions to be a Frobenius series: The usual method for solving for the coefficients is to plug the series into the differential equation. Doing so here leads to the Bessel function of the first kind of order ,  Here, the is the Gamma function, which satisfies and generalizes the factorial function. Indeed, . In the special case where is a positive integer, we get the simpler   Bessel functions have interesting behavior - they are oscillatory, but in a non-periodic way. Here are some plots of the first few Bessel functions of integer order.   We might be interested in scaling a Bessel function so that it oscillates a fixed number of times in a given interval. This is more difficult than with a periodic function like , where choosing a value of the positive integer will determine the number of whole periods contained in an interval. Often, we'll be interested in placing a zero of at the end of the interval. It can be shown that each Bessel function has an infinite number of zeros; let us denote the th zero of the Bessel function by . Every mathematical programming language has commands for computing the zeros of Bessel functions.   Each new value of adds another crossing to the -axis in .  As Bessel's equation is second order, we expect a second linearly independent solution. If is not an integer, then the Bessel function of the second kind of order is For integer order , we define Here are some Bessel functions of the second kind of integer order:   An immediately obvious feature is that these functions are all unbounded at , which will be worth considering when using Bessel functions to describe physical problems.    Bessel expansions  We're going to be using the functions to model vibrations on intervals of fixed length (say ). If we imagine that the vibrating medium is fixed at one end of the interval, each value of will lead to a family of possible vibrations depending on how many \"wiggles\" the function takes between the origin and the fixed end at . Given some initial conditions, it would be nice to be able to decompose these into a Bessel function expansion. The following theorems provide a useful way for producing such an expansion.    The family of functions is an orthogonal basis for the weighted L^2 space on with weighted inner product .    For convenience, we'll denoted this weighted space by .   Fourier-Bessel Expansion   Suppose that . Then has a Bessel function expansion where     One way to think about this type of expansion is that we're decomposing into a series of vibrations of overall mode that build it up (very much like periodic functions being approximated by sines and cosines). Note that for each  , we get another basis.     Radial Vibrations  Let us consider vibrations of a drumhead attached to a circular hoop. Suppose the membrane is attached to the hoop, which has radius (by rescaling, we can easily adjust this to have any radius we choose). As we're working in a circular domain, we'll use polar coordinates, so that every point in the disk can be written where and .  We're going to need a polar version of the wave equation, which in turn requires a polar version of the Laplace operator It turns out that the standard polar coordinate change, the chain rule, and a lot of elbow grease will be us to In this setting, the wave equation becomes Then the system we're interested in is   Now we'll proceed by separation of variables. Let . Under this substitution, the equation becomes which after clearing denominators is As usual, we set equal functions of independent variables equal to a constant. We get our first equation here, and we expect the solutions to oscillate from the physical problem, which gives and   To separate the other variables, first write then finish the separation step by multiplying through by to get Our second equation is which has the hidden boundary condition and , conditions that hold as the drum membrane should be continuous and smooth as we pass through the negative -axis. These are periodic boundary conditions, and imposing them leads to the conculusion that for non-negative integers and that for each such we have   Now let us turn to the third equation, which is or after clearing out the in the denominator and substituting in for , Evidently, this is a form of Bessel's equation. We can state the exact form we described above by making the change of variables , to get which is precisely the Bessel equation of integer order . One form of the general solution to this equation is a linear combination of Bessel functions, Since the functions are unbounded, and we are considering a drum membrane, it should be that , which implies that for all . Our other boundary condition is that , which was in the variable. Since , we have . This means that This equation can only be true when for some zero of . That is, we know that for each , it must be that where . Hence, for each ,   We can now also definitively state the form of as well: We can now state the full form of our solution . This looks admittedly daunting. It easier to understand if we think of just the spatial functions , each of which represents a mode of vibration determined entirely by . Because of the periodicity of , each value of corresponds to a fixed number of \"nodal lines\", which will have constant value . Likewise, the integer represents the number of \"turns\" the Bessel function takes in the interval , which when swept out in a circle create \"nodal circles\". Here are some images to help visualize the situation.   The Bessel mode     The Bessel mode    Finally, here's a rendition of a combination of modes.   The Bessel mode     "
+},
+{
+  "id": "thm-bessel-basis",
+  "level": "2",
+  "url": "sec-disk-vibrations.html#thm-bessel-basis",
+  "type": "Theorem",
+  "number": "2.6.1",
+  "title": "",
+  "body": "  The family of functions is an orthogonal basis for the weighted L^2 space on with weighted inner product .   "
+},
+{
+  "id": "thm-bessel-fourier",
+  "level": "2",
+  "url": "sec-disk-vibrations.html#thm-bessel-fourier",
+  "type": "Theorem",
+  "number": "2.6.2",
+  "title": "Fourier-Bessel Expansion.",
+  "body": " Fourier-Bessel Expansion   Suppose that . Then has a Bessel function expansion where    "
+},
+{
+  "id": "fig_bessel12",
+  "level": "2",
+  "url": "sec-disk-vibrations.html#fig_bessel12",
+  "type": "Figure",
+  "number": "2.6.3",
+  "title": "",
+  "body": " The Bessel mode   "
+},
+{
+  "id": "fig_bessel04",
+  "level": "2",
+  "url": "sec-disk-vibrations.html#fig_bessel04",
+  "type": "Figure",
+  "number": "2.6.4",
+  "title": "",
+  "body": " The Bessel mode   "
+},
+{
+  "id": "fig_besselmixed",
+  "level": "2",
+  "url": "sec-disk-vibrations.html#fig_besselmixed",
+  "type": "Figure",
+  "number": "2.6.5",
+  "title": "",
+  "body": " The Bessel mode   "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",

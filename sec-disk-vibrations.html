@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Vibrations on a disk</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Notes on PDE">
+<meta property="book:author" content="Ryan Tully-Doyle">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="pdenotes.html"><span class="title">Notes on PDE</span></a></h1>
+<p class="byline">Ryan Tully-Doyle</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-lecture-10.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-unit-1.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(  \DeclareMathOperator{\RE}{Re}
+\DeclareMathOperator{\IM}{Im}
+\DeclareMathOperator{\ess}{ess}
+\DeclareMathOperator{\intr}{int}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator\trace{trace}
+\DeclareMathOperator\re{\mathrm {Re~}}
+\DeclareMathOperator\im{\mathrm {Im~}}
+\newcommand\dd{\mathrm d}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\hilbert}{\mathcal{H}}
+\newcommand{\HH}{\mathcal{H}}
+\newcommand{\s}{\mathcal{S}_2}
+\newcommand{\A}{\mathcal{A}}
+\newcommand\h{\mathcal{H}}
+\newcommand{\J}{\mathcal{J}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathcal{N}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\W}{\mathcal{W}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\BOP}{\mathbf{B}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\BH}{\mathbf{B}(\mathcal{H})}
+\newcommand{\KH}{\mathcal{K}(\mathcal{H})}
+\newcommand{\pick}{\mathcal{P}_2}
+\newcommand{\schur}{\mathcal{S}_2}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Complex}{\mathbb{C}}
+\newcommand{\Field}{\mathbb{F}}
+\newcommand{\RPlus}{\Real^{+}}
+\newcommand{\Polar}{\mathcal{P}_{\s}}
+\newcommand{\Poly}{\mathcal{P}(E)}
+\newcommand{\EssD}{\mathcal{D}}
+\newcommand{\Lop}{\mathcal{L}(\mathcal{H})}
+\newcommand{\cc}[1]{\overline{#1}}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\seq}[1]{\left\lt#1\right&gt;}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\essnorm}[1]{\norm{#1}_{\ess}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\ran}[1]{\operatorname{ran}#1}
+\newcommand{\nt}{\stackrel{\mathrm {nt}}{\to}}
+\newcommand{\pnt}{\xrightarrow{pnt}}
+\newcommand{\ip}[2]{\left\langle #1, #2 \right\rangle}
+\newcommand{\ad}{^\ast}
+\newcommand{\inv}{^{-1}}
+\newcommand{\adinv}{^{\ast -1}}
+\newcommand{\invad}{^{-1 \ast}}
+\newcommand\Pick{\mathcal P}
+\newcommand\Ha{\mathbb{H}}
+\newcommand\Htau{\mathbb{H}(\tau)}
+\newcommand{\vp}{\varphi}
+\newcommand{\ph}{\varphi}
+\newcommand\al{\alpha}
+\newcommand\ga{\gamma}
+\newcommand\de{\delta}
+\newcommand\ep{\varepsilon}
+\newcommand\la{\lambda}
+\newcommand\up{\upsilon}
+\newcommand\si{\sigma}
+\newcommand\beq{\begin{equation}}
+\newcommand\ds{\displaystyle}
+\newcommand\eeq{\end{equation}}
+\newcommand\df{\stackrel{\rm def}{=}}
+\newcommand\ii{\mathrm i}
+\newcommand{\vectwo}[2]
+{
+   \begin{pmatrix} #1 \\ #2 \end{pmatrix}
+}
+\newcommand{\vecthree}[3]
+{
+   \begin{pmatrix} #1 \\ #2 \\ #3 \end{pmatrix}
+}
+\newcommand\blue{\color{blue}}
+\newcommand\black{\color{black}}
+\newcommand\red{\color{red}}
+\newcommand\nn{\nonumber}
+\newcommand\bbm{\begin{bmatrix}}
+\newcommand\ebm{\end{bmatrix}}
+\newcommand\bpm{\begin{pmatrix}}
+\newcommand\epm{\end{pmatrix}}
+\numberwithin{equation}{section}
+\newcommand\nin{\noindent}
+\newcommand{\nCr}[2]{\,_{#1}C_{#2}} 
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-unit-1.html" class="internal"><span class="codenumber">1</span> <span class="title">Unit 1</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lecture-1.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Lecture 1</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lecture-1.html#sec-lecture-1-2" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Intro to PDE and basic terminology</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lecture-1.html#sec-lecture-1-3" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Solutions to PDE</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lecture-2.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Lecture 2</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lecture-2.html#sec-lecture-2-2" class="internal"><span class="codenumber">1.2.1</span> <span class="title">First Order Linear Equations</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lecture-3.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Lecture 3 - Three fundamental equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lecture-3.html#subsec-diffusion" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Diffusion</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lecture-3.html#subsec-the-wave-equation" class="internal"><span class="codenumber">1.3.2</span> <span class="title">The wave equation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lecture-3.html#subsec-laplace-s-equation" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Laplace’s equation</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lecture-4.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Lecture 4 - Well-posed problems and classification</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lecture-4.html#subsec-note-on-integrals-and-equalities" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Note on integrals and equalities</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lecture-4.html#subsec-well-posed-problems" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Well-posed problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lecture-4.html#subsec-classifying-second-order-pde" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Classifying second order PDE</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lecture-5.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Lecture 5 - Wave equation on the line</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lecture-5.html#subsec-Solution" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Solution by factoring the operator</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-unit-1.html" class="internal"><span class="codenumber">2</span> <span class="title">Unit 2 - All things Fourier</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-lecture-6.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Lecture 6 - Diffusion</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-lecture-7.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Lecture 7 - Energy method</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-lecture-8.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Lecture 8 - Diffusion on the half line</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lecture-9.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Lecture 9 - Separation of variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lecture-9.html#subsec-Dirichlet" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Dirichlet conditions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lecture-9.html#subsec-eigenvalues" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Eigenvalues and Eigenfunction.</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lecture-9.html#subsec-neumann" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Neumann conditions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-lecture-10.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Lecture 10 - Fourier stuff</span></a></div></li>
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="sec-disk-vibrations.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Vibrations on a disk</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-disk-vibrations.html#subsec-bessel-s-equation" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Bessel’s equation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-disk-vibrations.html#subsec-bessel-s-equation-2" class="internal"><span class="codenumber">2.6.1.1</span> <span class="title">Bessel functions</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-disk-vibrations.html#subsubsec-Besselexpansions" class="internal"><span class="codenumber">2.6.1.2</span> <span class="title">Bessel expansions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-disk-vibrations.html#subsec-radial-vibrations" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Radial Vibrations</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-disk-vibrations"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">2.6</span><span class="space"> </span><span class="title">Vibrations on a disk</span>
+</h2>
+<section class="subsection" id="subsec-bessel-s-equation"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.6.1</span><span class="space"> </span><span class="title">Bessel’s equation</span>
+</h3>
+<section class="subsubsection" id="subsec-bessel-s-equation-2"><h4 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="space"> </span><span class="codenumber">2.6.1.1</span><span class="space"> </span><span class="title">Bessel functions</span>
+</h4>
+<div class="para logical" id="subsec-bessel-s-equation-2-2">
+<div class="para">Consider the ordinary differential equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x^2 y'' + x y' + (x^2 - m^2)y = 0.
+\end{equation*}
+</div>
+<div class="para">This is known as <em class="emphasis">Bessel’s equation of order <span class="process-math">\(m\text{.}\)</span></em> Bessel’s equation has a regular singular point at <span class="process-math">\(x = 0\text{,}\)</span> which means that we expect at least one of the solutions to be a Frobenius series:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y_1(x) = x^m \sum_{n=0}^\infty a_n x^n.
+\end{equation*}
+</div>
+<div class="para">The usual method for solving for the coefficients is to plug the series into the differential equation. Doing so here leads to the <em class="emphasis">Bessel function of the first kind of order <span class="process-math">\(m\text{,}\)</span></em>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y(x) = J_m(x) = \sum_{n=0}^\infty \frac{(-1)^n}{\Gamma(n+1)\Gamma(n + m + 1)} \left(\frac{x}{2} \right)^{2n + m}.
+\end{equation*}
+</div>
+<div class="para">Here, the <span class="process-math">\(\Gamma(x)\)</span> is the Gamma function, which satisfies <span class="process-math">\(\Gamma(x+1) = x\Gamma(x)\)</span> and generalizes the factorial function. Indeed, <span class="process-math">\(\Gamma(n+1) = n!\text{.}\)</span> In the special case where <span class="process-math">\(p\)</span> is a positive integer, we get the simpler</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y(x) = J_m(x) = \sum_{n=0}^\infty \frac{(-1)^n}{n! (n+m)!} \left(\frac{x}{2} \right)^{2n + m}.
+\end{equation*}
+</div>
+</div>
+<div class="para" id="subsec-bessel-s-equation-2-3">Bessel functions have interesting behavior - they are oscillatory, but in a non-periodic way. Here are some plots of the first few Bessel functions <span class="process-math">\(J_m(x)\)</span> of integer order.</div>
+<pre id="subsec-bessel-s-equation-2-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">plot([bessel_J(n, x) for n in [0..6]], (x, 0, 20))
+</script></pre>
+<div class="para" id="subsec-bessel-s-equation-2-5">We might be interested in scaling a Bessel function so that it oscillates a fixed number of times in a given interval. This is more difficult than with a periodic function like <span class="process-math">\(\sin n x\text{,}\)</span> where choosing a value of the positive integer <span class="process-math">\(n\)</span> will determine the number of whole periods contained in an interval. Often, we’ll be interested in placing a zero of <span class="process-math">\(J_m\)</span> at the end of the interval. It can be shown that each Bessel function has an infinite number of zeros; let us denote the <span class="process-math">\(n\)</span>th zero of the Bessel function <span class="process-math">\(J_m(x)\)</span> by <span class="process-math">\(j_{mn}\text{.}\)</span> Every mathematical programming language has commands for computing the zeros of Bessel functions.</div>
+<pre id="subsec-bessel-s-equation-2-6" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">from scipy.special import jn_zeros
+zeros = jn_zeros(0,4)
+plot([bessel_J(0, zeros[n]*x) for n in [0..3]], (x, 0, 1))
+</script></pre>
+<div class="para" id="subsec-bessel-s-equation-2-7">Each new value of <span class="process-math">\(n\)</span> adds another crossing to the <span class="process-math">\(x\)</span>-axis in <span class="process-math">\([0,1\text{.}\)</span>
+</div>
+<div class="para logical" id="subsec-bessel-s-equation-2-8">
+<div class="para">As Bessel’s equation is second order, we expect a second linearly independent solution. If <span class="process-math">\(\alpha\)</span> is not an integer, then the <em class="emphasis">Bessel function of the second kind of order <span class="process-math">\(\alpha\)</span></em> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Y_\alpha(x) = \frac{J_\alpha(x) \cos(\alpha x) - J_{-\alpha}(x)}{\sin(\alpha x)}.
+\end{equation*}
+</div>
+<div class="para">For integer order <span class="process-math">\(m\text{,}\)</span> we define</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Y_m(x) = \lim_{\alpha \to m} Y_\alpha(x).
+\end{equation*}
+</div>
+<div class="para">Here are some Bessel functions of the second kind of integer order:</div>
+</div>
+<pre id="subsec-bessel-s-equation-2-9" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">plot([bessel_Y(n, x) for n in [0..6]], (x, 0, 20),ymin=-1, ymax = 1)
+</script></pre>
+<div class="para" id="subsec-bessel-s-equation-2-10">An immediately obvious feature is that these functions are all unbounded at <span class="process-math">\(x=0\text{,}\)</span> which will be worth considering when using Bessel functions to describe physical problems.</div></section><section class="subsubsection" id="subsubsec-Besselexpansions"><h4 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="space"> </span><span class="codenumber">2.6.1.2</span><span class="space"> </span><span class="title">Bessel expansions</span>
+</h4>
+<div class="para" id="subsubsec-Besselexpansions-2">We’re going to be using the functions <span class="process-math">\(J_m\)</span> to model vibrations on intervals of fixed length (say <span class="process-math">\([0,1]\)</span>). If we imagine that the vibrating medium is fixed at one end of the interval, each value of <span class="process-math">\(m\)</span> will lead to a family of possible vibrations depending on how many "wiggles" the function takes between the origin and the fixed end at <span class="process-math">\(x=1\text{.}\)</span> Given some initial conditions, it would be nice to be able to decompose these into a Bessel function expansion. The following theorems provide a useful way for producing such an expansion.</div>
+<article class="theorem theorem-like" id="thm-bessel-basis"><h5 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.6.1</span><span class="period">.</span>
+</h5>
+<div class="para" id="thm-bessel-basis-1-1">The family of functions <span class="process-math">\(\{J_m(j_{mn} x)\}_{n=0}^\infty\)</span> is an orthogonal basis for the <em class="emphasis">weighted L^2 space</em> on <span class="process-math">\([0,1]\)</span> with weighted inner product <span class="process-math">\(\langle f, g \rangle = \int_0^1 f(x) g(x) \, xdx\text{.}\)</span>
+</div></article><div class="para" id="subsubsec-Besselexpansions-4">For convenience, we’ll denoted this weighted <span class="process-math">\(L^2\)</span> space by <span class="process-math">\(L^2([0,1], xdx)\text{.}\)</span>
+</div>
+<article class="theorem theorem-like" id="thm-bessel-fourier"><h5 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.6.2</span><span class="period">.</span><span class="space"> </span><span class="title">Fourier-Bessel Expansion.</span>
+</h5>
+<div class="para logical" id="thm-bessel-fourier-2-1">
+<div class="para">Suppose that <span class="process-math">\(f \in L^2([0,1], xdx)\text{.}\)</span> Then <span class="process-math">\(f\)</span> has a Bessel function expansion</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x) = \sum_{n=0}^\infty c_n J_m(j_{mn}x)
+\end{equation*}
+</div>
+<div class="para">where</div>
+<div class="displaymath process-math">
+\begin{equation*}
+c_n = \frac{\langle f(x), J_m(j_{mn} x )\rangle}{\norm{ J_m(j_{mn} x)}^2}.
+\end{equation*}
+</div>
+</div></article><div class="para" id="subsubsec-Besselexpansions-6">One way to think about this type of expansion is that we’re decomposing <span class="process-math">\(f\)</span> into a series of vibrations of overall mode <span class="process-math">\(m\)</span> that build it up (very much like periodic functions being approximated by sines and cosines). Note that for <em class="emphasis">each</em> <span class="process-math">\(m\text{,}\)</span> we get another basis.</div></section></section><section class="subsection" id="subsec-radial-vibrations"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.6.2</span><span class="space"> </span><span class="title">Radial Vibrations</span>
+</h3>
+<div class="para" id="subsec-radial-vibrations-2">Let us consider vibrations of a drumhead attached to a circular hoop. Suppose the membrane is attached to the hoop, which has radius <span class="process-math">\(1\)</span> (by rescaling, we can easily adjust this to have any radius we choose). As we’re working in a circular domain, we’ll use polar coordinates, so that every point in the disk <span class="process-math">\(D\)</span> can be written <span class="process-math">\((r, \theta)\)</span> where <span class="process-math">\(0 \lt r \lt 1\)</span> and <span class="process-math">\(-\pi \lt \theta \lt \pi\text{.}\)</span>
+</div>
+<div class="para logical" id="subsec-radial-vibrations-3">
+<div class="para">We’re going to need a polar version of the wave equation, which in turn requires a polar version of the Laplace operator <span class="process-math">\(\Delta u = u_{xx} + u_{yy}.\)</span> It turns out that the standard polar coordinate change, the chain rule, and a lot of elbow grease will be us to</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Delta u = u_{rr} + \frac{1}{r} u_r + \frac{1}{r^2} u_{\theta theta}.
+\end{equation*}
+</div>
+<div class="para">In this setting, the wave equation becomes</div>
+<div class="displaymath process-math">
+\begin{equation*}
+u_{tt} =c^2 \Delta u = c^2(u_{rr} + \frac{1}{r} u_r + \frac{1}{r^2} u_{\theta \theta}).  
+\end{equation*}
+</div>
+<div class="para">Then the system we’re interested in is</div>
+<div class="displaymath process-math" id="subsec-radial-vibrations-3-4">
+\begin{align*}
+DE: \,\, \amp u_{tt} =c^2 \Delta u = c^2(u_{rr} + \frac{1}{r} u_r + \frac{1}{r^2} u_{\theta theta}) \\
+BC: \,\, \amp u(1, \theta, t) = 0 \\
+IC: \,\, \amp u(r,\theta, 0) = f(r, \theta) \\
+\amp u_t(r, \theta, 0) = g(r, \theta). 
+\end{align*}
+</div>
+</div>
+<div class="para logical" id="subsec-radial-vibrations-4">
+<div class="para">Now we’ll proceed by separation of variables. Let <span class="process-math">\(u(r, \theta, t) = R(r) \Theta(\theta) T(t)\text{.}\)</span> Under this substitution, the equation becomes</div>
+<div class="displaymath process-math">
+\begin{equation*}
+T'' R\Theta = c^2(R'' \Theta T + \frac{1}{r} R' \Theta T + \frac{1}{r^2} R \Theta'' T)
+\end{equation*}
+</div>
+<div class="para">which after clearing denominators is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{T''}{c^2 T} = \frac{R''}{R} + \frac{1}{r} \frac{R'}{R} + \frac{1}{r^2} \frac{\Theta''}{\Theta} = -\lambda.
+\end{equation*}
+</div>
+<div class="para">As usual, we set equal functions of independent variables equal to a constant. We get our first equation here,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+T'' + c^2 \la T = 0,
+\end{equation*}
+</div>
+<div class="para">and we expect the solutions to oscillate from the physical problem, which gives <span class="process-math">\(&gt;\la \gt 0\)</span> and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+T(t) = e \cos(c\sqrt{\la}t) + f\sin(c\sqrt{\la}t).
+\end{equation*}
+</div>
+</div>
+<div class="para logical" id="subsec-radial-vibrations-5">
+<div class="para">To separate the other variables, first write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{R''}{R} + \frac{1}{r} \frac{R'}{R} +\la = -\frac{1}{r^2}\frac{\Theta''}{\Theta} 
+\end{equation*}
+</div>
+<div class="para">then finish the separation step by multiplying through by <span class="process-math">\(-r^2\)</span> to get</div>
+<div class="displaymath process-math">
+\begin{equation*}
+-r^2\frac{R''}{R} - r \frac{R'}{R} -\la r^2 = \frac{\Theta''}{\Theta} = - \mu.
+\end{equation*}
+</div>
+<div class="para">Our second equation is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Theta'' + \mu \Theta = 0
+\end{equation*}
+</div>
+<div class="para">which has the hidden boundary condition <span class="process-math">\(\Theta(-\pi) = \Theta(\pi)\)</span> and <span class="process-math">\(\Theta'(-\pi) = \Theta'(\pi)\text{,}\)</span> conditions that hold as the drum membrane should be continuous and smooth as we pass through the negative <span class="process-math">\(x\)</span>-axis. These are periodic boundary conditions, and imposing them leads to the conculusion that <span class="process-math">\(\mu = m^2\)</span> for non-negative integers <span class="process-math">\(m\)</span> and that for each such <span class="process-math">\(m\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Theta_m = a_m \cos(m\theta) + b_m \sin(m \theta).
+\end{equation*}
+</div>
+</div>
+<div class="para logical" id="subsec-radial-vibrations-6">
+<div class="para">Now let us turn to the third equation, which is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+r^2\frac{R''}{R} + r \frac{R'}{R} +\la r^2 - \mu = 0
+\end{equation*}
+</div>
+<div class="para">or after clearing out the <span class="process-math">\(R\)</span> in the denominator and substituting in for <span class="process-math">\(\mu\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+r^2 R'' + r R' + (\la r^2 - m^2) R = 0.
+\end{equation*}
+</div>
+<div class="para">Evidently, this is a form of Bessel’s equation. We can state the exact form we described above by making the change of variables <span class="process-math">\(\rho = \sqrt{\la} r\text{,}\)</span> to get</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\rho^2 R''(\rho) + \rho R'(\rho) + (\rho^2 - m^2) R(\rho) = 0,
+\end{equation*}
+</div>
+<div class="para">which is precisely the Bessel equation of integer order <span class="process-math">\(m\text{.}\)</span> One form of the general solution to this equation is a linear combination of Bessel functions,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+R_m(\rho) = k_m J_m(\rho) + d_m Y_m(\rho).
+\end{equation*}
+</div>
+<div class="para">Since the functions <span class="process-math">\(Y_m\)</span> are unbounded, and we are considering a drum membrane, it should be that <span class="process-math">\(\lim_{\rho \to 0} \abs{R_m(\rho)} \lt \infty\text{,}\)</span> which implies that <span class="process-math">\(D_m = 0\)</span> for all <span class="process-math">\(m\text{.}\)</span> Our other boundary condition is that <span class="process-math">\(R_m(1) = 0\text{,}\)</span> which was in the <span class="process-math">\(r\)</span> variable. Since <span class="process-math">\(\rho = \sqrt{\la}r\text{,}\)</span> we have <span class="process-math">\(r=1 \Rightarrow \rho = \sqrt{la}\text{.}\)</span> This means that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+R_m(\sqrt{\la}) = k_m J_m(\sqrt{\la}) = 0.
+\end{equation*}
+</div>
+<div class="para">This equation can only be true when <span class="process-math">\(\sqrt{\la} = j_{mn}\)</span> for some zero of <span class="process-math">\(J_m\text{.}\)</span> That is, we know that for each <span class="process-math">\(m\text{,}\)</span> it must be that <span class="process-math">\(\la = j_{mn}^2\)</span> where <span class="process-math">\(n = 0, 1, 2, \ldots\text{.}\)</span> Hence, for each <span class="process-math">\(m\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+R_m(r) = \sum_{n=0}^\infty k_{mn} J_m(j_{mn} r).
+\end{equation*}
+</div>
+</div>
+<div class="para logical" id="subsec-radial-vibrations-7">
+<div class="para">We can now also definitively state the form of <span class="process-math">\(T\)</span> as well:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+T_{mn}(t) = e_{mn} \cos(cj_{mn}t) + f_{mn}\sin(cj_{mn}t).
+\end{equation*}
+</div>
+<div class="para">We can now state the full form of our solution <span class="process-math">\(u(r, \theta, t)\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+u(r, \theta, t) = \sum_{m=0}^\infty \sum_{n=0}^\infty J_m(j_{mn} r)(a_m \cos(m\theta) + b_m \sin(m \theta))(e_{mn} \cos(cj_{mn}t) + f_{mn}\sin(cj_{mn}t))
+\end{equation*}
+</div>
+<div class="para">This looks admittedly daunting. It easier to understand if we think of just the spatial functions <span class="process-math">\(J_m(j_{mn} r)(a_m \cos(m\theta) + b_m \sin(m \theta))\text{,}\)</span> each of which represents a <em class="emphasis">mode of vibration</em> determined entirely by <span class="process-math">\(m, n\text{.}\)</span> Because of the periodicity of <span class="process-math">\((a_m \cos(m\theta) + b_m \sin(m \theta))\text{,}\)</span> each value of <span class="process-math">\(m\)</span> corresponds to a fixed number of "nodal lines", which will have constant value <span class="process-math">\(0\text{.}\)</span> Likewise, the integer <span class="process-math">\(n\)</span> represents the number of "turns" the Bessel function takes in the interval <span class="process-math">\([0,1]\text{,}\)</span> which when swept out in a circle create "nodal circles". Here are some images to help visualize the situation.</div>
+</div>
+<figure class="figure figure-like" id="fig_bessel12"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/bessel21.gif" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.6.3<span class="period">.</span></span><span class="space"> </span>The <span class="process-math">\(m=2, n=1\)</span> Bessel mode</figcaption></figure><figure class="figure figure-like" id="fig_bessel04"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/bessel04.gif" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.6.4<span class="period">.</span></span><span class="space"> </span>The <span class="process-math">\(m=0, n=3\)</span> Bessel mode</figcaption></figure><div class="para" id="subsec-radial-vibrations-10">Finally, here’s a rendition of a combination of modes.</div>
+<figure class="figure figure-like" id="fig_besselmixed"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/besselmixed.gif" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.6.5<span class="period">.</span></span><span class="space"> </span>The <span class="process-math">\(m=0, n=3\)</span> Bessel mode</figcaption></figure></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-lecture-10.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>
