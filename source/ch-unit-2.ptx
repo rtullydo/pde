@@ -13,5 +13,6 @@
   <xi:include href="sec-lec8.ptx" />
   <xi:include href="sec-lec9.ptx" />
   <xi:include href="sec-lec10.ptx" />
+  <xi:include href="sec-disk.ptx" />
 
 </chapter>

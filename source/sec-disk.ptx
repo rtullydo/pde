@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-disk-vibrations" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Vibrations on a disk</title>
+  <subsection xml:id="subsec-bessel-s-equation">
+    <title>Bessel's equation</title>
+      <subsubsection>
+        <title>Bessel functions</title>
+        <p>
+        Consider the ordinary differential equation
+        <me>
+          x^2 y'' + x y' + (x^2 - m^2)y = 0.
+        </me>
+        This is known as <em>Bessel's equation of order <m>m</m>.</em> Bessel's equation has a regular singular point at <m>x = 0</m>, which means that we expect at least one of the solutions to be a Frobenius series: 
+        <me>
+          y_1(x) = x^m \sum_{n=0}^\infty a_n x^n.
+        </me>
+        The usual method for solving for the coefficients is to plug the series into the differential equation. Doing so here leads to the <em>Bessel function of the first kind of order <m>m</m>,</em>
+        <me>
+          y(x) = J_m(x) = \sum_{n=0}^\infty \frac{(-1)^n}{\Gamma(n+1)\Gamma(n + m + 1)} \left(\frac{x}{2} \right)^{2n + m}.
+        </me>
+        Here, the <m>\Gamma(x)</m> is the Gamma function, which satisfies <m>\Gamma(x+1) = x\Gamma(x)</m> and generalizes the factorial function. Indeed, <m>\Gamma(n+1) = n!</m>. In the special case where <m>p</m> is a positive integer, we get the simpler 
+        <me>
+          y(x) = J_m(x) = \sum_{n=0}^\infty \frac{(-1)^n}{n! (n+m)!} \left(\frac{x}{2} \right)^{2n + m}.
+        </me>
+        </p>
+
+        <p>Bessel functions have interesting behavior - they are oscillatory, but in a non-periodic way. Here are some plots of the first few Bessel functions <m>J_m(x)</m> of integer order. </p>
+        
+        <sage>
+          <input>
+            plot([bessel_J(n, x) for n in [0..6]], (x, 0, 20))
+          </input>
+          <output>
+          </output>
+        </sage>
+
+        <p>
+          We might be interested in scaling a Bessel function so that it oscillates a fixed number of times in a given interval. This is more difficult than with a periodic function like <m>\sin n x</m>, where choosing a value of the positive integer <m>n</m> will determine the number of whole periods contained in an interval. Often, we'll be interested in placing a zero of <m>J_m</m> at the end of the interval. It can be shown that each Bessel function has an infinite number of zeros; let us denote the <m>n</m>th zero of the Bessel function <m>J_m(x)</m> by <m>j_{mn}</m>. Every mathematical programming language has commands for computing the zeros of Bessel functions.
+        </p>
+
+        <sage>
+          <input>
+            from scipy.special import jn_zeros
+            zeros = jn_zeros(0,4)
+            plot([bessel_J(0, zeros[n]*x) for n in [0..3]], (x, 0, 1))
+          </input>
+          <output>
+            
+          </output>
+        </sage>
+
+      <p>Each new value of <m>n</m> adds another crossing to the <m>x</m>-axis in <m>[0,1</m>.
+      </p>
+
+      <p>As Bessel's equation is second order, we expect a second linearly independent solution. If <m>\alpha</m> is not an integer, then the <em>Bessel function of the second kind of order <m>\alpha</m></em> is 
+        <me>
+          Y_\alpha(x) = \frac{J_\alpha(x) \cos(\alpha x) - J_{-\alpha}(x)}{\sin(\alpha x)}.
+        </me>
+        For integer order <m>m</m>, we define
+        <me>
+          Y_m(x) = \lim_{\alpha \to m} Y_\alpha(x).
+        </me>
+
+        Here are some Bessel functions of the second kind of integer order:
+      </p>
+
+      <sage>
+        <input>
+          plot([bessel_Y(n, x) for n in [0..6]], (x, 0, 20),ymin=-1, ymax = 1)
+        </input>
+        <output>
+        </output>
+      </sage>
+
+      <p>
+        An immediately obvious feature is that these functions are all unbounded at <m>x=0</m>, which will be worth considering when using Bessel functions to describe physical problems.    
+      </p>
+    </subsubsection>
+
+    <subsubsection xml:id="subsubsec-Besselexpansions">
+      <title>Bessel expansions</title>
+      <p>
+        We're going to be using the functions <m>J_m</m> to model vibrations on intervals of fixed length (say <m>[0,1]</m>). If we imagine that the vibrating medium is fixed at one end of the interval, each value of <m>m</m> will lead to a family of possible vibrations depending on how many "wiggles" the function takes between the origin and the fixed end at <m>x=1</m>. Given some initial conditions, it would be nice to be able to decompose these into a Bessel function expansion. The following theorems provide a useful way for producing such an expansion.
+      </p>
+
+      <theorem xml:id="thm-bessel-basis">
+        <statement>
+          <p>
+            The family of functions <m>\{J_m(j_{mn} x)\}_{n=0}^\infty</m> is an orthogonal basis for the <em>weighted L^2 space</em> on <m>[0,1]</m> with weighted inner product <m>\langle f, g \rangle = \int_0^1 f(x) g(x) \, xdx</m>.
+          </p>
+        </statement>
+      </theorem>
+
+      <p>
+        For convenience, we'll denoted this weighted <m>L^2</m> space by <m>L^2([0,1], xdx)</m>.
+      </p>
+      
+
+      <theorem xml:id="thm-bessel-fourier">
+        <title>Fourier-Bessel Expansion</title>
+        <statement>
+          <p>
+            Suppose that <m>f \in L^2([0,1], xdx)</m>. Then <m>f</m> has a Bessel function expansion
+            <me>
+              f(x) = \sum_{n=0}^\infty c_n J_m(j_{mn}x)
+            </me>
+            where
+            <me>
+              c_n = \frac{\langle f(x), J_m(j_{mn} x )\rangle}{\norm{ J_m(j_{mn} x)}^2}.
+            </me>
+            
+            
+          </p>
+        </statement>
+      </theorem>
+
+      <p>One way to think about this type of expansion is that we're decomposing <m>f</m> into a series of vibrations of overall mode <m>m</m> that build it up (very much like periodic functions being approximated by sines and cosines). Note that for <em>each</em> <m>m</m>, we get another basis. </p>
+      
+    </subsubsection>
+  </subsection>
+
+  <subsection xml:id="subsec-radial-vibrations">
+    <title>Radial Vibrations</title>
+    <p>
+      Let us consider vibrations of a drumhead attached to a circular hoop. Suppose the membrane is attached to the hoop, which has radius <m>1</m> (by rescaling, we can easily adjust this to have any radius we choose). As we're working in a circular domain, we'll use polar coordinates, so that every point in the disk <m>D</m> can be written <m>(r, \theta)</m> where <m>0 \lt r \lt 1</m> and <m>-\pi \lt \theta \lt \pi</m>.
+    </p>
+
+    <p>We're going to need a polar version of the wave equation, which in turn requires a polar version of the Laplace operator <m>\Delta u = u_{xx} + u_{yy}.</m> It turns out that the standard polar coordinate change, the chain rule, and a lot of elbow grease will be us to 
+      <me>
+        \Delta u = u_{rr} + \frac{1}{r} u_r + \frac{1}{r^2} u_{\theta theta}.
+      </me>
+    In this setting, the wave equation becomes
+      <me>
+        u_{tt} =c^2 \Delta u = c^2(u_{rr} + \frac{1}{r} u_r + \frac{1}{r^2} u_{\theta \theta}).  
+      </me>
+    Then the system we're interested in is
+    <md>
+        <mrow>DE: \,\, \amp u_{tt} =c^2 \Delta u = c^2(u_{rr} + \frac{1}{r} u_r + \frac{1}{r^2} u_{\theta theta}) </mrow>
+        <mrow>BC: \,\, \amp u(1, \theta, t) = 0 </mrow>
+        <mrow>IC: \,\, \amp u(r,\theta, 0) = f(r, \theta) </mrow>
+        <mrow> \amp u_t(r, \theta, 0) = g(r, \theta). </mrow>
+      </md>
+    </p>
+
+    <p>
+      Now we'll proceed by separation of variables. Let <m>u(r, \theta, t) = R(r) \Theta(\theta) T(t)</m>. Under this substitution, the equation becomes
+      <me>
+        T'' R\Theta = c^2(R'' \Theta T + \frac{1}{r} R' \Theta T + \frac{1}{r^2} R \Theta'' T)
+      </me>
+      which after clearing denominators is 
+      <me>
+        \frac{T''}{c^2 T} = \frac{R''}{R} + \frac{1}{r} \frac{R'}{R} + \frac{1}{r^2} \frac{\Theta''}{\Theta} = -\lambda.
+      </me>
+      As usual, we set equal functions of independent variables equal to a constant. We get our first equation here,
+      <me>
+        T'' + c^2 \la T = 0,
+      </me>
+      and we expect the solutions to oscillate from the physical problem, which gives <m>>\la \gt 0</m> and 
+      <me>
+        T(t) = e \cos(c\sqrt{\la}t) + f\sin(c\sqrt{\la}t).
+      </me>
+    </p>
+    <p>
+      To separate the other variables, first write  
+      <me>
+        \frac{R''}{R} + \frac{1}{r} \frac{R'}{R} +\la = -\frac{1}{r^2}\frac{\Theta''}{\Theta} 
+      </me>
+      then finish the separation step by multiplying through by <m>-r^2</m> to get
+      <me>
+         -r^2\frac{R''}{R} - r \frac{R'}{R} -\la r^2 = \frac{\Theta''}{\Theta} = - \mu.
+      </me>
+      Our second equation is 
+      <me>
+        \Theta'' + \mu \Theta = 0
+      </me>
+      which has the hidden boundary condition <m>\Theta(-\pi) = \Theta(\pi)</m> and <m>\Theta'(-\pi) = \Theta'(\pi)</m>, conditions that hold as the drum membrane should be continuous and smooth as we pass through the negative <m>x</m>-axis. These are periodic boundary conditions, and imposing them leads to the conculusion that <m>\mu = m^2</m> for non-negative integers <m>m</m> and that for each such <m>m</m> we have
+      <me>
+        \Theta_m = a_m \cos(m\theta) + b_m \sin(m \theta).
+      </me>
+    </p>
+    <p>
+      Now let us turn to the third equation, which is 
+      <me>
+        r^2\frac{R''}{R} + r \frac{R'}{R} +\la r^2 - \mu = 0
+      </me>
+      or after clearing out the <m>R</m> in the denominator and substituting in for <m>\mu</m>,
+      <me>
+        r^2 R'' + r R' + (\la r^2 - m^2) R = 0.
+      </me>
+      Evidently, this is a form of Bessel's equation. We can state the exact form we described above by making the change of variables <m>\rho = \sqrt{\la} r</m>, to get
+      <me>
+        \rho^2 R''(\rho) + \rho R'(\rho) + (\rho^2 - m^2) R(\rho) = 0,
+      </me>
+      which is precisely the Bessel equation of integer order <m>m</m>. One form of the general solution to this equation is a linear combination of Bessel functions,
+      <me>
+        R_m(\rho) = k_m J_m(\rho) + d_m Y_m(\rho).
+      </me>
+      Since the functions <m>Y_m</m> are unbounded, and we are considering a drum membrane, it should be that <m>\lim_{\rho \to 0} \abs{R_m(\rho)} \lt \infty</m>, which implies that <m>D_m = 0</m> for all <m>m</m>. Our other boundary condition is that <m>R_m(1) = 0</m>, which was in the <m>r</m> variable. Since <m>\rho = \sqrt{\la}r</m>, we have <m>r=1 \Rightarrow \rho = \sqrt{la}</m>. This means that 
+      <me>
+        R_m(\sqrt{\la}) = k_m J_m(\sqrt{\la}) = 0.
+      </me>
+      This equation can only be true when <m>\sqrt{\la} = j_{mn}</m> for some zero of <m>J_m</m>. That is, we know that for each <m>m</m>, it must be that <m>\la = j_{mn}^2</m> where <m>n = 0, 1, 2, \ldots</m>. Hence, for each <m>m</m>, 
+      <me>
+        R_m(r) = \sum_{n=0}^\infty k_{mn} J_m(j_{mn} r).
+      </me>
+    </p>
+    <p>
+      We can now also definitively state the form of <m>T</m> as well:
+      <me>
+        T_{mn}(t) = e_{mn} \cos(cj_{mn}t) + f_{mn}\sin(cj_{mn}t).
+      </me>
+      We can now state the full form of our solution <m>u(r, \theta, t)</m>.
+      <me>
+        u(r, \theta, t) = \sum_{m=0}^\infty \sum_{n=0}^\infty J_m(j_{mn} r)(a_m \cos(m\theta) + b_m \sin(m \theta))(e_{mn} \cos(cj_{mn}t) + f_{mn}\sin(cj_{mn}t))
+      </me>
+      This looks admittedly daunting. It easier to understand if we think of just the spatial functions <m>J_m(j_{mn} r)(a_m \cos(m\theta) + b_m \sin(m \theta))</m>, each of which represents a <em>mode of vibration</em> determined entirely by <m>m, n</m>. Because of the periodicity of <m>(a_m \cos(m\theta) + b_m \sin(m \theta))</m>, each value of <m>m</m> corresponds to a fixed number of "nodal lines", which will have constant value <m>0</m>. Likewise, the integer <m>n</m> represents the number of "turns" the Bessel function takes in the interval <m>[0,1]</m>, which when swept out in a circle create "nodal circles". Here are some images to help visualize the situation.
+    </p>
+
+    <figure xml:id="fig_bessel12">
+      <caption>The <m>m=2, n=1</m> Bessel mode</caption>
+      <image source="images/bessel21.gif"/>
+    </figure>
+
+    <figure xml:id="fig_bessel04">
+      <caption>The <m>m=0, n=3</m> Bessel mode</caption>
+      <image source="images/bessel04.gif"/>
+    </figure>
+
+    <p>Finally, here's a rendition of a combination of modes. </p>
+
+    <figure xml:id="fig_besselmixed">
+      <caption>The <m>m=0, n=3</m> Bessel mode</caption>
+      <image source="images/besselmixed.gif"/>
+    </figure>
+  </subsection>
+
+
+
+
+
+</section>
