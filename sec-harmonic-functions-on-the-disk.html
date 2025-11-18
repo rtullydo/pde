@@ -510,7 +510,7 @@ u(r, \theta) \amp= \frac{1}{2\pi} \int_0^{2\pi} \cos(n \phi) P_r(\theta - \phi)\
 </div>
 </div>
 <div class="para" id="subsec-the-poisson-integral-9">Here’s a picture of the solution in the case where we require the harmonic extension of <span class="process-math">\(h(\theta) = \cos(2\theta)\)</span> on the unit circle.</div>
-<figure class="figure figure-like" id="fig_sin2theta"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/sin2t.png" class="contained"></div>
+<figure class="figure figure-like" id="fig_sin2theta"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/sin2theta.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.7.3<span class="period">.</span></span><span class="space"> </span>The harmonic extension of <span class="process-math">\(h(\theta) = \sin2\theta\text{.}\)</span></figcaption></figure><div class="para logical" id="subsec-the-poisson-integral-11">
 <div class="para">We might as well check that our proposed solution does indeed meet the requirements. It isn’t hard to see that <span class="process-math">\(\lim_{r \to 1} r^n \cos n \theta = \cos n \theta\text{,}\)</span> so the function has the correct limiting behavior. To see that it is indeed harmonic, we can check the polar Laplacian.</div>
 <div class="displaymath process-math" id="subsec-the-poisson-integral-11-2">
@@ -521,6 +521,16 @@ u(r, \theta) \amp= \frac{1}{2\pi} \int_0^{2\pi} \cos(n \phi) P_r(\theta - \phi)\
 \end{align*}
 </div>
 <div class="para">We conclude that we have found the correct harmonic extension.</div>
+</div>
+<div class="para logical" id="subsec-the-poisson-integral-12">
+<div class="para">The Poisson integral leads to some quite strict conclusions about the behavior of harmonic functions. Consider what happens if we evaluate <span class="process-math">\(u\)</span> at <span class="process-math">\(r = 0 \text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+u(0, \theta) = \frac{1}{2\pi} \int_0^{2\pi} h(\phi) \frac{1 - 0}{1 - 0 + 0}\, d\phi = \frac{1}{2\pi} \int_0^{2\pi} h(\phi)\, d\phi.
+\end{equation*}
+</div>
+<div class="para">That is, the value of <span class="process-math">\(u\)</span> at the center of the unit disk is precisely the average value of <span class="process-math">\(h\)</span> around the unit circle. This quite striking property turns out to be true in general; the value of a harmonic function at a point in the domain is precisely the average value of the function on a circle centered at that point. This is called the (Gauss) mean value theorem.</div>
 </div></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-disk-vibrations.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
