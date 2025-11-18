@@ -8,7 +8,7 @@
 <html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Front Matter</title>
+<title>Harmonic functions on the disk</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -123,7 +123,7 @@ window.MathJax = {
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="pdenotes.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="pdenotes.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="frontmatter-2.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(  \DeclareMathOperator{\RE}{Re}
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-disk-vibrations.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-unit-1.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(  \DeclareMathOperator{\RE}{Re}
 \DeclareMathOperator{\IM}{Im}
 \DeclareMathOperator{\ess}{ess}
 \DeclareMathOperator{\intr}{int}
@@ -228,7 +228,7 @@ window.MathJax = {
 \)</span></div>
 <div class="ptx-page">
 <div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
-<li class="toc-item toc-frontmatter active"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-unit-1.html" class="internal"><span class="codenumber">1</span> <span class="title">Unit 1</span></a></div>
 <ul class="structural toc-item-list">
@@ -265,9 +265,9 @@ window.MathJax = {
 </li>
 </ul>
 </li>
-<li class="toc-item toc-chapter">
+<li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch-unit-1.html" class="internal"><span class="codenumber">2</span> <span class="title">Unit 2 - All things Fourier</span></a></div>
-<ul class="structural toc-item-list">
+<ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-lecture-6.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Lecture 6 - Diffusion</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-lecture-7.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Lecture 7 - Energy method</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-lecture-8.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Lecture 8 - Diffusion on the half line</span></a></div></li>
@@ -293,7 +293,7 @@ window.MathJax = {
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-disk-vibrations.html#subsec-radial-vibrations" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Radial Vibrations</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section">
+<li class="toc-item toc-section active">
 <div class="toc-title-box"><a href="sec-harmonic-functions-on-the-disk.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Harmonic functions on the disk</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-harmonic-functions-on-the-disk.html#subsec-dirichlet-disk" class="internal"><span class="codenumber">2.7.1</span> <span class="title">The Dirichlet problem</span></a></div></li>
@@ -304,15 +304,226 @@ window.MathJax = {
 </li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="frontmatter" id="frontmatter"><h2 class="heading"><span class="title">Notes on PDE</span></h2>
-<div class="author">
-<div class="author-name">Ryan Tully-Doyle</div>
-<div class="author-info">Department of Mathematics<br>Cal Poly, San Luis Obispo</div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-harmonic-functions-on-the-disk"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">2.7</span><span class="space"> </span><span class="title">Harmonic functions on the disk</span>
+</h2>
+<section class="subsection" id="subsec-dirichlet-disk"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.7.1</span><span class="space"> </span><span class="title">The Dirichlet problem</span>
+</h3>
+<div class="para logical" id="subsec-dirichlet-disk-2">
+<div class="para">As Strauss notes, the situation on rectangles seems quite similar to what we’ve seen before in the heat and wave cases. The separation of variables argument leads to very similar sorts of solutions. Things are quite a bit more interesting on the disk. Let us consider the <em class="emphasis">Dirichlet problem on the disk</em>,</div>
+<div class="displaymath process-math" id="subsec-dirichlet-disk-2-2">
+\begin{align*}
+DE: \,\, \amp \Delta u = 0, \,\, x^2 + y^2 \lt a^2 \\
+IC: \,\, \amp u = h(\theta), \,\, x^2 + y^2 = a^2. 
+\end{align*}
 </div>
-<div class="date">November 17, 2025</div>
-<nav class="summary-links"><ul><li><a href="frontmatter-2.html" class="internal"><span class="title">Colophon</span></a></li></ul></nav></section></div>
+</div>
+<div class="para logical" id="subsec-dirichlet-disk-3">
+<div class="para">Our usual separation of variables <span class="process-math">\(u = R(r) \Theta(\theta)\)</span> leads to the equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Theta'' + \lambda \Theta = 0,
+\end{equation*}
+</div>
+<div class="para">with the requirement of the periodic boundary condtion <span class="process-math">\(\Theta(\theta) = \Theta(\theta + 2\pi)\text{.}\)</span> Applying the boundary condition gives <span class="process-math">\(\la = n^2\)</span> and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Theta_n(\theta) = A \cos n \theta + B \sin n \theta, \,\, n = 1, 2, 3, \ldots,
+\end{equation*}
+</div>
+<div class="para">as well as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Theta_0(\theta) = A
+\end{equation*}
+</div>
+<div class="para">when <span class="process-math">\(\la = 0\text{.}\)</span>
+</div>
+</div>
+<div class="para logical" id="subsec-dirichlet-disk-4">
+<div class="para">Moving on to the equation <span class="process-math">\(r^2 R'' + rR' - \la R = 0\text{,}\)</span> which becomes</div>
+<div class="displaymath process-math">
+\begin{equation*}
+r^2 R'' + rR' - n^2 R = 0,
+\end{equation*}
+</div>
+<div class="para">we recognize a <em class="emphasis">Cauchy-Euler</em> equation, which has solutions of the form <span class="process-math">\(R = r^\alpha\text{.}\)</span> Plugging in,</div>
+<div class="displaymath process-math" id="subsec-dirichlet-disk-4-5">
+\begin{align*}
+\alpha(\alpha - 1)r^\alpha + \alpha r^\alpha - n^2 r^\alpha \amp= 0 \\
+(\alpha(\alpha - 1)+ \alpha - n^2 )r^\alpha \amp= 0 \\
+(\alpha^2 - n^2 )r^\alpha \amp= 0. 
+\end{align*}
+</div>
+<div class="para">Since <span class="process-math">\(r^\alpha \neq 0\text{,}\)</span> we get <span class="process-math">\(\alpha = \pm n\text{,}\)</span> and hence that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+R(r) = Cr^n + Dr^{-n}, \,\, n = 1, 2,3, \ldots,
+\end{equation*}
+</div>
+<div class="para">and in the case of <span class="process-math">\(n=0\text{,}\)</span> we have <span class="process-math">\(R = C\)</span> for some constant <span class="process-math">\(C\text{.}\)</span> We’ll need a second linearly independent solution in this case, which is provided by <span class="process-math">\(\log r\)</span> (say by variation of parameters), so that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+R_0(r) = C + D \log r.
+\end{equation*}
+</div>
+</div>
+<div class="para logical" id="subsec-dirichlet-disk-5">
+<div class="para">We now have a family of separated solutions,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+u_n = (Cr^n + Dr^{-n})(A \cos n\theta + B \sin n \theta), \,\, n = 1, 2, 3, \ldots
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+u_0 = (C + D\log r)(A).
+\end{equation*}
+</div>
+<div class="para">The issue is that some of these solutions are unbounded at <span class="process-math">\(r = 0\text{.}\)</span> As we see twice differentiable functions on the whole disk of radius <span class="process-math">\(a\text{,}\)</span> we need to impose a “hidden” boundary condition <span class="process-math">\(\lim_{r \to 0} u \lt \infty\text{.}\)</span> This means that we must dispense with the logarithm and the rational parts of the full set of harmonic solutions we derived above. We conclude that our separated solution has the form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+u(r, \theta) = \frac{1}{2}A_0 + \sum_{n=1}^\infty r^n (A_n \cos n\theta + B_n \sin n \theta).
+\end{equation*}
+</div>
+<div class="para">Finally, we apply the inhomogeneous boundary condition. Setting <span class="process-math">\(r = a\text{,}\)</span> we get</div>
+<div class="displaymath process-math" id="subsec-dirichlet-disk-5-9">
+\begin{align*}
+h(\theta) \amp= \frac{1}{2}A_0 + \sum_{n=1}^\infty a^n (A_n \cos n\theta + B_n \sin n \theta)\\
+\amp=  \frac{1}{2}A_0 + \sum_{n=1}^\infty (a^n A_n \cos n\theta + a^n B_n \sin n \theta).
+\end{align*}
+</div>
+<div class="para">That is, this is a full Fourier series for <span class="process-math">\(h(\theta)\text{,}\)</span> and so our coefficient formulas tell us that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A_n = \frac{1}{\pi a^n} \int_0^{2\pi} h(\phi) \cos(n \phi) \, d\phi
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+B_n = \frac{1}{\pi a^n} \int_0^{2\pi} h(\phi) \sin(n \phi) \, d\phi
+\end{equation*}
+</div>
+</div>
+<div class="para logical" id="subsec-dirichlet-disk-6">
+<div class="para">We already have an expression then for the solution to the Dirichlet problem on the disk, but now something rather magical happens. It turns out that we can actually sum up the series expansion to get a rather nice formula for the solution. Plugging our expressions for the coefficients into the series and combining integrals, we get</div>
+<div class="displaymath process-math" id="subsec-dirichlet-disk-6-1">
+\begin{align*}
+u(r,\theta) \amp= \frac{1}{2\pi} \int_0^{2\pi} h(\phi) \, d\phi + \sum_{n=1}^\infty \frac{r^n}{\pi a^n}\int_0^{2 \pi} h(\phi)(\cos n\phi \cos n \theta + \sin n \phi \sin n \theta)\, d\phi \\
+\amp= \frac{1}{2\pi}\int_0^{2\pi} h(\phi) \left[1 + 2 \sum_{n=1}^\infty \left(\frac{r}{a}\right)^n \cos n (\theta - \phi) \right]\, d \phi 
+\end{align*}
+</div>
+<div class="para">Now let’s focus on the term in the brackets and flip over to complex numbers.</div>
+<div class="displaymath process-math" id="subsec-dirichlet-disk-6-2">
+\begin{align*}
+\amp \left[1 + 2 \sum_{n=1}^\infty \left(\frac{r}{a}\right)^n \cos n (\theta - \phi) \right] \\
+\amp= 1 + \sum_{n=1}^\infty (\frac{r}{a})^n \left(\frac{e^{in(\theta - \phi)}+ e^{-in(\theta - \phi)}}{2}\right) \\
+\amp= 1 + \sum_{n=1}^\infty (\frac{r}{a})^n e^{in(\theta - \phi)} + + \sum_{n=1}^\infty (\frac{r}{a})^n e^{-in(\theta - \phi)} \\
+\amp= 1 + \frac{\frac{r}{a} e^{i(\theta - \phi)}}{1 - \frac{r}{a} e^{i(\theta - \phi)}} + \frac{\frac{r}{a} e^{-i(\theta - \phi)}}{1 - \frac{r}{a} e^{-i(\theta - \phi)}} \\
+\amp= \frac{a^2 - r^2}{a^2 - 2 ar\cos(\theta - \phi) + r^2} 
+\end{align*}
+</div>
+<div class="para">where we’ve used the geometric series formula in the move from the third to the fourth line.</div>
+</div></section><section class="subsection" id="subsec-the-poisson-integral"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.7.2</span><span class="space"> </span><span class="title">The Poisson integral</span>
+</h3>
+<div class="para logical" id="subsec-the-poisson-integral-2">
+<div class="para">This object is so important, we give it both a name and a symbol. The <em class="emphasis">Poisson kernel <span class="process-math">\(P_r(\alpha)\)</span></em> is the function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P_r(\alpha) = \frac{a^2 - r^2}{a^2 - 2 ar\cos\alpha  + r^2}
+\end{equation*}
+</div>
+<div class="para">Plugging this back into our expression for <span class="process-math">\(u\text{,}\)</span> we get</div>
+<div class="displaymath process-math" id="subsec-the-poisson-integral-2-4">
+\begin{align*}
+u(r,\theta) \amp= \frac{1}{2\pi}\int_0^{2\pi} h(\phi) \left[1 + 2 \sum_{n=1}^\infty \left(\frac{r}{a}\right)^n \cos n (\theta - \phi) \right]\, d \phi \\
+\amp= \frac{1}{2\pi} \int_0^{2 \pi} h(\phi) P_r(\theta - \phi)\, d\phi, 
+\end{align*}
+</div>
+<div class="para">which is often called the <em class="emphasis">Poisson integral</em>. The function <span class="process-math">\(P_r(\theta)\)</span> plays a similar role for the Dirichlet problem on the disk that the heat kernel did in the heat equation on the line.</div>
+</div>
+<div class="para" id="subsec-the-poisson-integral-3">Before we go on, it’s worth noting how strong this result actually is - we’re saying that given a function on a circle <span class="process-math">\(h(\theta)\text{,}\)</span> we can recover the exact harmonic function on the inside of the disk that limits to that circle on the boundary. This is like saying that one can recover the function <span class="process-math">\(f(x)\)</span> on an interval <span class="process-math">\((a, b)\)</span> by only knowing the values of the function at <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{!.}\)</span> In fact, the uniquness of solutions to the Dirichlet problem arising from the maximum principle gives us the following theorem.</div>
+<article class="theorem theorem-like" id="thm-poisson-dirichlet"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.7.1</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="thm-poisson-dirichlet-1-1">
+<div class="para">Let <span class="process-math">\(h(\phi)\)</span> be a continuous function on the circle <span class="process-math">\(C = \mathrm{bdy} D\text{.}\)</span> Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+u(r, \theta) = \frac{1}{2\pi} \int_0^{2 \pi} h(\phi) P_r(\theta - \phi)\, d\phi
+\end{equation*}
+</div>
+<div class="para">is the only harmonic function on <span class="process-math">\(D\)</span> with <span class="process-math">\(\lim_{r \to 1}u(r, \theta) = h(\theta)\)</span> for all <span class="process-math">\(\theta\text{.}\)</span>
+</div>
+</div></article><div class="para" id="subsec-the-poisson-integral-5">The Poisson kernel has all kinds of nice properties, as well as some profound consequences for the behavior of hamronic functions. Our first property is a sort of Fourier expansion for the Poisson kernel.</div>
+<article class="proposition theorem-like" id="prop-poisson-fourier"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.7.2</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="prop-poisson-fourier-1-1">
+<div class="para">Let <span class="process-math">\(D\)</span> be the unit disk <span class="process-math">\(x^2 + y^2 \lt 1\text{.}\)</span> Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P_r(\alpha) = 1 + 2 \sum_{k=1}^\infty r^k \cos k \alpha.
+\end{equation*}
+</div>
+</div></article><details id="subsec-the-poisson-integral-7" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="subsec-the-poisson-integral-7-1">
+<div class="para">Recall that since we’re on the unit disk that <span class="process-math">\(a = 1\text{.}\)</span> Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P_r(\alpha) = \frac{1 - r^2}{1 - 2r\cos\alpha + r^2}.
+\end{equation*}
+</div>
+<div class="para">Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+1- 2r \cos\alpha + r^2 = 1 - r(e^{i\alpha} + e^{-i\alpha}) + r^2 = (1- re^{i\alpha})(1-re^{-i\alpha}).
+\end{equation*}
+</div>
+<div class="para">Then</div>
+<div class="displaymath process-math" id="subsec-the-poisson-integral-7-1-4">
+\begin{align*}
+P_r(\alpha) \amp= \frac{1 - r^2}{1 - 2r\cos\alpha + r^2}\\
+\amp= \frac{1 - r^2}{(1- re^{i\alpha})(1-re^{-i\alpha})}\\
+\amp = (1-r^2) \frac{1}{1 - re^{i\alpha}} \frac{1}{1 - re^{-i\alpha}}.\\
+\amp= (1-r^2) \sum_{n=0}^\infty r^n e^{in\alpha} \sum_{m=0}^\infty r^m e^{-im\alpha} \\
+\amp= (1-r^2) \sum_{n=0}^\infty  \sum_{m=0}^\infty r^{n+m} e^{i(n-m)\alpha} \\
+\amp= (1-r^2)  \sum_{k=-\infty}^\infty \frac{1}{1-r^2} r^\abs{k} e^{ik\alpha} \\
+\amp=  \sum_{k=-\infty}^\infty r^\abs{k} e^{ik\alpha} \\
+\amp = 1 + 2 \sum_{k=1}^\infty r^k \cos k \alpha.
+\end{align*}
+</div>
+</div></article></details><div class="para logical" id="subsec-the-poisson-integral-8">
+<div class="para">
+<a href="sec-harmonic-functions-on-the-disk.html#prop-poisson-fourier" class="xref" data-knowl="./knowl/xref/prop-poisson-fourier.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.7.2">Proposition 2.7.2</a> gives a nice way to compute some easy examples. Consider the Dirichlet problem on the unit disk where we require that <span class="process-math">\(h(\theta) = \cos(n \theta)\text{.}\)</span> This is a continuous function on the unit circle and so should have a unique harmonic extension to the disk. Then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-poisson-fourier.html" id="subsec-the-poisson-integral-8-3">
+\begin{align*}
+u(r, \theta) \amp= \frac{1}{2\pi} \int_0^{2\pi} \cos(n \phi) P_r(\theta - \phi)\, d\phi \\
+\amp=\frac{1}{2\pi} \int_0^{2\pi} \cos(n\phi) (1 + 2 \sum_{k=1}^\infty r^k \cos k(\theta - \phi))\, d\phi\\
+\amp=\frac{1}{2\pi} \int_0^{2\pi} \underbrace{\cos(n\phi) (1 + 2 \sum_{k=1}^\infty r^k(\cos k \phi \cos k \theta + \sin k \phi \sin k \theta))}_{\text{orthogonality kills all but } k = n}\, d\phi\\
+\amp= \frac{1}{\pi} \int_0^{2\pi} r^n \cos^2 n\phi \cos n \theta  \\
+\amp= r^n \cos n \theta
+\end{align*}
+</div>
+</div>
+<div class="para" id="subsec-the-poisson-integral-9">Here’s a picture of the solution in the case where we require the harmonic extension of <span class="process-math">\(h(\theta) = \cos(2\theta)\)</span> on the unit circle.</div>
+<figure class="figure figure-like" id="fig_sin2theta"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/sin2t.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.7.3<span class="period">.</span></span><span class="space"> </span>The harmonic extension of <span class="process-math">\(h(\theta) = \sin2\theta\text{.}\)</span></figcaption></figure><div class="para logical" id="subsec-the-poisson-integral-11">
+<div class="para">We might as well check that our proposed solution does indeed meet the requirements. It isn’t hard to see that <span class="process-math">\(\lim_{r \to 1} r^n \cos n \theta = \cos n \theta\text{,}\)</span> so the function has the correct limiting behavior. To see that it is indeed harmonic, we can check the polar Laplacian.</div>
+<div class="displaymath process-math" id="subsec-the-poisson-integral-11-2">
+\begin{align*}
+\Delta (r^n \cos n\theta) \amp = n(n-1) r^{n-2} \cos n \theta + \frac{1}{r} n r^{n-1} \cos n \theta + \frac{1}{r^2} (-n^2) \cos n \theta \\
+\amp= r^{n-2}(n(n-1) + n - n^2)\cos n \theta \\
+\amp= 0. 
+\end{align*}
+</div>
+<div class="para">We conclude that we have found the correct harmonic extension.</div>
+</div></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="pdenotes.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="frontmatter-2.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec-disk-vibrations.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

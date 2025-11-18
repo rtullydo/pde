@@ -226,6 +226,51 @@ var ptx_lunr_docs = [
   "body": " The Bessel mode   "
 },
 {
+  "id": "sec-harmonic-functions-on-the-disk",
+  "level": "1",
+  "url": "sec-harmonic-functions-on-the-disk.html",
+  "type": "Section",
+  "number": "2.7",
+  "title": "Harmonic functions on the disk",
+  "body": " Harmonic functions on the disk   The Dirichlet problem  As Strauss notes, the situation on rectangles seems quite similar to what we've seen before in the heat and wave cases. The separation of variables argument leads to very similar sorts of solutions. Things are quite a bit more interesting on the disk. Let us consider the Dirichlet problem on the disk ,   Our usual separation of variables leads to the equation with the requirement of the periodic boundary condtion . Applying the boundary condition gives and as well as when .  Moving on to the equation , which becomes we recognize a Cauchy-Euler equation, which has solutions of the form . Plugging in, Since , we get , and hence that and in the case of , we have for some constant . We'll need a second linearly independent solution in this case, which is provided by (say by variation of parameters), so that   We now have a family of separated solutions, and The issue is that some of these solutions are unbounded at . As we see twice differentiable functions on the whole disk of radius , we need to impose a hidden boundary condition . This means that we must dispense with the logarithm and the rational parts of the full set of harmonic solutions we derived above. We conclude that our separated solution has the form Finally, we apply the inhomogeneous boundary condition. Setting , we get That is, this is a full Fourier series for , and so our coefficient formulas tell us that and   We already have an expression then for the solution to the Dirichlet problem on the disk, but now something rather magical happens. It turns out that we can actually sum up the series expansion to get a rather nice formula for the solution. Plugging our expressions for the coefficients into the series and combining integrals, we get Now let's focus on the term in the brackets and flip over to complex numbers. where we've used the geometric series formula in the move from the third to the fourth line.    The Poisson integral  This object is so important, we give it both a name and a symbol. The Poisson kernel is the function Plugging this back into our expression for , we get which is often called the Poisson integral . The function plays a similar role for the Dirichlet problem on the disk that the heat kernel did in the heat equation on the line.  Before we go on, it's worth noting how strong this result actually is - we're saying that given a function on a circle , we can recover the exact harmonic function on the inside of the disk that limits to that circle on the boundary. This is like saying that one can recover the function on an interval by only knowing the values of the function at and !. In fact, the uniquness of solutions to the Dirichlet problem arising from the maximum principle gives us the following theorem.    Let be a continuous function on the circle . Then is the only harmonic function on with for all .    The Poisson kernel has all kinds of nice properties, as well as some profound consequences for the behavior of hamronic functions. Our first property is a sort of Fourier expansion for the Poisson kernel.    Let be the unit disk . Then      Recall that since we're on the unit disk that . Then Then Then    gives a nice way to compute some easy examples. Consider the Dirichlet problem on the unit disk where we require that . This is a continuous function on the unit circle and so should have a unique harmonic extension to the disk. Then   Here's a picture of the solution in the case where we require the harmonic extension of on the unit circle.   The harmonic extension of .    We might as well check that our proposed solution does indeed meet the requirements. It isn't hard to see that , so the function has the correct limiting behavior. To see that it is indeed harmonic, we can check the polar Laplacian. We conclude that we have found the correct harmonic extension.   "
+},
+{
+  "id": "thm-poisson-dirichlet",
+  "level": "2",
+  "url": "sec-harmonic-functions-on-the-disk.html#thm-poisson-dirichlet",
+  "type": "Theorem",
+  "number": "2.7.1",
+  "title": "",
+  "body": "  Let be a continuous function on the circle . Then is the only harmonic function on with for all .   "
+},
+{
+  "id": "prop-poisson-fourier",
+  "level": "2",
+  "url": "sec-harmonic-functions-on-the-disk.html#prop-poisson-fourier",
+  "type": "Proposition",
+  "number": "2.7.2",
+  "title": "",
+  "body": "  Let be the unit disk . Then    "
+},
+{
+  "id": "subsec-the-poisson-integral-7",
+  "level": "2",
+  "url": "sec-harmonic-functions-on-the-disk.html#subsec-the-poisson-integral-7",
+  "type": "Proof",
+  "number": "2.7.2.1",
+  "title": "",
+  "body": " Recall that since we're on the unit disk that . Then Then Then   "
+},
+{
+  "id": "fig_sin2theta",
+  "level": "2",
+  "url": "sec-harmonic-functions-on-the-disk.html#fig_sin2theta",
+  "type": "Figure",
+  "number": "2.7.3",
+  "title": "",
+  "body": " The harmonic extension of .   "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",
