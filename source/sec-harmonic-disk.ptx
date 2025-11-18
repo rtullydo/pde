@@ -171,7 +171,7 @@
   </p>
     <figure xml:id="fig_sin2theta">
       <caption>The harmonic extension of <m>h(\theta) = \sin2\theta</m>. </caption>
-      <image source="images/sin2t.png"/>
+      <image source="images/sin2theta.png"/>
     </figure>
   <p> We might as well check that our proposed solution does indeed meet the requirements. It isn't hard to see that <m>\lim_{r \to 1} r^n \cos n \theta = \cos n \theta</m>, so the function has the correct limiting behavior. To see that it is indeed harmonic, we can check the polar Laplacian.
     <md>
