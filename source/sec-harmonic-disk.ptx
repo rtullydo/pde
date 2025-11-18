@@ -199,7 +199,7 @@
     </statement>
   </theorem>
 
-  <p>Harmonic functions are also strikingly smooth as a consequence of the structure of the Poisson kernel. Essentially, as the Poisson kernel is differentiable to all orders, and <m>u</m> is essentially a convolution of a continuous function with a smooth function, <m>u</m> will also be very nicely behaved.
+  <p>Harmonic functions are also strikingly smooth as a consequence of the structure of the Poisson kernel. Essentially, as the Poisson kernel is differentiable to all orders, and <m>u</m> is a convolution of a continuous function with a smooth function, <m>u</m> will also be very nicely behaved.
   </p>
 
   <theorem xml:id="thm-smooth-harmonic">
