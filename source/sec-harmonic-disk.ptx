@@ -181,6 +181,15 @@
     </md>
     We conclude that we have found the correct harmonic extension.
   </p>
-    
+  
+  <p>The Poisson integral leads to some quite strict conclusions about the behavior of harmonic functions. Consider what happens if we evaluate <m>u</m> at <m>r = 0 </m>.
+  <me>
+    u(0, \theta) = \frac{1}{2\pi} \int_0^{2\pi} h(\phi) \frac{1 - 0}{1 - 0 + 0}\, d\phi = \frac{1}{2\pi} \int_0^{2\pi} h(\phi)\, d\phi.
+  </me>
+  That is, the value of <m>u</m> at the center of the unit disk is precisely the average value of <m>h</m> around the unit circle. This quite striking property turns out to be true in general; the value of a harmonic function at a point in the domain is precisely the average value of the function on a circle centered at that point. This is called the (Gauss) mean value theorem.
+  
+  </p>
   </subsection>
+
+
 </section>
