@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-harmonic-functions-on-the-disk">
+  <title>Harmonic functions on the disk</title>
+  <subsection xml:id="subsec-dirichlet-disk">
+  <title>The Dirichlet problem</title>
+  <p>
+    As Strauss notes, the situation on rectangles seems quite similar to what we've seen before in the heat and wave cases. The separation of variables argument leads to very similar sorts of solutions. Things are quite a bit more interesting on the disk. Let us consider the <em>Dirichlet problem on the disk</em>,
+       <md>
+        <mrow>DE: \,\, \amp \Delta u = 0, \,\, x^2 + y^2 \lt a^2 </mrow>
+        <mrow>IC: \,\, \amp u = h(\theta), \,\, x^2 + y^2 = a^2. </mrow>
+      </md>
+  </p>
+  <p>
+    Our usual separation of variables <m>u = R(r) \Theta(\theta)</m> leads to the equation
+    <me>
+      \Theta'' + \lambda \Theta = 0,
+    </me>
+    with the requirement of the periodic boundary condtion <m>\Theta(\theta) = \Theta(\theta + 2\pi)</m>. Applying the boundary condition gives <m>\la = n^2</m> and 
+    <me>
+      \Theta_n(\theta) = A \cos n \theta + B \sin n \theta, \,\, n = 1, 2, 3, \ldots,
+    </me>
+    as well as 
+    <me>
+      \Theta_0(\theta) = A
+    </me>
+    when <m>\la = 0</m>.
+  </p>
+  <p>
+    Moving on to the equation
+    <m>r^2 R'' + rR' - \la R = 0</m>, which becomes
+    <me>
+      r^2 R'' + rR' - n^2 R = 0,
+    </me>
+    we recognize a <em>Cauchy-Euler</em> equation, which has solutions of the form <m>R = r^\alpha</m>. Plugging in,
+    <md>
+      <mrow>\alpha(\alpha - 1)r^\alpha + \alpha r^\alpha - n^2 r^\alpha \amp= 0 </mrow>
+      <mrow>(\alpha(\alpha - 1)+ \alpha - n^2 )r^\alpha \amp= 0 </mrow>
+       <mrow>(\alpha^2 - n^2 )r^\alpha \amp= 0. </mrow>
+    </md>
+    Since <m>r^\alpha \neq 0</m>, we get <m>\alpha = \pm n</m>, and hence that
+    <me>
+      R(r) = Cr^n + Dr^{-n}, \,\, n = 1, 2,3, \ldots,
+    </me>
+    and in the case of <m>n=0</m>, we have <m>R = C</m> for some constant <m>C</m>. We'll need a second linearly independent solution in this case, which is provided by <m>\log r</m> (say by variation of parameters), so that
+    <me>
+      R_0(r) = C + D \log r.
+    </me>
+  </p>
+  <p>
+    We now have a family of separated solutions,
+    <me>
+      u_n = (Cr^n + Dr^{-n})(A \cos n\theta + B \sin n \theta), \,\, n = 1, 2, 3, \ldots
+    </me>
+    and 
+    <me>
+      u_0 = (C + D\log r)(A).
+    </me>
+    The issue is that some of these solutions are unbounded at <m>r = 0</m>. As we see twice differentiable functions on the whole disk of radius <m>a</m>, we need to impose a <q>hidden</q> boundary condition <m>\lim_{r \to 0} u \lt \infty</m>. This means that we must dispense with the logarithm and the rational parts of the full set of harmonic solutions we derived above. We conclude that our separated solution has the form
+    <me>
+      u(r, \theta) = \frac{1}{2}A_0 + \sum_{n=1}^\infty r^n (A_n \cos n\theta + B_n \sin n \theta).
+    </me>
+    Finally, we apply the inhomogeneous boundary condition. Setting <m>r = a</m>, we get
+    <md>
+      <mrow>h(\theta) \amp= \frac{1}{2}A_0 + \sum_{n=1}^\infty a^n (A_n \cos n\theta + B_n \sin n \theta)</mrow>
+      <mrow> \amp=  \frac{1}{2}A_0 + \sum_{n=1}^\infty (a^n A_n \cos n\theta + a^n B_n \sin n \theta).</mrow>
+    </md>
+    That is, this is a full Fourier series for <m>h(\theta)</m>, and so our coefficient formulas tell us that
+    <me>
+      A_n = \frac{1}{\pi a^n} \int_0^{2\pi} h(\phi) \cos(n \phi) \, d\phi
+    </me>
+    and
+    <me>
+      B_n = \frac{1}{\pi a^n} \int_0^{2\pi} h(\phi) \sin(n \phi) \, d\phi
+    </me>
+  </p>
+  <p>
+    We already have an expression then for the solution to the Dirichlet problem on the disk, but now something rather magical happens. It turns out that we can actually sum up the series expansion to get a rather nice formula for the solution. Plugging our expressions for the coefficients into the series and combining integrals, we get
+    <md>
+      <mrow>u(r,\theta) \amp= \frac{1}{2\pi} \int_0^{2\pi} h(\phi) \, d\phi + \sum_{n=1}^\infty \frac{r^n}{\pi a^n}\int_0^{2 \pi} h(\phi)(\cos n\phi \cos n \theta + \sin n \phi \sin n \theta)\, d\phi </mrow>
+      <mrow> \amp= \frac{1}{2\pi}\int_0^{2\pi} h(\phi) \left[1 + 2 \sum_{n=1}^\infty \left(\frac{r}{a}\right)^n \cos n (\theta - \phi) \right]\, d \phi </mrow>
+    </md>
+    Now let's focus on the term in the brackets and flip over to complex numbers.
+    <md>
+      <mrow>\amp \left[1 + 2 \sum_{n=1}^\infty \left(\frac{r}{a}\right)^n \cos n (\theta - \phi) \right] </mrow>
+      <mrow> \amp= 1 + \sum_{n=1}^\infty (\frac{r}{a})^n \left(\frac{e^{in(\theta - \phi)}+ e^{-in(\theta - \phi)}}{2}\right) </mrow>
+      <mrow> \amp= 1 + \sum_{n=1}^\infty (\frac{r}{a})^n e^{in(\theta - \phi)} + + \sum_{n=1}^\infty (\frac{r}{a})^n e^{-in(\theta - \phi)} </mrow>
+      <mrow> \amp= 1 + \frac{\frac{r}{a} e^{i(\theta - \phi)}}{1 - \frac{r}{a} e^{i(\theta - \phi)}} + \frac{\frac{r}{a} e^{-i(\theta - \phi)}}{1 - \frac{r}{a} e^{-i(\theta - \phi)}} </mrow>
+      <mrow> \amp= \frac{a^2 - r^2}{a^2 - 2 ar\cos(\theta - \phi) + r^2} </mrow>
+    </md>
+    where we've used the geometric series formula in the move from the third to the fourth line. </p>
+    </subsection>
+    
+    <subsection xml:id="subsec-the-poisson-integral">
+      <title>The Poisson integral</title>
+      
+
+    <p>This object is so important, we give it both a name and a symbol. The <em>Poisson kernel <m>P_r(\alpha)</m></em> is the function
+    <me>
+      P_r(\alpha) = \frac{a^2 - r^2}{a^2 - 2 ar\cos\alpha  + r^2}
+    </me>
+    Plugging this back into our expression for <m>u</m>, we get
+    <md>
+      <mrow>u(r,\theta) \amp= \frac{1}{2\pi}\int_0^{2\pi} h(\phi) \left[1 + 2 \sum_{n=1}^\infty \left(\frac{r}{a}\right)^n \cos n (\theta - \phi) \right]\, d \phi </mrow>
+      <mrow> \amp= \frac{1}{2\pi} \int_0^{2 \pi} h(\phi) P_r(\theta - \phi)\, d\phi, </mrow>
+    </md>
+    which is often called the <em>Poisson integral</em>. The function <m>P_r(\theta)</m> plays a similar role for the Dirichlet problem on the disk that the heat kernel did in the heat equation on the line. 
+  </p>
+  <p>
+    Before we go on, it's worth noting how strong this result actually is - we're saying that given a function on a circle <m>h(\theta)</m>, we can recover the exact harmonic function on the inside of the disk that limits to that circle on the boundary. This is like saying that one can recover the function <m>f(x)</m> on an interval <m>(a, b)</m> by only knowing the values of the function at <m>a</m> and <m>b</m>!. In fact, the uniquness of solutions to the Dirichlet problem arising from the maximum principle gives us the following theorem.
+  </p>
+  <theorem xml:id="thm-poisson-dirichlet">
+    <statement>
+      <p>
+        Let <m>h(\phi)</m> be a continuous function on the circle <m>C = \mathrm{bdy} D</m>. Then
+        <me>
+          u(r, \theta) = \frac{1}{2\pi} \int_0^{2 \pi} h(\phi) P_r(\theta - \phi)\, d\phi
+        </me>
+        is the only harmonic function on <m>D</m> with <m>\lim_{r \to 1}u(r, \theta) = h(\theta)</m> for all <m>\theta</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <p>The Poisson kernel has all kinds of nice properties, as well as some profound consequences for the behavior of hamronic functions. Our first property is a sort of Fourier expansion for the Poisson kernel.</p>
+
+  <proposition xml:id="prop-poisson-fourier">
+    <statement>
+      <p>
+        Let <m>D</m> be the unit disk <m>x^2 + y^2 \lt 1</m>. Then
+        <me>
+          P_r(\alpha) = 1 + 2 \sum_{k=1}^\infty r^k \cos k \alpha.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      Recall that since we're on the unit disk that <m>a = 1</m>. Then 
+      <me>
+        P_r(\alpha) = \frac{1 - r^2}{1 - 2r\cos\alpha + r^2}.
+      </me>
+      Then
+      <me>
+        1- 2r \cos\alpha + r^2 = 1 - r(e^{i\alpha} + e^{-i\alpha}) + r^2 = (1- re^{i\alpha})(1-re^{-i\alpha}).
+      </me>
+      Then
+      <md>
+        <mrow> P_r(\alpha) \amp= \frac{1 - r^2}{1 - 2r\cos\alpha + r^2}</mrow>
+        <mrow> \amp= \frac{1 - r^2}{(1- re^{i\alpha})(1-re^{-i\alpha})}</mrow>
+        <mrow> \amp = (1-r^2) \frac{1}{1 - re^{i\alpha}} \frac{1}{1 - re^{-i\alpha}}.</mrow>
+        <mrow> \amp= (1-r^2) \sum_{n=0}^\infty r^n e^{in\alpha} \sum_{m=0}^\infty r^m e^{-im\alpha} </mrow>
+        <mrow> \amp= (1-r^2) \sum_{n=0}^\infty  \sum_{m=0}^\infty r^{n+m} e^{i(n-m)\alpha} </mrow>
+        <mrow> \amp= (1-r^2)  \sum_{k=-\infty}^\infty \frac{1}{1-r^2} r^\abs{k} e^{ik\alpha} </mrow>
+        <mrow> \amp=  \sum_{k=-\infty}^\infty r^\abs{k} e^{ik\alpha} </mrow>
+        <mrow> \amp = 1 + 2 \sum_{k=1}^\infty r^k \cos k \alpha.</mrow>
+      </md>
+    </p>
+  </proof>
+
+  <p><xref ref="prop-poisson-fourier"/> gives a nice way to compute some easy examples. Consider the Dirichlet problem on the unit disk where we require that <m>h(\theta) = \cos(n \theta)</m>. This is a continuous function on the unit circle and so should have a unique harmonic extension to the disk. Then
+    <md>
+      <mrow>u(r, \theta) \amp= \frac{1}{2\pi} \int_0^{2\pi} \cos(n \phi) P_r(\theta - \phi)\, d\phi </mrow>
+      <mrow>\amp=\frac{1}{2\pi} \int_0^{2\pi} \cos(n\phi) (1 + 2 \sum_{k=1}^\infty r^k \cos k(\theta - \phi))\, d\phi</mrow>
+      <mrow>\amp=\frac{1}{2\pi} \int_0^{2\pi} \underbrace{\cos(n\phi) (1 + 2 \sum_{k=1}^\infty r^k(\cos k \phi \cos k \theta + \sin k \phi \sin k \theta))}_{\text{orthogonality kills all but } k = n}\, d\phi</mrow>
+      <mrow> \amp= \frac{1}{\pi} \int_0^{2\pi} r^n \cos^2 n\phi \cos n \theta  </mrow>
+      <mrow> \amp= r^n \cos n \theta</mrow>
+    </md>
+  </p>
+
+  <p>Here's a picture of the solution in the case where we require the harmonic extension of <m>h(\theta) = \cos(2\theta)</m> on the unit circle.
+  </p>
+    <figure xml:id="fig_sin2theta">
+      <caption>The harmonic extension of <m>h(\theta) = \sin2\theta</m>. </caption>
+      <image source="images/sin2t.png"/>
+    </figure>
+  <p> We might as well check that our proposed solution does indeed meet the requirements. It isn't hard to see that <m>\lim_{r \to 1} r^n \cos n \theta = \cos n \theta</m>, so the function has the correct limiting behavior. To see that it is indeed harmonic, we can check the polar Laplacian.
+    <md>
+      <mrow>\Delta (r^n \cos n\theta) \amp = n(n-1) r^{n-2} \cos n \theta + \frac{1}{r} n r^{n-1} \cos n \theta + \frac{1}{r^2} (-n^2) \cos n \theta </mrow>
+      <mrow> \amp= r^{n-2}(n(n-1) + n - n^2)\cos n \theta </mrow>
+      <mrow> \amp= 0. </mrow>
+    </md>
+    We conclude that we have found the correct harmonic extension.
+  </p>
+    
+  </subsection>
+</section>

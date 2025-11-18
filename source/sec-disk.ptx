@@ -19,7 +19,7 @@
         <me>
           y(x) = J_m(x) = \sum_{n=0}^\infty \frac{(-1)^n}{\Gamma(n+1)\Gamma(n + m + 1)} \left(\frac{x}{2} \right)^{2n + m}.
         </me>
-        Here, the <m>\Gamma(x)</m> is the Gamma function, which satisfies <m>\Gamma(x+1) = x\Gamma(x)</m> and generalizes the factorial function. Indeed, <m>\Gamma(n+1) = n!</m>. In the special case where <m>p</m> is a positive integer, we get the simpler 
+        Here, the <m>\Gamma(x)</m> is the Gamma function, which satisfies <m>\Gamma(x+1) = x\Gamma(x)</m> and generalizes the factorial function. Indeed, <m>\Gamma(n+1) = n!</m>. In the special case where <m>m</m> is a positive integer, we get the simpler 
         <me>
           y(x) = J_m(x) = \sum_{n=0}^\infty \frac{(-1)^n}{n! (n+m)!} \left(\frac{x}{2} \right)^{2n + m}.
         </me>
