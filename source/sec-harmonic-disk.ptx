@@ -107,7 +107,7 @@
     which is often called the <em>Poisson integral</em>. The function <m>P_r(\theta)</m> plays a similar role for the Dirichlet problem on the disk that the heat kernel did in the heat equation on the line. 
   </p>
   <p>
-    Before we go on, it's worth noting how strong this result actually is - we're saying that given a function on a circle <m>h(\theta)</m>, we can recover the exact harmonic function on the inside of the disk that limits to that circle on the boundary. This is like saying that one can recover the function <m>f(x)</m> on an interval <m>(a, b)</m> by only knowing the values of the function at <m>a</m> and <m>b</m>!. In fact, the uniquness of solutions to the Dirichlet problem arising from the maximum principle gives us the following theorem.
+    Before we go on, it's worth noting how strong this result actually is - we're saying that given a function on a circle <m>h(\theta)</m>, we can recover the exact harmonic function on the inside of the disk that limits to that circle on the boundary. This is like saying that one can recover the function <m>f(x)</m> on an interval <m>(a, b)</m> by only knowing the values of the function at <m>a</m> and <m>b</m>!. In fact, the uniqueness of solutions to the Dirichlet problem arising from the maximum principle gives us the following theorem.
   </p>
   <theorem xml:id="thm-poisson-dirichlet">
     <statement>
