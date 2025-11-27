@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-generalized-functions-and-m-delta-m-functions">
+  <title>Generalized functions and <m>\delta</m> functions</title>
+  <subsection xml:id="subsec-linear-algebraic-motivation">
+    <title>Linear algebraic motivation</title>
+    <p>
+      The basic idea of the theory of Green's functions is to construct complete solutions out of superpositions of fundmental solutions. To get the thematic idea at play, consider the linear algebraic equation
+      <me>
+        A \mathbf{u} = \mathbf{f}.
+      </me>
+      In this example, imagine that the system describes a system of masses interconnected by springs (which is recorded by the matrix <m>A</m>) where the <m>i</m>th entry of <m>\mathbf u</m> is the displacement <m>u_i</m> of the <m>i</m>th mass from equilibrium, and the entries of <m>\mathbf f</m> describe the force <m>f_i</m> applied to the <m>i</m>th mass. 
+    </p>
+
+    <p>Let <m>\mathbf{e}_i</m> denote the <m>i</m>th elementary basis vector. We can interpret <m>\mathbf{e}_i</m> as representing a <em>unit impulse concentrated at mass <m>i</m>.</em> Then applying that force to the system gives
+    <me>
+      A \mathbf{u}_i = \mathbf{e}_i
+    </me>
+    so that <m>\mathbf u_i = A\inv \mathbf{e}_i</m>, which is the vector that records the <em>response</em> of the system to <m>\mathbf{e}_i</m>. The key observation is that any force vector can be decomposed into a superposition of impulses <m>\mathbf{f} = \sum f_i \mathbf{e}_i</m> and the corresponding response to <m>f</m> can be written as a superposition of responses to impulses <m>\mathbf{u} = \sum f_i \mathbf{u}_i</m>. This is the same gameplan we'll pursue in the context of linear differential equations - find the response to concentrated unit impulses, and then superimpose those responses to get a general solution.
+    </p>
+  </subsection>
+
+  <subsection xml:id="subsec-delta-functions">
+    <title>Delta functions</title>
+    <p>
+      Suppose that we're trying to solve a linear boundary value problem on <m>a \lt x \lt b</m>. The unit impulse at a point <m>x = \xi</m> is given by the <q>delta function</q>, <m>\delta_\xi(x)</m>.
+      <ol>
+        <li>
+          <p>
+            In order to concentrate force at a single point, we require that 
+            <me>
+              \delta_\xi(x) = 0 \,\,\, \text{ if } x \neq \xi.
+            </me>
+          </p>
+        </li>
+        <li>
+          <p>
+            In order to ensure that the total force is of magnitude 1, we require that
+            <me>
+              \int_a^b \delta_\xi(x) \, dx = 1 \,\,\, \text{ if } \xi \in (a,b).
+            </me>
+          </p>
+        </li>
+      </ol>
+      Of course, these are inconsistent conditions - a function that is identically 0 except at a single point must have integral 0 in the standard Riemann theory. So <m>\delta_\xi</m> must be something else, something <em>not a function</em>!There are two typical ways to understand the <m>\delta</m> function. 
+    </p>
+
+     <p>  
+      The first method is to construct it as a limit of appropriately chosen functions. We've already seen such a method in the context of the heat kernel. Here is another family of functions that leads to the delta function. Let 
+      <me>
+        g_n(x) = \frac{n}{\pi(1 + n^2 x^2)}
+      </me>
+      be a family of functions on <m>\R</m>. Then the pointwise limit of <m>g_n</m> is
+      <me>
+        \lim_{n\to \infty} g_n(x) = \begin{cases} 0 \amp x \neq 0 \\ \infty \amp x = 0 \end{cases},
+      </me>
+      and
+      <me>
+        \int_{-\infty}^\infty g_n(x)\, dx = 1 \text{ for all } n.
+      </me>
+    </p>
+    <definition xml:id="def-delta">
+      <statement>
+        <p>
+          The delta function <m>\delta(x) = \delta_0(x)</m> is given by
+        <me>
+          \delta(x) = \lim_{n \to \infty} g_n(x).
+        </me>
+        The delta function at <m>x = \xi</m> is given by
+        <me>
+          \delta_\xi(x) = \delta(x - \xi).
+        </me>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The previous definition isn't quite rigorously justified in some fundamental ways. For example, we <em>still</em> have the issue that 
+      <me>
+        \lim_{n\to \infty} \int_\R g_n(x)\, dx =  1 \neq \int_\R \lim_{n \to \infty} g_n(x) \, dx = 0.
+      </me>
+    </p>
+
+    <p>
+      The second approach we'll take is closer to the real story. We'll leverage some ideas from inner product spaces (the study of spaces of functions by way of linear algebra is called <em>functional analysis</em>). Let <m>u(x)</m> be a continuous function on <m>(a,b)</m>. Then
+      <me>
+        \underbrace{\int_a^b \delta_\xi(x) u(x) \, dx = \int_a^b \delta_\xi(x) u(\xi) \, dx}_{\text{ as } \delta_\xi = 0 \text{ everywhere else}} = u(\xi)\int_a^b \delta_\xi(x) \, dx = u(\xi).
+      </me>
+      Then we can define a map <m>L_\xi:C^0[a,b] \to \R</m> by
+      <me>
+        L_\xi(u) = \int_a^b \delta_\xi(x) u(x) \, dx = u(\xi).
+      </me>
+      Because <m>L</m> is defined by an integral, it is a linear map, in the sense that
+      <me>
+        L_\xi(\alpha u + \beta v) = \alpha L_\xi(u) + \beta L_\xi(v).
+      </me>
+      A linear map acting on a vector space and mapping into scalars is called a <em>linear functional</em>. In fact, every function <m>g \in L^1(a,b)</m> defines a linear functional <m>L</m> via <m>L:f \mapsto \int_a^b f(x) g(x) \, dx</m>. We can record this information using the <m>\L^2</m> inner product notation <m>L: f \mapsto \ip{f}{g}</m>. Restating our previous discussion in these terms, every function <m>g \in \L^1(a,b)</m> induces a linear functional <m>L</m> by
+      <me>
+        L[f] = \ip{f}{g}.
+      </me>
+    </p>
+
+    <p>
+      In finite dimensional vector spaces, the converse is true - that is, every linear functional <m>L: \R^n \to \R</m> has a representing vector <m>y \in \R^n</m> such that
+      <me>
+        L[x] = \ip{x}{y} \, \text{ for all } x \in \R^n.
+      </me>
+      This is a much trickier statement in infinite dimensional settings, and yet we can proceed formally. Certainly, the evaluation map
+      <me>
+        L_\xi[u] = u(x) 
+      </me>
+      is a linear functional since 
+      <me>
+        L_\xi[\alpha u + \beta v] = (\alpha u + \beta v)(\xi) = \alpha u(\xi) + \beta v(\xi) = \alpha L_\xi[u] + \beta L_\xi[v].
+      </me>
+      If <m>L_\xi</m> was to have a representing vector <m> y \in \L^1</m> so that 
+      <me>
+        L[u] = \ip{u}{y},
+      </me>
+      then our previous discussion about the delta function would give that <m> y = \delta_\xi</m> satifies the requirement. The existence of such a vector is a non-trival theorem, and requires that we work in the <em>dual space</em> of <m>\L^1</m>, denoted <m>\L^1(a,b)\ad</m>, which is the space of linear functionals acting on <m>\L^1</m>. We'll spend more time talking about dual spaces when we introduce the notions of weak derivatives and weak convergence in the next section. For now, let us continue our discussion of the delta function. 
+      
+    </p>
+
+
+
+  </subsection>
+</section>

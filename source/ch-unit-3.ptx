@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch-unit-1" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Unit 3 - Advanced ideas</title>
+
+  <introduction>
+    <p>We'll look at the derivation and application of Fourier series solutions to PDE. </p>
+  </introduction>
+
+  <!-- include sections -->
+  <xi:include href="sec-green1.ptx" />
+
+</chapter>
