@@ -289,6 +289,24 @@ var ptx_lunr_docs = [
   "body": "  Let be a harmonic function on an open set in the plane. Then has all partial derivatives of all orders on .   "
 },
 {
+  "id": "sec-generalized-functions-and-m-delta-m-functions",
+  "level": "1",
+  "url": "sec-generalized-functions-and-m-delta-m-functions.html",
+  "type": "Section",
+  "number": "3.1",
+  "title": "Generalized functions and <span class=\"process-math\">\\(\\delta\\)<\/span> functions",
+  "body": " Generalized functions and functions   Linear algebraic motivation  The basic idea of the theory of Green's functions is to construct complete solutions out of superpositions of fundmental solutions. To get the thematic idea at play, consider the linear algebraic equation In this example, imagine that the system describes a system of masses interconnected by springs (which is recorded by the matrix ) where the th entry of is the displacement of the th mass from equilibrium, and the entries of describe the force applied to the th mass.  Let denote the th elementary basis vector. We can interpret as representing a unit impulse concentrated at mass . Then applying that force to the system gives so that , which is the vector that records the response of the system to . The key observation is that any force vector can be decomposed into a superposition of impulses and the corresponding response to can be written as a superposition of responses to impulses . This is the same gameplan we'll pursue in the context of linear differential equations - find the response to concentrated unit impulses, and then superimpose those responses to get a general solution.    Delta functions  Suppose that we're trying to solve a linear boundary value problem on . The unit impulse at a point is given by the delta function , .   In order to concentrate force at a single point, we require that     In order to ensure that the total force is of magnitude 1, we require that    Of course, these are inconsistent conditions - a function that is identically 0 except at a single point must have integral 0 in the standard Riemann theory. So must be something else, something not a function !There are two typical ways to understand the function.  The first method is to construct it as a limit of appropriately chosen functions. We've already seen such a method in the context of the heat kernel. Here is another family of functions that leads to the delta function. Let be a family of functions on . Then the pointwise limit of is and     The delta function is given by The delta function at is given by     The previous definition isn't quite rigorously justified in some fundamental ways. For example, we still have the issue that   The second approach we'll take is closer to the real story. We'll leverage some ideas from inner product spaces (the study of spaces of functions by way of linear algebra is called functional analysis ). Let be a continuous function on . Then Then we can define a map by Because is defined by an integral, it is a linear map, in the sense that A linear map acting on a vector space and mapping into scalars is called a linear functional . In fact, every function defines a linear functional via . We can record this information using the inner product notation . Restating our previous discussion in these terms, every function induces a linear functional by   In finite dimensional vector spaces, the converse is true - that is, every linear functional has a representing vector such that This is a much trickier statement in infinite dimensional settings, and yet we can proceed formally. Certainly, the evaluation map is a linear functional since If was to have a representing vector so that then our previous discussion about the delta function would give that satifies the requirement. The existence of such a vector is a non-trival theorem, and requires that we work in the dual space of , denoted , which is the space of linear functionals acting on . We'll spend more time talking about dual spaces when we introduce the notions of weak derivatives and weak convergence in the next section. For now, let us continue our discussion of the delta function.   "
+},
+{
+  "id": "def-delta",
+  "level": "2",
+  "url": "sec-generalized-functions-and-m-delta-m-functions.html#def-delta",
+  "type": "Definition",
+  "number": "3.1.1",
+  "title": "",
+  "body": "  The delta function is given by The delta function at is given by    "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",
