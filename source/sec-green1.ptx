@@ -42,11 +42,20 @@
           </p>
         </li>
       </ol>
-      Of course, these are inconsistent conditions - a function that is identically 0 except at a single point must have integral 0 in the standard Riemann theory. So <m>\delta_\xi</m> must be something else, something <em>not a function</em>!There are two typical ways to understand the <m>\delta</m> function. 
+      Of course, these are inconsistent conditions - a function that is identically 0 except at a single point must have integral 0 in the standard Riemann theory. So <m>\delta_\xi</m> must be something else, something <em>not a function</em>! Instead, <m>\delta_\xi</m> belongs to a broader family of mathematical objects called <em>distributions</em> or <em>generalized functions</em>. In fact, the delta function would more properly be called the delta distribution. However, tradition and usage lead us to continue with the usual naming convention.</p>
+      
+    <p>  
+      There are two typical intuituve ways to understand the <m>\delta</m> function. Both have value, but neither is precise. The first is almost certainly more familiar. 
     </p>
 
+    <warning>
+      <p>
+        The following discussion is a heuristic, not a rigorous treatment - however, in taking this approach we are following in the footsteps of Cauchy, Green, and Heaviside, who developed and used this machinery well before it was put on firm mathematical footing. Heaviside once said <q>Shall I refuse my dinner because I do not understand the process of digestion?</q> We too shall eat.
+      </p>
+    </warning>
+
      <p>  
-      The first method is to construct it as a limit of appropriately chosen functions. We've already seen such a method in the context of the heat kernel. Here is another family of functions that leads to the delta function. Let 
+      The first method is to construct <m>\delta</m> as a limit of appropriately chosen functions. We've already seen such a method in the context of the heat kernel. Here is another family of functions that leads to the delta function. Let 
       <me>
         g_n(x) = \frac{n}{\pi(1 + n^2 x^2)}
       </me>
@@ -74,18 +83,19 @@
       </statement>
     </definition>
     <p>
-      The previous definition isn't quite rigorously justified in some fundamental ways. For example, we <em>still</em> have the issue that 
+      The previous definition isn't quite rigorous in some fundamental ways. For example, we <em>still</em> have the issue that 
       <me>
         \lim_{n\to \infty} \int_\R g_n(x)\, dx =  1 \neq \int_\R \lim_{n \to \infty} g_n(x) \, dx = 0.
       </me>
+      Moreover, <m>\delta_\xi</m> defined this way has no meaningful value at <m>x = \xi</m>. 
     </p>
 
     <p>
-      The second approach we'll take is closer to the real story. We'll leverage some ideas from inner product spaces (the study of spaces of functions by way of linear algebra is called <em>functional analysis</em>). Let <m>u(x)</m> be a continuous function on <m>(a,b)</m>. Then
+      The second approach we'll take is closer to the real story. We'll leverage some ideas from inner product spaces (the study of spaces of functions by way of linear algebra is called <em>functional analysis</em>). Let <m>u(x)</m> be a continuous function on <m>(a,b)</m>. Assume that <xref ref="def-delta"/> makes sense. Then
       <me>
         \underbrace{\int_a^b \delta_\xi(x) u(x) \, dx = \int_a^b \delta_\xi(x) u(\xi) \, dx}_{\text{ as } \delta_\xi = 0 \text{ everywhere else}} = u(\xi)\int_a^b \delta_\xi(x) \, dx = u(\xi).
       </me>
-      Then we can define a map <m>L_\xi:C^0[a,b] \to \R</m> by
+      Define a map <m>L_\xi:C^0[a,b] \to \R</m> by
       <me>
         L_\xi(u) = \int_a^b \delta_\xi(x) u(x) \, dx = u(\xi).
       </me>
@@ -93,7 +103,7 @@
       <me>
         L_\xi(\alpha u + \beta v) = \alpha L_\xi(u) + \beta L_\xi(v).
       </me>
-      A linear map acting on a vector space and mapping into scalars is called a <em>linear functional</em>. In fact, every function <m>g \in L^1(a,b)</m> defines a linear functional <m>L</m> via <m>L:f \mapsto \int_a^b f(x) g(x) \, dx</m>. We can record this information using the <m>\L^2</m> inner product notation <m>L: f \mapsto \ip{f}{g}</m>. Restating our previous discussion in these terms, every function <m>g \in \L^1(a,b)</m> induces a linear functional <m>L</m> by
+      A linear map acting on a vector space and mapping into scalars is called a <em>linear functional</em>. In fact, every function <m>g \in \L^1(a,b)</m> defines a linear functional <m>L</m> via <m>L:f \mapsto \int_a^b f(x) g(x) \, dx</m>. We can record this information using the <m>\L^2</m> inner product notation <m>L: f \mapsto \ip{f}{g}</m>. Restating our previous discussion in these terms, every function <m>g \in \L^1(a,b)</m> induces a linear functional <m>L</m> by
       <me>
         L[f] = \ip{f}{g}.
       </me>
@@ -119,8 +129,70 @@
       then our previous discussion about the delta function would give that <m> y = \delta_\xi</m> satifies the requirement. The existence of such a vector is a non-trival theorem, and requires that we work in the <em>dual space</em> of <m>\L^1</m>, denoted <m>\L^1(a,b)\ad</m>, which is the space of linear functionals acting on <m>\L^1</m>. We'll spend more time talking about dual spaces when we introduce the notions of weak derivatives and weak convergence in the next section. For now, let us continue our discussion of the delta function. 
       
     </p>
+  </subsection>
+  <subsection xml:id="subsec-properties-of-the-delta-function">
+    <title>Properties of the delta function</title>
+    <p>
+      We will interchange between both methods of understanding <m>\delta_\xi</m> as befits our current exploration. First, then, let us note that we can form linear combinations of delta functions. Let <m> h = \sum_i c_i \delta_{\xi_i}</m>. Then 
+      <me>
+        \ip{h}{u} = \ip{\sum_i c_i \delta_{\xi_i}}{u} = \sum_i c_i \ip{\delta_{\xi i}}{u} = \sum_i c_i u(\xi_i).
+      </me>
+    </p>
 
+    <p>
+      Second, we can integrate <m>\delta</m>. One approach to discovering the formula is to integrate <m>g_n</m> and take a limit. Indeed,
+      <me>
+        \int g_n(x) \, dx = \int \frac{n}{\pi(1 + n^2 x^2)}\, dx = \frac{1}{\pi} \tan\inv(nx) + C.
+      </me>
+      Let us choose <m>C = 1/2</m> (this is a compatibility condition with Fourier series). Then 
+      <me>
+        \lim_{n \to \infty} \frac{1}{\pi} \tan\inv(nx) + \frac{1}{2} = \sigma(x) = \begin{cases} 0 \amp x \lt 0 \\ 1 \amp x \gt 0 \\ \frac{1}{2} \amp x = 0 \end{cases}.
+      </me>
+      That is, the integral of <m>\delta</m> is the unit step function <m>\sigma</m>. Then, motivated by the FTC for functions, we declare that 
+      <me>
+        \frac{d \sigma}{d x} = \delta,
+      </me>
+      which gives a method that allows differentiation to extend to discontinuous functions.
+    </p>
 
+    <p>
+      The derivative above is actually an instance of the <em>distributional derivative</em>. Let us become more familiar with this type of differentiation by looking at the derivative of <m>\delta</m> itself. Assume that <m>0 \in (a,b)</m>. First, we use the identification
+      <me>
+        \ip{\delta'}{u} = \int_a^b \delta'(x) u(x) \, dx.
+      </me>
+      If we could swap out the <m>\delta'</m> for a <m>\delta</m>, we'd be in business. Fortunately, this is precisely what integration by parts will allow us to do. Formally,
+      <md>
+        <mrow>\ip{\delta'}{u} \amp= \int_a^b \delta'(x) u(x)</mrow>
+        <mrow> \amp= u(x) \delta(x)\vert_a^b - \int_a^b \delta(x) u'(x) \, dx </mrow>
+        <mrow> \amp= u(b)\delta(b) - u(a)\delta(a) - \ip{\delta}{u'} </mrow>
+        <mrow> \amp= -u'(0). </mrow>
+      </md>
+      Hence we define <m>\delta'</m> to be the distribution so that for all appropriate <m>u</m>, we have
+      <me>
+        \ip{\delta'}{u} = \ip{\delta}{-u'} = -u'(0).
+      </me>
+    </p>
 
+    <p>
+      When we write <m>\delta'</m>, we are referring to a weak derivative, as <m>\delta</m> is not a function, and hence does not have a functional derivative. 
+    </p>
+    <definition xml:id="def-weak-derivative">
+      <statement>
+        <p>
+          Suppose that <m>u \in \L^1(a,b)</m>. A function <m>v \in \L^1(a,b)</m> is called a <em>weak derivative</em> of <m>u</m> if 
+          <me>
+            \int_a^b u(x) \phi'(x) \, dx = -\int_a^b v(x) \phi(x) \, dx
+          </me>
+          for all <m>C^\infty</m> functions <m>\phi</m> with <m>\phi(a) = \phi(b) = 0</m>.
+        </p>
+        <!--<p>
+          More generally, if <m>u</m> is a distribution, then <m>v</m> is a distributional derivative of <m>u</m> if 
+          <me>
+            \ip{u}{\phi'} = -\ip{v}{\phi}.
+          </me>
+          for all test functions <m>\phi</m>. 
+        </p>-->
+      </statement>
+    </definition>
   </subsection>
 </section>
