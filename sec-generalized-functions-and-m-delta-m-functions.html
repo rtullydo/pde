@@ -534,7 +534,79 @@ L[u] = \ip{u}{y},
 </div>
 <div class="para">for all <span class="process-math">\(C^\infty\)</span> functions <span class="process-math">\(\phi\)</span> with <span class="process-math">\(\phi(a) = \phi(b) = 0\text{.}\)</span>
 </div>
-</div> </article></section></section></div>
+</div> </article><div class="para logical" id="subsec-properties-of-the-delta-function-7">
+<div class="para">Generally, we use the adjective <em class="emphasis">weak</em> to describe behavior that happens in an inner product. Earlier, we claimed that we could take <span class="process-math">\(n \to \infty\)</span> to understand the delta function as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g_n(x) = \frac{n}{\pi(1+n^2 x^2)} \to \delta(x).
+\end{equation*}
+</div>
+<div class="para">This limit makes no sense as it does not converge at all at <span class="process-math">\(0\)</span> and the limiting object isn’t even a function. What we really meant was that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\ip{g_n}{u} \to \ip{\delta}{u} \, \text{ for all integrable } u ;  
+\end{equation*}
+</div>
+<div class="para">that is, the linear functionals represented by <span class="process-math">\(g_n\)</span> converge to the linear functional of evaluation at <span class="process-math">\(x=0\text{.}\)</span> This is an example of what we call <em class="emphasis">weak convergence</em>.</div>
+</div>
+<article class="definition definition-like" id="def-weak-convergence"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.4</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="def-weak-convergence-1-1">
+<div class="para">A sequence <span class="process-math">\(\{ f_n \}\)</span> converges weakly to <span class="process-math">\(f\)</span> if</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{n \to \infty} \ip{f_n}{u} = \ip{f}{u} \, \text{ for all appropriate } u.
+\end{equation*}
+</div>
+<div class="para">In this case we write <span class="process-math">\(f_n \xrightarrow{wk} f\text{.}\)</span>
+</div>
+</div></article><div class="para logical" id="subsec-properties-of-the-delta-function-9">
+<div class="para">As another example, consider the the vector space <span class="process-math">\(L^2[0, 2\pi]\)</span> and the sequence <span class="process-math">\(f_n(x) = \sin nx\text{.}\)</span> This sequence has no pointwise limit at all, nor does it converge in <span class="process-math">\(L^2\text{.}\)</span> However, <span class="process-math">\(u\in L^2[0,2\pi]\text{,}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-properties-of-the-delta-function-9-5">
+\begin{align*}
+\lim_{n \to \infty} \ip{f_n}{u} \amp \lim_{n \to \infty} \int_0^{2\pi} \sin nx \, u(x)\, dx \\
+\amp= 0 \\
+\amp= \ip{0}{u}. 
+\end{align*}
+</div>
+<div class="para">Hence, <span class="process-math">\(f_n \xrightarrow{wk} 0 \text{.}\)</span> That the limit of the integral above tending to 0 is a consequence of the <a class="external" href="https://en.wikipedia.org/wiki/Riemann%E2%80%93Lebesgue_lemma" target="_blank">Riemann-Lebesgue Lemma</a><details class="ptx-footnote" aria-live="polite" id="subsec-properties-of-the-delta-function-9-8"><summary class="ptx-footnote__number" title="Footnote 3.1.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="subsec-properties-of-the-delta-function-9-8"><code class="code-inline tex2jax_ignore">en.wikipedia.org/wiki/Riemann%E2%80%93Lebesgue_lemma</code></div></details>.</div>
+</div>
+<div class="para logical" id="subsec-properties-of-the-delta-function-10">
+<div class="para">Now equipped with a notion of convergence appropriate to working with the delta function, let us try to produce a Fourier series for <span class="process-math">\(\delta\text{.}\)</span> Let us consider <span class="process-math">\(L^2[-\pi, \pi]\text{.}\)</span> The Fourier series representation for <span class="process-math">\(\delta\)</span> should take the form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\delta \sim \frac{1}{2\pi} + \frac{1}{\pi} \sum_{n=1}^\infty A_n \cos nx + B_n \sin nx,
+\end{equation*}
+</div>
+<div class="para">where</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A_n = \frac{1}{\pi}\int_{-\pi}^{\pi} \delta(x) \cos nx \, dx = \frac{1}{\pi} \cos 0 = \frac{1}{\pi},
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+B_n = \frac{1}{\pi}\int_{-\pi}^{\pi} \delta(x) \sin nx \, dx = 0.
+\end{equation*}
+</div>
+<div class="para">Hence,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\delta(x) \sim \frac{1}{2\pi} + \frac{1}{\pi} \sum_{n=1}^\infty \cos nx.
+\end{equation*}
+</div>
+<div class="para">Since <span class="process-math">\(\delta\)</span> isn’t a function, the Fourier series can’t converge to <span class="process-math">\(\delta\)</span> pointwise or in <span class="process-math">\(L^2\text{.}\)</span> However, if we denote <span class="process-math">\(S_N = \frac{1}{2\pi} + \frac{1}{\pi} \sum_{n=1}^N \cos nx\text{,}\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\ip{S_N}{u} = \ip{\frac{1}{2\pi} + \frac{1}{\pi} \sum_{n=1}^N \cos nx}{u} \to \ip{\delta}{u} \, \text{ for all } u \in L^2[-\pi,\pi].
+\end{equation*}
+</div>
+<div class="para">Hence <span class="process-math">\(S_n \xrightarrow{wk} \delta\text{.}\)</span>
+</div>
+</div></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="ch-unit-1.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
