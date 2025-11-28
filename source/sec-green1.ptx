@@ -68,7 +68,7 @@
         \int_{-\infty}^\infty g_n(x)\, dx = 1 \text{ for all } n.
       </me>
     </p>
-    <definition xml:id="def-delta">
+    <definition xml:id="def-delta-prelim"><title>provisional definition of <m>\delta</m></title>
       <statement>
         <p>
           The delta function <m>\delta(x) = \delta_0(x)</m> is given by
@@ -91,7 +91,7 @@
     </p>
 
     <p>
-      The second approach we'll take is closer to the real story. We'll leverage some ideas from inner product spaces (the study of spaces of functions by way of linear algebra is called <em>functional analysis</em>). Let <m>u(x)</m> be a continuous function on <m>(a,b)</m>. Assume that <xref ref="def-delta"/> makes sense. Then
+      The second approach we'll take is closer to the real story. We'll leverage some ideas from inner product spaces (the study of spaces of functions by way of linear algebra is called <em>functional analysis</em>). Let <m>u(x)</m> be a continuous function on <m>(a,b)</m>. Assume that <xref ref="def-delta-prelim"/> makes sense. Then
       <me>
         \underbrace{\int_a^b \delta_\xi(x) u(x) \, dx = \int_a^b \delta_\xi(x) u(\xi) \, dx}_{\text{ as } \delta_\xi = 0 \text{ everywhere else}} = u(\xi)\int_a^b \delta_\xi(x) \, dx = u(\xi).
       </me>
@@ -116,7 +116,7 @@
       </me>
       This is a much trickier statement in infinite dimensional settings, and yet we can proceed formally. Certainly, the evaluation map
       <me>
-        L_\xi[u] = u(x) 
+        L_\xi[u] = u(\xi) 
       </me>
       is a linear functional since 
       <me>
@@ -127,9 +127,11 @@
         L[u] = \ip{u}{y},
       </me>
       then our previous discussion about the delta function would give that <m> y = \delta_\xi</m> satifies the requirement. The existence of such a vector is a non-trival theorem, and requires that we work in the <em>dual space</em> of <m>\L^1</m>, denoted <m>\L^1(a,b)\ad</m>, which is the space of linear functionals acting on <m>\L^1</m>. We'll spend more time talking about dual spaces when we introduce the notions of weak derivatives and weak convergence in the next section. For now, let us continue our discussion of the delta function. 
-      
     </p>
   </subsection>
+
+
+
   <subsection xml:id="subsec-properties-of-the-delta-function">
     <title>Properties of the delta function</title>
     <p>
@@ -248,9 +250,31 @@
       </me>
       Since <m>\delta</m> isn't a function, the Fourier series can't converge to <m>\delta</m> pointwise or in <m>L^2</m>. However, if we denote <m>S_N = \frac{1}{2\pi} + \frac{1}{\pi} \sum_{n=1}^N \cos nx</m>, then
       <me>
-        \ip{S_N}{u} = \ip{\frac{1}{2\pi} + \frac{1}{\pi} \sum_{n=1}^N \cos nx}{u} \to \ip{\delta}{u} \, \text{ for all } u \in L^2[-\pi,\pi].
+        \ip{S_N}{u} = \ip{\frac{1}{2\pi} + \frac{1}{\pi} \sum_{n=1}^N \cos nx}{u} \to \ip{\delta}{u} \, \text{ for all continuous } u .
       </me>
       Hence <m>S_n \xrightarrow{wk} \delta</m>.
     </p>
+  </subsection>
+
+    <subsection xml:id="subsec-a-quick-introduction-to-distributions">
+    <title>A quick introduction to distributions</title>
+    <p> 
+      So what is <m>\delta</m> really? First, given a linear functional <m>L</m>, we <em>test</em> the functional with inputs <m>u</m> to see its structure. The family of <em>test functions</em> is the space <m>C^\infty_c(a,b)</m>. These are functions that are infinitely differentiable on <m>(a,b)</m> and have <em>compact support</em>, which means that all of the non-zero values of such a function are contained in a closed interval. In particular, this means that if <m>\phi \in C_c^\infty(a,b)</m> then <m>\phi</m> is actually 0 not just at <m>x=a, x=b</m> but in a small interval extending from <m>a</m> and <m>b</m>. 
+    </p>
+
+    <p>
+      The space of <em>distributions</em> is the space of continuous linear functionals on <m>C_0^\infty(a,b)</m>. 
+    </p>
+    <definition xml:id="def-delta">
+      <statement>
+        <p>
+          The delta function <m>\delta_\xi</m> is the distribution on <m>C_c^\infty(a,b)</m> so that
+          <me>
+            \delta_\xi:u \mapsto u(\xi) \, \, \text{ where } a \lt \xi \lt b.
+          </me>
+        </p>
+      </statement>
+    </definition>
+
   </subsection>
 </section>
