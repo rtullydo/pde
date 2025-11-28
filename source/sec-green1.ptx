@@ -172,7 +172,10 @@
         \ip{\delta'}{u} = \ip{\delta}{-u'} = -u'(0).
       </me>
     </p>
-
+    <warning>
+      <p>We're going to play slightly loose with the distinction between <em>weak</em> and <em>distributional</em> ideas in this discussion. If you're interested in digging deeper on the distinction, you should consult a graduate level analysis text like Folland's <em>Modern Analysis</em>.
+      </p>
+    </warning>
     <p>
       When we write <m>\delta'</m>, we are referring to a weak derivative, as <m>\delta</m> is not a function, and hence does not have a functional derivative. 
     </p>
