@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-greens">
+  <title>Green's functions</title>
+
+    <p>
+      We're now going to use the delta function to probe the solutions to differential equations. Just like the action of a matrix can be reduced to its response to elementary basis vectors, the action of the differential operator in a boundary value problem can be reduced to its response to unit impulse functions, which we can think of as a sort of <q>basis</q> for the set of forcing functions, in the sense that just like
+      <me>
+        \mathbf{v} = \sum_{i=1}^n v_i e_i
+      </me>
+      for vectors in <m>\R^n</m>, we have
+      <me>
+        f(x) = \int_a^b f(\xi) \delta(x - \xi)\, d\xi
+      </me>
+      for integrable functions <m>f</m>. 
+    </p>
+
+  
+</section>
